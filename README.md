@@ -16,5 +16,7 @@ PWA 具有下面一些特性
 * **可链接** - 通过链接即可分享内容，无需下载安装
 
 
-PWA 是对站点体验的一个飞跃式的提升，可以在移动设备上的 Chrome(version > 52) 访问 [天气 PWA](https://weatherpwa.baidu.com) 体验一下
+PWA 是对站点体验的一个飞跃式的提升，可以在移动设备上的 Chrome(version > 52) 访问 [天气 PWA](https://weatherpwa.baidu.com) 体验一下。
+
+我们会从安全、性能和体验三个角度来分析如何打造一个完善的 PWA。
 
