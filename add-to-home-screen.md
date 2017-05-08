@@ -759,7 +759,7 @@ button.addEventListener('click', function (e) {
 
 ![3. 点击按钮时释放横幅显示事件](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-a51a1029.jpg)
 
-3. 点击按钮时释放横幅显示事件
+3. 点击按钮时释放横幅显示事件，同时隐藏按钮
 
 ![4. 点击添加到主屏幕触发监听事件](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/after-click-592af56e.jpg)
 
