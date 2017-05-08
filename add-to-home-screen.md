@@ -81,7 +81,9 @@ PWA在通过应用安装横幅引导用户安装 app，以及被添加到主屏�
 
 通过上述配置信息，得到的 PWA 的主屏幕应用显示、安装横幅、启动画面将如下图所示：
 
-// @TODO 安装横幅截图和主屏截图
+![主屏幕应用显示](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/home-c0f9216a.jpg)
+![安装横幅](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-a51a1029.jpg)
+![启动画面](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/splash-white-5ebcd826.jpg)
 
 ### 自定义图标
 
@@ -115,33 +117,67 @@ PWA在通过应用安装横幅引导用户安装 app，以及被添加到主屏�
 例如图标列表的配置为：
 
 ```json
+// 正常模式
+"icons": [
+    {
+        "src": "path-to-images/icon-96x96.png",
+        "type": "image/png",
+        "sizes": "96x96"
+    },
+    {
+        "src": "path-to-images/icon-144x144.png",
+        "type": "image/png",
+        "sizes": "144x144"
+    }
+]
 
-{
-    "icons": [
-        {
-            "src": "path-to-images/icon-small.png",
-            "type": "image/png",
-            "sizes": "48x48"
-        },
-        {
-            "src": "path-to-images/icon-median.png",
-            "type": "image/png",
-            "sizes": "96x96"
-        },
-        {
-            "src": "path-to-images/icon-large.png",
-            "type": "image/png",
-            "sizes": "128x128"
-        }
-    ]
-    // ...
-}
+// sizes 与图标实际尺寸不匹配
+"icons": [
+    {
+        "src": "path-to-images/icon-96x96.png",
+        "type": "image/png",
+        "sizes": "144x144"
+    },
+    {
+        "src": "path-to-images/icon-144x144.png",
+        "type": "image/png",
+        "sizes": "96x96"
+    }
+]
 
+// 缺少144x144的图片
+"icons": [
+    {
+        "src": "path-to-images/icon-96x96.png",
+        "type": "image/png",
+        "sizes": "96x96"
+    },
+    {
+        "src": "path-to-images/icon-188x188.png",
+        "type": "image/png",
+        "sizes": "188x188"
+    }
+]
+
+// 144x144的图片地址错误
+"icons": [
+    {
+        "src": "path-to-images/icon-96x96.png",
+        "type": "image/png",
+        "sizes": "96x96"
+    },
+    {
+        "src": "path-to-images/icon-144x144-not-exist.png",
+        "type": "image/png",
+        "sizes": "144x144"
+    }
+]
 ```
 
-通过该配置信息，得到的 PWA 的安装横幅和主屏应用显示将如下图所示：
+通过该配置信息，得到的 PWA 主屏应用显示将如下图所示：
 
-// @TODO 不同分辨率机型下的显示 不同尺寸的图标
+![图标显示情况](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/icons-f6559e36.jpg)
+
 
 ### 设置启动网址
 
@@ -160,14 +196,11 @@ PWA在通过应用安装横幅引导用户安装 app，以及被添加到主屏�
 
 https://test.baidu.com
     |
-    |----src
-    |
     |----manifest.json
     |
-    |----entry
-            |----index.html
-            |
-            |----detail.html
+    |----index.html
+    |
+    |----detail.html
 
 
 ```
@@ -177,7 +210,7 @@ manifest.json 对应的 start_url 如果采用绝对地址的形式，其配置�
 ```json
 
 {
-    "start_url": "/entry/index.html",
+    "start_url": "/index.html",
     // ...
 }
 
@@ -188,13 +221,15 @@ manifest.json 对应的 start_url 如果采用绝对地址的形式，其配置�
 ```json
 
 {
-    "start_url": "./entry/index.html",
+    "start_url": "./index.html",
     // ...
 }
 
 ```
 
-假设用户在 detail.html 页面将应用添加至首屏，如果 start_url 为空，从首屏打开应用时，打开的页面将是 `/entry/detail.html`
+假设用户在 detail.html 页面将应用添加至首屏，如果 start_url 为空，从首屏打开应用时，打开的页面将是 `/detail.html`
+
+可使用 Chrome 分别访问 [index](https://searchfe.github.io/pwa-demo/manifest-demo/start-url/index.html) 和 [detail](https://searchfe.github.io/pwa-demo/manifest-demo/start-url/detail.html)进行验证。
 
 ### 设置作用域
 
@@ -263,7 +298,7 @@ background_color 的值可以通过如下几种形式定义：
 
 ```
 
-其余诸如`#0000ff90`、`rgba`、`hsl`、`hsla`等颜色定义方式背景色均显示为白色。
+其余诸如`#0000ff90`、`rgba`、`hsl`、`hsla`等颜色定义方式浏览器不支持，因此背景色均显示为默认的白色。
 
 #### 设置显示类型
 
@@ -295,14 +330,15 @@ background_color 的值可以通过如下几种形式定义：
             "sizes": "144x144"
         }
     ],
-    "background_color": "#00f"
+    "background_color": "#2196f3",
+    "display": "standalone"
 }
 
 ```
 
 则应用启动画面如图所示：
 
-// @TODO 启动图片
+![启动画面](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/splash-blue-0ad19706.jpg)
 
 ### 设置显示类型
 
@@ -354,7 +390,11 @@ background_color 的值可以通过如下几种形式定义：
 
 对 PWA 设置以上四种显示类型，对应的应用截图如下所示：
 
-// @TODO 四种显示类型截图
+![fullscreen](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/fullscreen-ace3993b.jpg)
+![standalone](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/standalone-3200da3b.jpg)
+![minimal-ui（由于浏览器不支持，因此降级为browser）](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-7c96cf7c.jpg)
+![browser](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-7c96cf7c.jpg)
+
 
 ### 指定页面显示方向
 
@@ -390,11 +430,6 @@ orientation属性的值有以下几种：
 - `any`:
     根据屏幕旋转角自由切换 `landscape-primary`、`landscape-secondary`、`portrait-primary`、`portrait-secondary`。
 
-#### 示例
-
-以三星 Note3为例，当设置 orientation 分别为 `landscape` 和 `portrait` 时，应用显示方向如下图所示：
-
-// @TODO
 
 ### 设置主题颜色
 
@@ -405,6 +440,8 @@ orientation属性的值有以下几种：
 
 对于当前版本的 Chrome 浏览器，在 `browser` 显示类型下，内容页的状态栏、地址栏并不会显示成 `theme_color` 所指定的颜色，如图所示：
 
+![browser 模式下浏览器UI样式](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-7c96cf7c.jpg)
+
 在指定了 `theme_color` 的值之后，地址栏依然呈白色。针对这种情况，可以在页面 HTML 里设置 `name` 为 `theme-color` 的 `meta` 标签，例如：
 
 ```html
@@ -412,6 +449,10 @@ orientation属性的值有以下几种：
 <meta name="theme-color" content="green">
 
 ```
+
+此时浏览器UI将显示如下：
+
+![设置theme-color<meta>的 browser 模式](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/meta-d31c6947.jpg)
 
 需要注意的是，这个标签的色值会覆盖 manifest.json 里设置的 `theme_color`，如果两个色值不一样的话，会导致应用启动画面和内容页的主题色不一致，因此建议将 `theme_color` 的色值设置得与 `theme-color<meta>`的色值相等。
 
@@ -424,12 +465,16 @@ orientation属性的值有以下几种：
 
 {
     "theme_color": "blue",
-    "display": "browser"
+    "display": "standalone"
 }
 
 ```
 
-可以看到对应的状态栏和地址栏等浏览器 UI 均显示蓝色。
+可以看到启动页的状态栏和内容页的状态栏均显示为蓝色。
+
+![启动页状态栏呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-989c4c94.jpg)
+
+![内容页状态栏呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-content-994d3c2d.jpg)
 
 如果此时在网页的 HTML 头部加入如下 meta 标签：
 
@@ -439,10 +484,11 @@ orientation属性的值有以下几种：
 
 ```
 
-则对应页面的浏览器 UI 将显示为绿色。
+则对应内容页的状态栏显示为绿色。
 
-// @TODO
+![启动页状态栏依旧呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-989c4c94.jpg)
 
+![设置theme-color<meta>后的内容页状态栏呈绿色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/meta-content-56d541e4.jpg)
 
 ### 引导用户添加应用至主屏幕
 
@@ -450,11 +496,11 @@ orientation属性的值有以下几种：
 
 如下图所示，打开浏览器菜单，会看到`添加到主屏幕`的功能，用户可以点击该选项手动将 PWA 站点添加至主屏幕。
 
-// @TODO
+![菜单手动添加](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/menu-451c2fb7.jpg)
 
 很明显对于大部分用户来说，都不会主动去完成上述操作，因此需要适时地弹出`应用安装横幅`去引导用户进行添加操作。PWA 提供的应用安装横幅如下图所示：
 
-// @TODO
+![应用安装横幅](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-a51a1029.jpg)
 
 用户只需点击横幅上的`添加应用`按钮，即可将 PWA 添加到他们的主屏幕。相比起用户主动操作，弹出应用安装横幅的形式更直观，操作更简便，用户的应用添加率也会更高。
 
@@ -467,6 +513,7 @@ orientation属性的值有以下几种：
     - [`name`](#自定义名称) （用于安装横幅显示）
     - [`icons`](#自定义图标) （其中必须包含一个 `144x144` 且 mime 类型为 `image/png` 的图标声明）
     - [`start_url`](#设置启动网址) （应用启动地址）
+    - [`display`](#设置显示类型) （必须为 `standalone` 或 `fullscreen`）
 - 站点注册 Service Worker。
 - 站点支持 HTTPS 访问。
 - 站点在同一浏览器中被访问至少两次，两次访问间隔至少为 5 分钟。
@@ -565,9 +612,7 @@ button.addEventListener('click', function () {
 
 #### 示例
 
-// @TODO
-
-完整的项目代码可以[戳这里](https://github.com)。
+完整的项目代码可以[戳这里](https://github.com/searchfe/searchfe.github.io/tree/master/pwa-demo/manifest-demo/add-to-home-screen/delay)。
 
 示例项目结构如下：
 
@@ -591,7 +636,7 @@ manifest.json 的配置如下：
     "name": "这是一个完整名称",
     "icon": [
         {
-            "src": "icon.png",
+            "src": "../../images/logo-144x144.png",
             "type": "image/png",
             "sizes": "144x144"
         }
@@ -601,9 +646,9 @@ manifest.json 的配置如下：
 
 ```
 
-对应的横幅显示及点击添加效果如下图所示：
+对应的横幅显示如下图所示：
 
-// @TODO
+![横幅显示](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-a51a1029.jpg)
 
 代码添加事件监听：
 
@@ -619,7 +664,7 @@ window.addEventListener('beforeinstallprompt', function (e) {
 
 则点击添加效果如下图所示：
 
-// @TODO
+![点击添加效果](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/after-click-592af56e.jpg)
 
 将事件监听更改如下：
 
@@ -657,7 +702,10 @@ button.addEventListener('click', function (e) {
 
 当浏览器触发横幅显示事件时，页面中的按钮将显示出来，同时横幅显示事件被取消；点击按钮时，应用安装横幅才会显示出来：
 
-// @TODO
+![1. 浏览器未触发横幅显示事件时页面截图](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-7c96cf7c.jpg)
+![2. 浏览器触发横幅显示事件时页面截图](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/delay-22addf51.jpg)
+![3. 点击按钮时释放横幅显示事件](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-a51a1029.jpg)
+![4. 点击添加到主屏幕触发监听事件](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/after-click-592af56e.jpg)
 
 ### 引导用户安装原生应用
 
