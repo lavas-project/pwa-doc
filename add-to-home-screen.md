@@ -82,8 +82,17 @@ PWA在通过应用安装横幅引导用户安装 app，以及被添加到主屏�
 通过上述配置信息，得到的 PWA 的主屏幕应用显示、安装横幅、启动画面将如下图所示：
 
 ![主屏幕应用显示](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/home-c0f9216a.jpg)
+
+主屏幕应用显示
+
+
 ![安装横幅](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-a51a1029.jpg)
+
+安装横幅
+
 ![启动画面](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/splash-white-5ebcd826.jpg)
+
+启动画面
 
 ### 自定义图标
 
@@ -177,6 +186,8 @@ PWA在通过应用安装横幅引导用户安装 app，以及被添加到主屏�
 通过该配置信息，得到的 PWA 主屏应用显示将如下图所示：
 
 ![图标显示情况](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/icons-f6559e36.jpg)
+
+图标显示情况
 
 
 ### 设置启动网址
@@ -340,6 +351,8 @@ background_color 的值可以通过如下几种形式定义：
 
 ![启动画面](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/splash-blue-0ad19706.jpg)
 
+启动画面
+
 ### 设置显示类型
 
 可以通过设置 `display` 属性去指定 PWA 从主屏幕点击启动后的显示类型。
@@ -391,9 +404,20 @@ background_color 的值可以通过如下几种形式定义：
 对 PWA 设置以上四种显示类型，对应的应用截图如下所示：
 
 ![fullscreen](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/fullscreen-ace3993b.jpg)
+
+fullscreen
+
 ![standalone](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/standalone-3200da3b.jpg)
+
+standalone
+
 ![minimal-ui（由于浏览器不支持，因此降级为browser）](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-7c96cf7c.jpg)
+
+minimal-ui（由于浏览器不支持，因此降级为browser）
+
 ![browser](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-7c96cf7c.jpg)
+
+browser
 
 
 ### 指定页面显示方向
@@ -442,6 +466,8 @@ orientation属性的值有以下几种：
 
 ![browser 模式下浏览器UI样式](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-7c96cf7c.jpg)
 
+browser 模式下浏览器UI样式
+
 在指定了 `theme_color` 的值之后，地址栏依然呈白色。针对这种情况，可以在页面 HTML 里设置 `name` 为 `theme-color` 的 `meta` 标签，例如：
 
 ```html
@@ -453,6 +479,8 @@ orientation属性的值有以下几种：
 此时浏览器UI将显示如下：
 
 ![设置theme-color<meta>的 browser 模式](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/meta-d31c6947.jpg)
+
+设置theme-color<meta>的 browser 模式
 
 需要注意的是，这个标签的色值会覆盖 manifest.json 里设置的 `theme_color`，如果两个色值不一样的话，会导致应用启动画面和内容页的主题色不一致，因此建议将 `theme_color` 的色值设置得与 `theme-color<meta>`的色值相等。
 
@@ -474,7 +502,12 @@ orientation属性的值有以下几种：
 
 ![启动页状态栏呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-989c4c94.jpg)
 
+启动页状态栏呈蓝色
+
 ![内容页状态栏呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-content-994d3c2d.jpg)
+
+内容页状态栏呈蓝色
+
 
 如果此时在网页的 HTML 头部加入如下 meta 标签：
 
@@ -488,7 +521,11 @@ orientation属性的值有以下几种：
 
 ![启动页状态栏依旧呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-989c4c94.jpg)
 
+启动页状态栏依旧呈蓝色
+
 ![设置theme-color<meta>后的内容页状态栏呈绿色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/meta-content-56d541e4.jpg)
+
+设置theme-color<meta>后的内容页状态栏呈绿色
 
 ### 引导用户添加应用至主屏幕
 
@@ -498,9 +535,13 @@ orientation属性的值有以下几种：
 
 ![菜单手动添加](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/menu-451c2fb7.jpg)
 
+菜单手动添加
+
 很明显对于大部分用户来说，都不会主动去完成上述操作，因此需要适时地弹出`应用安装横幅`去引导用户进行添加操作。PWA 提供的应用安装横幅如下图所示：
 
 ![应用安装横幅](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-a51a1029.jpg)
+
+应用安装横幅
 
 用户只需点击横幅上的`添加应用`按钮，即可将 PWA 添加到他们的主屏幕。相比起用户主动操作，弹出应用安装横幅的形式更直观，操作更简便，用户的应用添加率也会更高。
 
@@ -650,6 +691,9 @@ manifest.json 的配置如下：
 
 ![横幅显示](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-a51a1029.jpg)
 
+横幅显示
+
+
 代码添加事件监听：
 
 ```javascript
@@ -665,6 +709,9 @@ window.addEventListener('beforeinstallprompt', function (e) {
 则点击添加效果如下图所示：
 
 ![点击添加效果](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/after-click-592af56e.jpg)
+
+点击添加效果
+
 
 将事件监听更改如下：
 
@@ -703,9 +750,20 @@ button.addEventListener('click', function (e) {
 当浏览器触发横幅显示事件时，页面中的按钮将显示出来，同时横幅显示事件被取消；点击按钮时，应用安装横幅才会显示出来：
 
 ![1. 浏览器未触发横幅显示事件时页面截图](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-7c96cf7c.jpg)
+
+1. 浏览器未触发横幅显示事件时页面截图
+
 ![2. 浏览器触发横幅显示事件时页面截图](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/delay-22addf51.jpg)
+
+2. 浏览器触发横幅显示事件时页面截图
+
 ![3. 点击按钮时释放横幅显示事件](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-a51a1029.jpg)
+
+3. 点击按钮时释放横幅显示事件
+
 ![4. 点击添加到主屏幕触发监听事件](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/after-click-592af56e.jpg)
+
+4. 点击添加到主屏幕触发监听事件
 
 ### 引导用户安装原生应用
 
