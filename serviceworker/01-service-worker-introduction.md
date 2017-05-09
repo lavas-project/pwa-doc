@@ -24,15 +24,15 @@ W3C组织早在2014年5月就提出过 service worker 这样的一个 HTML5 API 
 
 浏览器中的 javaScript 都是运行在一个单一主线程上的，在同一时间内只能做一件事情。随着 web 业务不断激增，我们逐渐在 js 中有了很多耗资源、耗时间的复杂运算过程，然而这个过程导致的性能问题在 web app 的复杂化过程中更加凸显出来。
 
-W3C 组织早早的洞察到了这些问题可能会造成的影响，这个时候有个叫 webworker 的 API 被造出来了，这个 API 的唯一目的就是解放主线程，webworker 是脱离在主线程之外的，将一些复杂的耗时的活交给它干，完成后通过 postMessage 方法告诉主线程，而主线程通过 onMessage 方法得到webworker的结果反馈。
+W3C 组织早早的洞察到了这些问题可能会造成的影响，这个时候有个叫 webworker 的 API 被造出来了，这个 API 的唯一目的就是解放主线程，webworker 是脱离在主线程之外的，将一些复杂的耗时的活交给它干，完成后通过 postMessage 方法告诉主线程，而主线程通过 onMessage 方法得到 webworker 的结果反馈。
 
-一切问题好像是解决了，但 webworker 是临时的，我们能不能有一个东东是一直持久存在的，并且随时准备接受主线程的命令呢？这样的需求才推出了最初版本的 service worker ，service worker 在 webworker 的基础上加上了持久离线缓存能力。当然在service worker之前也有在 HTML5 上做离线缓存的东东叫 appCache, 然而 appCache 是存在很多 [不能忍受的缺点](https://alistapart.com/article/application-cache-is-a-douchebag)。
+一切问题好像是解决了，但 webworker 是临时的，我们能不能有一个东东是一直持久存在的，并且随时准备接受主线程的命令呢？这样的需求才推出了最初版本的 service worker ，service worker 在 webworker 的基础上加上了持久离线缓存能力。当然在 service worker 之前也有在 HTML5 上做离线缓存的东东叫 appCache, 然而 appCache 是存在很多 [不能忍受的缺点](https://alistapart.com/article/application-cache-is-a-douchebag)。
 
 W3C 决定 appCache 仍然保留在 HTML 5.0 Recommendation 中，在 HTML 后续版本中移除。
 - Issue: [https://github.com/w3c/html/issues/40](https://github.com/w3c/html/issues/40)
 - Mailing list: [https://lists.w3.org/Archives/Public/public-html/2016May/0005.html](https://lists.w3.org/Archives/Public/public-html/2016May/0005.html)
 
-WHATWG HTML5 作为 Live Standard，也将 appCache 标注为 Discouraged 并引导至 service worker。
+WHATWG HTML5 作为 Live Standard，也将 appCache 标注为 `Discouraged` 并引导至 service worker。
 
 
 
