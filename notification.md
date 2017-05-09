@@ -67,7 +67,7 @@ registration.showNotification('Simple Title', {
 
 ![Simple Title on Chrome](https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/images/notification-screenshots/desktop/chrome-title-body.png)
 
-Firefox略有特别，在Linux系统的Firefox中，通知会是这样
+Firefox则略有差别，在Linux系统的Firefox中，通知会是这样
 
 ![Simple Title on Firefox Linux](https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/images/notification-screenshots/desktop/firefox-title-body.png)
 
@@ -105,7 +105,7 @@ registration.showNotification('Icon Notification', {
 
 ![Icon on Chrome](https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/images/notification-screenshots/desktop/firefox-icon.png)
 
-在图标尺寸方面并没有一个明确的规定。普通情况下建议使用192px*192px以上的图片进行设置(64px*3)。
+在图标尺寸方面并没有一个明确的规定。普通情况下建议使用192px\*192px以上的图片进行设置(64px\*3)。
 
 另外某些浏览器要求静态资源必须通过HTTPS访问，因此在使用第三方图片资源时要格外注意。
 
@@ -124,7 +124,7 @@ registration.showNotification('Badge Notification', {
 在其他情况下，或者当我们没有设置 `Badge` 时，图标会展示为一个浏览器的图标。
 ![Badge on Others](https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/images/notification-screenshots/mobile/firefox-badge.png?hl=zh-cn)
 
-小图标的注意点和图标相同，尺寸建议为72px*72px以上(24px*3)，同样尽量使用HTTPS资源。
+小图标的注意点和图标相同，尺寸建议为72px\*72px以上(24px\*3)，同样尽量使用HTTPS资源。
 
 ### 图片(image)
 
@@ -133,6 +133,7 @@ registration.showNotification('Badge Notification', {
 registration.showNotification('Image Notification', {
     image: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/unsplash-farzad-nazifi-1600x1100.jpg'
 });
+```
 
 在PC的Google Chrome上，效果如下：
 
@@ -142,7 +143,7 @@ registration.showNotification('Image Notification', {
 
 ![Image on Android Chrome](https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/images/notification-screenshots/mobile/chrome-image.png?hl=zh-cn)
 
-因为两种平台上图片展现的差别比较大，因此很难给出一个完美适应的图片尺寸。从目前经验来看，使用宽度为1350px(450px*3)以上的图片会比较合适。但必须指出一点，因为图片相对来说还是一个比较新的配置项，因此以后可能会被修改。
+因为两种平台上图片展现的差别比较大，因此很难给出一个完美适应的图片尺寸。从目前经验来看，使用宽度为1350px(450px\*3)以上的图片会比较合适。但必须指出一点，因为图片相对来说还是一个比较新的配置项，因此以后可能会被修改。
 
 最后，在Firefox中，图片暂时无法显示：
 
@@ -193,7 +194,7 @@ registration.showNotification('Actions Notification', {
 关于按钮图标方面，我们有一些建议：
 
 1. 所有图标使用一个相同的色系，以保证给用户带来的感官是一致的。
-2. 图标尺寸建议使用128px*128px
+2. 图标尺寸建议使用128px\*128px
 3. 某些情况下按钮不会显示，需要做好应对。
 
 在本文编写的时候，只有Google Chrome和Opera for Android支持按钮(Actions)。
