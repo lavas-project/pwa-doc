@@ -81,16 +81,16 @@ PWA在通过应用安装横幅引导用户安装 app，以及被添加到主屏�
 
 通过上述配置信息，得到的 PWA 的主屏幕应用显示、安装横幅、启动画面将如下图所示：
 
-![主屏幕应用显示](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/home-c0f9216a.jpg)
+![主屏幕应用显示](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/home-5413b887.jpg)
 
 主屏幕应用显示
 
 
-![安装横幅](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-a51a1029.jpg)
+![安装横幅](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-29ed7788.jpg)
 
 安装横幅
 
-![启动画面](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/splash-white-5ebcd826.jpg)
+![启动画面](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/splash-white-3ec245da.jpg)
 
 启动画面
 
@@ -185,7 +185,7 @@ PWA在通过应用安装横幅引导用户安装 app，以及被添加到主屏�
 
 通过该配置信息，得到的 PWA 主屏应用显示将如下图所示：
 
-![图标显示情况](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/icons-f6559e36.jpg)
+![图标显示情况](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/icons-26f5c146.jpg)
 
 图标显示情况
 
@@ -349,7 +349,7 @@ background_color 的值可以通过如下几种形式定义：
 
 则应用启动画面如图所示：
 
-![启动画面](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/splash-blue-0ad19706.jpg)
+![启动画面](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/splash-blue-3e8afa68.jpg)
 
 启动画面
 
@@ -403,19 +403,19 @@ background_color 的值可以通过如下几种形式定义：
 
 对 PWA 设置以上四种显示类型，对应的应用截图如下所示：
 
-![fullscreen](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/fullscreen-ace3993b.jpg)
+![fullscreen](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/fullscreen-9085d740.jpg)
 
 fullscreen
 
-![standalone](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/standalone-3200da3b.jpg)
+![standalone](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/standalone-a8a88b0c.jpg)
 
 standalone
 
-![minimal-ui（由于浏览器不支持，因此降级为browser）](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-7c96cf7c.jpg)
+![minimal-ui（由于浏览器不支持，因此降级为browser）](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-b836238e.jpg)
 
 minimal-ui（由于浏览器不支持，因此降级为browser）
 
-![browser](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-7c96cf7c.jpg)
+![browser](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-b836238e.jpg)
 
 browser
 
@@ -464,7 +464,7 @@ orientation属性的值有以下几种：
 
 对于当前版本的 Chrome 浏览器，在 `browser` 显示类型下，内容页的状态栏、地址栏并不会显示成 `theme_color` 所指定的颜色，如图所示：
 
-![browser 模式下浏览器UI样式](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-7c96cf7c.jpg)
+![browser 模式下浏览器UI样式](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-b836238e.jpg)
 
 browser 模式下浏览器UI样式
 
@@ -478,7 +478,7 @@ browser 模式下浏览器UI样式
 
 此时浏览器UI将显示如下：
 
-![设置theme-color<meta>的 browser 模式](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/meta-d31c6947.jpg)
+![设置theme-color<meta>的 browser 模式](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/meta-69aa8ab1.jpg)
 
 设置theme-color<meta>的 browser 模式
 
@@ -500,11 +500,11 @@ browser 模式下浏览器UI样式
 
 可以看到启动页的状态栏和内容页的状态栏均显示为蓝色。
 
-![启动页状态栏呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-989c4c94.jpg)
+![启动页状态栏呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-854a1ed2.jpg)
 
 启动页状态栏呈蓝色
 
-![内容页状态栏呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-content-994d3c2d.jpg)
+![内容页状态栏呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-content-74913f21.jpg)
 
 内容页状态栏呈蓝色
 
@@ -519,11 +519,11 @@ browser 模式下浏览器UI样式
 
 则对应内容页的状态栏显示为绿色。
 
-![启动页状态栏依旧呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-989c4c94.jpg)
+![启动页状态栏依旧呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-854a1ed2.jpg)
 
 启动页状态栏依旧呈蓝色
 
-![设置theme-color<meta>后的内容页状态栏呈绿色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/meta-content-56d541e4.jpg)
+![设置theme-color<meta>后的内容页状态栏呈绿色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/meta-content-6ea5d314.jpg)
 
 设置theme-color<meta>后的内容页状态栏呈绿色
 
@@ -533,13 +533,13 @@ browser 模式下浏览器UI样式
 
 如下图所示，打开浏览器菜单，会看到`添加到主屏幕`的功能，用户可以点击该选项手动将 PWA 站点添加至主屏幕。
 
-![菜单手动添加](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/menu-451c2fb7.jpg)
+![菜单手动添加](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/menu-c450dc93.jpg)
 
 菜单手动添加
 
 很明显对于大部分用户来说，都不会主动去完成上述操作，因此需要适时地弹出`应用安装横幅`去引导用户进行添加操作。PWA 提供的应用安装横幅如下图所示：
 
-![应用安装横幅](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-a51a1029.jpg)
+![应用安装横幅](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-29ed7788.jpg)
 
 应用安装横幅
 
@@ -689,7 +689,7 @@ manifest.json 的配置如下：
 
 对应的横幅显示如下图所示：
 
-![横幅显示](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-a51a1029.jpg)
+![横幅显示](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-29ed7788.jpg)
 
 横幅显示
 
@@ -708,7 +708,7 @@ window.addEventListener('beforeinstallprompt', function (e) {
 
 则点击添加效果如下图所示：
 
-![点击添加效果](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/after-click-592af56e.jpg)
+![点击添加效果](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/after-click-1f12b61a.jpg)
 
 点击添加效果
 
@@ -749,19 +749,19 @@ button.addEventListener('click', function (e) {
 
 当浏览器触发横幅显示事件时，页面中的按钮将显示出来，同时横幅显示事件被取消；点击按钮时，应用安装横幅才会显示出来：
 
-![1. 浏览器未触发横幅显示事件时页面截图](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-7c96cf7c.jpg)
+![1. 浏览器未触发横幅显示事件时页面截图](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-b836238e.jpg)
 
 1. 浏览器未触发横幅显示事件时页面截图
 
-![2. 浏览器触发横幅显示事件时页面截图](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/delay-22addf51.jpg)
+![2. 浏览器触发横幅显示事件时页面截图](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/delay-3117045e.jpg)
 
 2. 浏览器触发横幅显示事件时页面截图
 
-![3. 点击按钮时释放横幅显示事件](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-a51a1029.jpg)
+![3. 点击按钮时释放横幅显示事件](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-29ed7788.jpg)
 
 3. 点击按钮时释放横幅显示事件，同时隐藏按钮
 
-![4. 点击添加到主屏幕触发监听事件](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/after-click-592af56e.jpg)
+![4. 点击添加到主屏幕触发监听事件](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/after-click-1f12b61a.jpg)
 
 4. 点击添加到主屏幕触发监听事件
 
