@@ -208,3 +208,56 @@ registration.showNotification('Actions Notification', {
 
 ### 震动
 
+我们可以使用 `vibrate` 配置项来设置通知的震动模式。 `vibrate` 以数组的形式进行配置，其中的数字以2个为一组，分别表示震动的毫秒数，和不震动的毫秒数，如此往复。
+```
+registration.showNotification('Vibrate Notification', {
+    vibrate: [500,110,500,110,450,110,200,110,170,40,450,110,200,110,170,40,500]
+});
+```
+
+注意部分设备可能不支持 `vibrate` 配置项。
+
+### 声音
+
+按照规范，声音可以使用 `sound` 配置项进行配置，用以在通知弹出时播放对应的音频文件。
+```
+registration.showNotification('Sound Notification', {
+    sound: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/notification-sound.mp3'
+});
+```
+
+然而很遗憾，目前并没有浏览器支持 `sound` 配置项。
+
+### 时间戳
+
+我们可以使用 `timestamp` 配置项来达到定时发送通知的目的。 `timestamp` 配置项的值是数字类型，表示设定时间距离1970年1月1日0点的毫秒数。例子如下：
+```
+registration.showNotification('Timestamp Notification', {
+    body: 'Timestamp is set to "01 Jan 2000 00:00:00".',
+    timestamp: Date.parse('01 Jan 2000 00:00:00')
+});
+```
+
+### 使用通知的一些建议
+
+虽然目前使用通知的站点并不多，但在这些站点中问题也不少。最常见的问题在于通知的目的和内容无法被用户理解，反而造成了不良的用户体验。我们的目标是利用尽可能多的配置项来让用户明确一条通知的内容和目的。下面是一些常见的错误，我们应当尽量避免它们：
+
+1. 不要将站点的名字或者URL放到通知的标题或者内容中，因为浏览器会自动添加这些信息，避免造成重复。
+2. 尽量使用简明扼要的通知标题和内容。假设你需要通知用户，有人给他发了一条信息，你应该使用例如“某人给你发送了一条信息”作为标题，并将消息内容放到通知内容中，而不是把标题叫做“新信息”或者把内容叫做“点击查看”。
+
+### 支持性检测
+
+从上述配置项的分析中我们也可以看到，通知在Google Chrome和Firefox中支持的效果并不一致。
+
+举例来说，在使用按钮(Actions)时，我们应该了解浏览器是否支持，因此我们应该使用如下代码：
+
+```
+if ('actions' in Notification.prototype) {
+    // Action buttons are supported
+}
+else {
+    // Action buttons are NOT supported
+}
+```
+
+这样就可以在不支持按钮时使用其他方式来进行通知。
