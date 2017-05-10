@@ -129,7 +129,7 @@ registration.showNotification('Actions Notification', {
 
 ![Actions on Chrome](./images/chrome-actions.png)
 
-我们注意到 `actions` 配置项是一个数组，每个元素为一个对象，而每个对象都必须拥有3个属性。除了按钮标题和图标地址之外，每个对象还拥有一个唯一的ID，记录于 `action` 属性中。它会在按钮被点击时使用到，这些会在本文第二部分中进行介绍。
+我们注意到 `actions` 配置项是一个数组，每个元素为一个对象，而每个对象都必须拥有3个属性。除了按钮标题和图标地址之外，每个对象还拥有一个唯一的ID，记录于 `action` 属性中。它会在按钮被点击时使用到，这些会在行为部分中进行介绍。
 
 此外，在Android6.0 Marshmallow版本中，图标的颜色可能会被设置为匹配系统的颜色，如下所示：
 
