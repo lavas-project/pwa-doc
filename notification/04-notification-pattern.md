@@ -2,6 +2,8 @@
 
 本文将介绍通知在一些常见情况下的实现方式，可能会用到 `service worker` 的其他一些API。
 
+另外如果没有特别说明（如提到“主程序”），本文的所有代码都应编写在 `service-worker.js` 中。
+
 ## 通知关闭事件
 
 在行为部分中，我们监听过 `notificationclick` 事件来处理通知点击。
@@ -23,7 +25,7 @@ self.addEventListener('notificationclose', function(event) {
 
 在行为部分我们已经介绍了如何处理通知的点击事件：在主程序代码中发送通知 `showNotification`，而在 `service-worker.js` 中监听事件处理。但实际情况下，点击通知会进行一些动态的操作，例如跳往某个URL，那么这个动态信息要如何从主程序传递到 `service-worker.js` 呢？
 
-答案是 `data` 属性。在发送通知时通过 `data` 将需要的动态数据传递过去，如下：
+答案是 `data` 属性。在发送通知时通过 `data` 将需要的动态数据传递过去，在主程序中添加如下代码：
 
 ```
 registration.showNotification('Notification With Data', {
@@ -107,8 +109,8 @@ event.waitUntil(promiseChain);
 
 ```
 const promiseChain = clients.matchAll({
-type: 'window',
-includeUncontrolled: true
+    type: 'window',
+    includeUncontrolled: true
 })
 ```
 
@@ -271,7 +273,7 @@ const promiseChain = isClientFocused()
 event.waitUntil(promiseChain);
 ```
 
-而在每个页面中，我们可以通过监听 `message` 事件来获取这些数据
+而在每个页面中，我们可以通过监听 `message` 事件来获取这些数据。在主程序中代码如下：
 
 ```
 navigator.serviceWorker.addEventListener('message', function(event) {

@@ -6,12 +6,68 @@
 
 # 如何使用？
 
-在注册了 `service worker` 之后，可以使用 `showNotification` 方法弹出通知。
+使用 `notification` 本身非常简单，只需要一行代码，但在此之前需要一些准备工作。
 
-只需要一行代码就可以弹出一个最简单的通知
+* 检测浏览器兼容性，获取通知权限。 `execute()` 方法后续会有介绍。
+
 ```
-registration.showNotification('Hello World!');
+window.addEventListener('load', function() {
+    if (!('serviceWorker' in navigator)) {
+        // Service Worker isn't supported on this browser, disable or hide UI.
+        return;
+    }
+
+    if (!('PushManager' in window)) {
+        // Push isn't supported on this browser, disable or hide UI.
+        return;
+    }
+
+    let promiseChain = new Promise((resolve, reject) => {
+        const permissionPromise = Notification.requestPermission((result) => {
+            resolve(result);
+        });
+
+        if (permissionPromise) {
+            permissionPromise.then(resolve);
+        }
+    })
+    .then((result) => {
+        if (result === 'granted') {
+            execute();
+        }
+        else {
+            console.log('no permission');
+        }
+    });
+});
 ```
+
+* 注册 `service worker` ，获取注册对象。（ `service-worker.js` 暂时不需要任何代码支持，空白文件也可）
+
+```
+function registerServiceWorker() {
+    return navigator.serviceWorker.register('service-worker.js')
+    .then(function(registration) {
+        console.log('Service worker successfully registered.');
+        return registration;
+    })
+    .catch(function(err) {
+        console.error('Unable to register service worker.', err);
+    });
+}
+```
+
+* 使用 `showNotification` 方法弹出通知。
+
+```
+function execute() {
+    registerServiceWorker().then(registration => {
+        registration.showNotification('Hello World!');
+    });
+}
+```
+
+本文的其余部分将默认已经获得通知权限，并已经获得 `registration` 对象，前面两个步骤不再赘述了。
 
 # 参数
 
