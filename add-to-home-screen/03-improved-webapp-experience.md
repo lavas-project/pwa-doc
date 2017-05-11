@@ -85,7 +85,7 @@ background_color 的值可以通过如下几种形式定义：
 
 则应用启动画面如图所示：
 
-![启动画面](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/splash-blue-3e8afa68.jpg)
+![启动画面](./img/splash-blue.jpg)
 
 启动画面
 
@@ -139,19 +139,19 @@ background_color 的值可以通过如下几种形式定义：
 
 对 PWA 设置以上四种显示类型，对应的应用截图如下所示：
 
-![fullscreen](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/fullscreen-9085d740.jpg)
+![fullscreen](./img/fullscreen.jpg)
 
 fullscreen
 
-![standalone](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/standalone-a8a88b0c.jpg)
+![standalone](./img/standalone.jpg)
 
 standalone
 
-![minimal-ui（由于浏览器不支持，因此降级为browser）](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-b836238e.jpg)
+![minimal-ui（由于浏览器不支持，因此降级为browser）](./img/browser.jpg)
 
 minimal-ui（由于浏览器不支持，因此降级为browser）
 
-![browser](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-b836238e.jpg)
+![browser](./img/browser.jpg)
 
 browser
 
@@ -200,7 +200,7 @@ orientation属性的值有以下几种：
 
 对于当前版本的 Chrome 浏览器，在 `browser` 显示类型下，内容页的状态栏、地址栏并不会显示成 `theme_color` 所指定的颜色，如图所示：
 
-![browser 模式下浏览器UI样式](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-b836238e.jpg)
+![browser 模式下浏览器UI样式](./img/browser.jpg)
 
 browser 模式下浏览器UI样式
 
@@ -214,7 +214,7 @@ browser 模式下浏览器UI样式
 
 此时浏览器UI将显示如下：
 
-![设置theme-color<meta>的 browser 模式](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/meta-69aa8ab1.jpg)
+![设置theme-color<meta>的 browser 模式](./img/meta.jpg)
 
 设置theme-color<meta>的 browser 模式
 
@@ -236,11 +236,11 @@ browser 模式下浏览器UI样式
 
 可以看到启动页的状态栏和内容页的状态栏均显示为蓝色。
 
-![启动页状态栏呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-854a1ed2.jpg)
+![启动页状态栏呈蓝色](./img/no-meta.jpg)
 
 启动页状态栏呈蓝色
 
-![内容页状态栏呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-content-74913f21.jpg)
+![内容页状态栏呈蓝色](./img/no-meta-content.jpg)
 
 内容页状态栏呈蓝色
 
@@ -255,10 +255,10 @@ browser 模式下浏览器UI样式
 
 则对应内容页的状态栏显示为绿色。
 
-![启动页状态栏依旧呈蓝色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/no-meta-854a1ed2.jpg)
+![启动页状态栏依旧呈蓝色](./img/no-meta.jpg)
 
 启动页状态栏依旧呈蓝色
 
-![设置theme-color<meta>后的内容页状态栏呈绿色](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/meta-content-6ea5d314.jpg)
+![设置theme-color<meta>后的内容页状态栏呈绿色](./img/meta-content.jpg)
 
 设置theme-color<meta>后的内容页状态栏呈绿色

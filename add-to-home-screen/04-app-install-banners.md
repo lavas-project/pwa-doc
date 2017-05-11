@@ -11,13 +11,13 @@ PWA 提供两种添加应用横幅，分别实现**引导用户添加 PWA 至桌
 
 如下图所示，打开浏览器菜单，会看到`添加到主屏幕`的功能，用户可以点击该选项手动将 PWA 站点添加至主屏幕。
 
-![菜单手动添加](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/menu-c450dc93.jpg)
+![菜单手动添加](./img/menu.jpg)
 
 菜单手动添加
 
 很明显对于大部分用户来说，都不会主动去完成上述操作，因此需要适时地弹出`应用安装横幅`去引导用户进行添加操作。PWA 提供的应用安装横幅如下图所示：
 
-![应用安装横幅](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-29ed7788.jpg)
+![应用安装横幅](./img/add-to-home-screen.jpg)
 
 应用安装横幅
 
@@ -167,7 +167,7 @@ manifest.json 的配置如下：
 
 对应的横幅显示如下图所示：
 
-![横幅显示](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-29ed7788.jpg)
+![横幅显示](./img/add-to-home-screen.jpg)
 
 横幅显示
 
@@ -186,7 +186,7 @@ window.addEventListener('beforeinstallprompt', function (e) {
 
 则点击添加效果如下图所示：
 
-![点击添加效果](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/after-click-1f12b61a.jpg)
+![点击添加效果](./img/after-click.jpg)
 
 点击添加效果
 
@@ -227,19 +227,19 @@ button.addEventListener('click', function (e) {
 
 当浏览器触发横幅显示事件时，页面中的按钮将显示出来，同时横幅显示事件被取消；点击按钮时，应用安装横幅才会显示出来：
 
-![1. 浏览器未触发横幅显示事件时页面截图](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/browser-b836238e.jpg)
+![1. 浏览器未触发横幅显示事件时页面截图](./img/browser.jpg)
 
 1. 浏览器未触发横幅显示事件时页面截图
 
-![2. 浏览器触发横幅显示事件时页面截图](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/delay-3117045e.jpg)
+![2. 浏览器触发横幅显示事件时页面截图](./img/delay.jpg)
 
 2. 浏览器触发横幅显示事件时页面截图
 
-![3. 点击按钮时释放横幅显示事件](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-29ed7788.jpg)
+![3. 点击按钮时释放横幅显示事件](./img/add-to-home-screen.jpg)
 
 3. 点击按钮时释放横幅显示事件，同时隐藏按钮
 
-![4. 点击添加到主屏幕触发监听事件](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/after-click-1f12b61a.jpg)
+![4. 点击添加到主屏幕触发监听事件](./img/after-click.jpg)
 
 4. 点击添加到主屏幕触发监听事件
 

@@ -34,16 +34,16 @@ PWA在通过应用安装横幅引导用户安装 app，以及被添加到主屏�
 
 通过上述配置信息，得到的 PWA 的主屏幕应用显示、安装横幅、启动画面将如下图所示：
 
-![主屏幕应用显示](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/home-5413b887.jpg)
+![主屏幕应用显示](./img/home.jpg)
 
 主屏幕应用显示
 
 
-![安装横幅](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/add-to-home-screen-29ed7788.jpg)
+![安装横幅](./img/add-to-home-screen.jpg)
 
 安装横幅
 
-![启动画面](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/splash-white-3ec245da.jpg)
+![启动画面](./img/splash-white.jpg)
 
 启动画面
 
@@ -138,7 +138,7 @@ PWA在通过应用安装横幅引导用户安装 app，以及被添加到主屏�
 
 通过该配置信息，得到的 PWA 主屏应用显示将如下图所示：
 
-![图标显示情况](https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/pwa/icons-26f5c146.jpg)
+![图标显示情况](./img/icons.jpg)
 
 图标显示情况
 
