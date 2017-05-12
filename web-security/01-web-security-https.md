@@ -2,7 +2,7 @@
 
 构建 PWA 应用时，安全是一个十分重要的话题。基于 Web 环境的互联网应用越来越广泛，其安全问题也日益凸显，代码中的细小漏洞随时可能被攻击者利用，导致用户的隐私信息泄露、财产损失。本章节从以下几个角度入手，帮助您构建更加安全的 Web 应用。
 
-[使用 HTTPS](#使用HTTPS)
+[使用 HTTPS](#使用-HTTPS)
 
 [同源策略](https://github.com/searchfe/pwa-doc/blob/master/web-security/02-same-origin-policy.md)
 
@@ -140,7 +140,7 @@ Set-Cookie: LSID=DQAAAK...Eaem_vYg; Secure
 Content-Security-Policy-Report-Only: default-src https: 'unsafe-inline' 'unsafe-eval'; report-uri https://example.com/reportingEndpoint
 
 ```
-这样用户访问站点时，浏览器都会向 https://example.com/reportingEndpoint 发送有关任何违背内容安全政策的内容的报告。
+这样用户访问站点时，浏览器都会向 https://example.com/reportingEndpoint 发送请求，告诉你哪些内容存在不规范。
 
 2.自动升级不安全的请求
 
@@ -157,6 +157,7 @@ Content-Security-Policy: upgrade-insecure-requests
 都能使浏览器对 `<img src="http://example.com/image.jpg">` 的请求转向 `https://example.com/image.jpg`。但注意，这时需要保证升级后的资源地址可用，不然就会请求失败。
 
 3.阻止所有混合内容
+
 配置请求头
 ```
 Content-Security-Policy: block-all-mixed-content
