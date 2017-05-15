@@ -101,12 +101,12 @@ Cache Storage 选项卡提供了一个已使用（service worker 线程）Cache 
 
 此外经过 service worker 的 `fetch` 请求 Chrome 都会在 Chrome DevTools Network 标签页里标注出来，其中：
 
-- 来自 service worker 的内容会在 Size 字段中标注为 "from ServiceWorker"
+- 来自 service worker 的内容会在 Size 字段中标注为 `from ServiceWorker`
 - service worker 发出的请求会在 Name 字段中添加 ⚙ 图标。
 
-例如下图中，第一个名为 `300` 的请求是一张 jpeg 图片， 其 URL 为"https://unsplash.it/200/300"，该请求是由 service worker 代理的， 因此被标注为 `from ServiceWorker`。
+例如下图中，第一个名为 `300` 的请求是一张 jpeg 图片， 其 URL 为 `https://unsplash.it/200/300`，该请求是由 service worker 代理的， 因此被标注为 `from ServiceWorker`。
 
-为了响应页面请求，Service Worker 也发出了名为 “300” 的请求（这是图中第二个请求）， 但 Service Worker 把 URL 改成了 "https://unsplash.it/g/200/300"，因此返回给页面的图片是灰色的。
+为了响应页面请求，Service Worker 也发出了名为 `300` 的请求（这是图中第二个请求）， 但 Service Worker 把 URL 改成了 `https://unsplash.it/g/200/300`，因此返回给页面的图片是灰色的。
 
 ![service worker network](./images/service-worker-network.png)
 
