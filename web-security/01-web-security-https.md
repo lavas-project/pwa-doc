@@ -1,15 +1,3 @@
-# Web安全
-
-构建 PWA 应用时，安全是一个十分重要的话题。基于 Web 环境的互联网应用越来越广泛，其安全问题也日益凸显，代码中的细小漏洞随时可能被攻击者利用，导致用户的隐私信息泄露、财产损失。本章节从以下几个角度入手，帮助您构建更加安全的 Web 应用。
-
-[使用 HTTPS](#使用-HTTPS)
-
-[同源策略](https://github.com/searchfe/pwa-doc/blob/master/web-security/02-same-origin-policy.md)
-
-[内容安全策略](https://github.com/searchfe/pwa-doc/blob/master/web-security/03-content-security-policy.md)
-
-[典型的安全漏洞](https://github.com/searchfe/pwa-doc/blob/master/web-security/04-typical-web-attack.md)
-
 ## 使用 HTTPS
 
 HTTPS 即 HTTP over SSL/TLS，是 HTTP 的安全版本，在 HTTP 上加了一层处理加密信息的模块。

@@ -12,7 +12,7 @@
 
 我们可以将如下代码增加到 `service-worker.js` 中。其中 `notificationCloseAnalytics` 方法是用来做一些统计工作，因为可能包含异步因此返回为 `Promise` 对象，也因此必须使用 `waitUntil` 等待其执行完成。
 
-```
+```javascript
 self.addEventListener('notificationclose', function(event) {
     const dismissedNotification = event.notification;
 
@@ -27,7 +27,7 @@ self.addEventListener('notificationclose', function(event) {
 
 答案是 `data` 属性。在发送通知时通过 `data` 将需要的动态数据传递过去，在主程序中添加如下代码：
 
-```
+```javascript
 registration.showNotification('Notification With Data', {
     body: 'This notification has data attached to it that is printed to the console when it\'s clicked.',
     data: {
@@ -39,7 +39,7 @@ registration.showNotification('Notification With Data', {
 
 在 `service-worker.js` 中，我们通过 `event.notification.data` 来获取这个数据，如下：
 
-```
+```javascript
 const notificationData = event.notification.data;
 console.log('The data notification had the following parameters:');
 Object.keys(notificationData).forEach((key) => {
@@ -53,7 +53,7 @@ Object.keys(notificationData).forEach((key) => {
 
 上面一部分提过，用户通过点击通知访问某个URL是非常常见的做法。那么如何做到打开页面访问某个URL呢？我们可以通过 `clients.openWindow()` 方法。 如下代码可以允许我们在捕获 `notificationclick` 事件的处理中打开新页面：
 
-```
+```javascript
 const examplePage = '/demos/notification-examples/example-page.html';
 const promiseChain = clients.openWindow(examplePage);
 event.waitUntil(promiseChain);
@@ -67,7 +67,7 @@ event.waitUntil(promiseChain);
 
 接上一节的例子，我们先判断需要打开的页面是否已经打开了，如下：
 
-```
+```javascript
 const urlToOpen = new URL(examplePage, self.location.origin).href;
 
 const promiseChain = clients.matchAll({
@@ -107,7 +107,7 @@ event.waitUntil(promiseChain);
 
 第二步我们通过如下代码获取所有打开的窗口，注意这里的窗口只包含开发者自己域下的。
 
-```
+```javascript
 const promiseChain = clients.matchAll({
     type: 'window',
     includeUncontrolled: true
@@ -128,7 +128,7 @@ const promiseChain = clients.matchAll({
 
 首先假设每条通知的 `data` 都包含发送者的用户名（如X）。我们要做的第一步是获取用户那边的所有通知，从而找到是否有X发送信息的通知，代码如下：
 
-```
+```javascript
 const userName = 'X';
 const promiseChain = registration.getNotifications()
     .then(notifications => {
@@ -147,7 +147,7 @@ const promiseChain = registration.getNotifications()
 
 注意 `registration.getNotifications()` 是一个异步方法，因此我们需要使用 `then` 进行后续处理，筛选出X发来的信息，进行下一步操作。
 
-```
+```javascript
     .then((currentNotification) => {
         let notificationTitle;
         const options = {
@@ -200,7 +200,7 @@ X第二次发送信息，在第一条信息还没有被用户关闭之前，效�
 
 因此我们在发送通知时应当判断当前的状态并排除这种情况，代码如下：
 
-```
+```javascript
 function isClientFocused() {
     return clients.matchAll({
         type: 'window',
@@ -226,7 +226,7 @@ function isClientFocused() {
 
 当我们监听到 `push` 事件之后，在发送通知之前，我们可以调用上述方法来判断究竟是否需要发送通知。
 
-```
+```javascript
 const promiseChain = isClientFocused()
     .then((clientIsFocused) => {
         // 窗口处于激活状态，不需要发送通知
@@ -250,7 +250,7 @@ event.waitUntil(promiseChain);
 
 假设我们接收到了一次 `push` ，首先我们需要检查我们的窗口是否处于激活状态（使用上述的 `isClientFocused()` 方法），然后使用 `postMessage` 方法来向页面发送数据。
 
-```
+```javascript
 const promiseChain = isClientFocused()
     .then((clientIsFocused) => {
         // 如果处于激活状态，向页面发送数据
@@ -275,7 +275,7 @@ event.waitUntil(promiseChain);
 
 而在每个页面中，我们可以通过监听 `message` 事件来获取这些数据。在主程序中代码如下：
 
-```
+```javascript
 navigator.serviceWorker.addEventListener('message', function(event) {
     console.log('Received a message from service worker: ', event.data);
 });
