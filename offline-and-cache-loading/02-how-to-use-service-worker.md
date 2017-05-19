@@ -19,7 +19,7 @@ service worker 出于安全性和其实现原理，在使用的时候有一定�
 
 ## 注册
 
-要安装servic worker， 我们需要通过在 js 主线程（常规的页面里的 js ）注册service worker 来启动安装，这个过程将会通知浏览器我们的 service worker 线程的 javaScript 文件在什么地方呆着。
+要安装 servic worker， 我们需要通过在 js 主线程（常规的页面里的 js ）注册 service worker 来启动安装，这个过程将会通知浏览器我们的 service worker 线程的 javaScript 文件在什么地方呆着。
 
 先啥也不说了，来感受一段代码：
 
@@ -126,7 +126,7 @@ this.addEventListener('install', function (event) {
 
 走到这一步，其实现在你已经可以将你的站点资源缓存了，你需要告诉 service worker 让它用这些缓存内容来做点什么。有了 `fetch` 事件，这是很容易做到的。
 
-每次任何被 service worker 控制的资源被请求到时，都会触发 `fetch` 事件，这些资源包括了指定的 scope 内的 html 文档，和这些 html 文档内引用的其他任何资源（比如 index.html 发起了一个跨域的请求来嵌入一个图片，这个也会通过 service worker 。），这下 service worker 代理服务器的形象开始慢慢露出来了，而这个代理服务器的钩子就是凭借 `scope` 和 `fetch` 事件两大利器就能把站点的请求管理的井井有条。
+每次任何被 service worker 控制的资源被请求到时，都会触发 `fetch` 事件，这些资源包括了指定的 scope 内的 html 文档，和这些 html 文档内引用的其他任何资源（比如 index.html 发起了一个跨域的请求来嵌入一个图片，这个也会通过 service worker），这下 service worker 代理服务器的形象开始慢慢露出来了，而这个代理服务器的钩子就是凭借 `scope` 和 `fetch` 事件两大利器就能把站点的请求管理的井井有条。
 
 
 话扯这么多，代码咋实现呢？你可以给 service worker 添加一个 fetch 的事件监听器，接着调用 event 上的 respondWith() 方法来劫持我们的 HTTP 响应，然后你用可以用自己的魔法来更新他们。
@@ -245,7 +245,7 @@ navigator.serviceWorker.register('/sw.js').then(function (reg) {
 
 #### debug时更新
 
-[service worker debug技巧](./04-service-worker-debug)中也会提到, service worker 被载入后立即激活可以保证每次 `/sw.js` 为最新的。
+[service worker debug技巧](./04-service-worker-debug.md)中也会提到, service worker 被载入后立即激活可以保证每次 `/sw.js` 为最新的。
 
 代码如下：
 
