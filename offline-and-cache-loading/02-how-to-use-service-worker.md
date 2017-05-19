@@ -1,7 +1,7 @@
 怎么使用 service worker
 ====
 
-我们在 [service worker 简介](./01-service-worker-introduction.md)中介绍了 service worker 的背景和兼容性等内容，然后在 [service worker 生命周期](./02-service-worker-lifecycle.md)中介绍了 service worker 的生命周期以及所有的事件和 API, 但是我们还是不清楚如何才能使用 service worker， 以及在什么场景下使用什么 API 等等，这将是这篇文档所要提到的内容。
+我们在 [service worker 简介](./01-service-worker-introduction.md)中介绍了 service worker 的背景和兼容性等内容，然后在 [service worker 生命周期](./03-service-worker-lifecycle.md)中介绍了 service worker 的生命周期以及所有的事件和 API, 但是我们还是不清楚如何才能使用 service worker， 以及在什么场景下使用什么 API 等等，这将是这篇文档所要提到的内容。
 
 
 ## 前提条件
