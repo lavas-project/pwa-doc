@@ -7,7 +7,7 @@ service worker 的使用过程很简单，所处理的事情也相对单一，�
 
 ## service worker 如何工作
 
-我们之前[介绍](./service-worker-introduction)了这么多 service worker 相关的背景和现状，我们已经知道 service worker 是干嘛的了，但是我们还不是很清楚它具体是怎么运作起来的。
+我们之前[介绍](./service-worker-introduction.md)了这么多 service worker 相关的背景和现状，我们已经知道 service worker 是干嘛的了，但是我们还不是很清楚它具体是怎么运作起来的。
 
 
 通常我们如果要要使用 service worker 基本就是以下几个步骤：
