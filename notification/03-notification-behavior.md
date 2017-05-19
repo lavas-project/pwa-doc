@@ -15,7 +15,7 @@
 
 刚才提过，默认情况下用户点击通知不会有任何变化，例如关闭通知。而事实上通知被点击则关闭比较符合我们常见的交互习惯，为了达成这个效果，我们需要在 `service-worker.js` 中进行事件注册，代码如下：
 
-```
+```javascript
 self.addEventListener('notificationclick', function (event) {
     const clickedNotification = event.notification;
     clickedNotification.close();
@@ -36,7 +36,7 @@ self.addEventListener('notificationclick', function (event) {
 
 假设我们采用和上一部分的相同的按钮配置，配置如下：
 
-```
+```javascript
 registration.showNotification('Actions Notification', {
     actions: [
         {
@@ -65,7 +65,7 @@ registration.showNotification('Actions Notification', {
 
 在用户点击某个按钮时，我们可以监听 `notificationclick` 事件，通过 `event.action` 属性获得按钮的ID（对应 `action` 属性）。例如我们点击咖啡图标，则 `event.action` 的值为 `'coffee-action'`。我们可以参考如下代码：
 
-```
+```javascript
 self.addEventListener('notificationclick', function(event) {
     if (!event.action) {
         // 没有点击在按钮上
@@ -103,7 +103,7 @@ self.addEventListener('notificationclick', function(event) {
 
 `tag` 的取值类型是字符串类型，是一个唯一的ID。两个相同ID的通知会被归类到一起。我们来看一下例子：
 
-```
+```javascript
 registration.showNotification('Notification 1 of 3', {
     body: 'With \'tag\' of \'message-group-1\'',
     tag: 'message-group-1'
@@ -116,7 +116,7 @@ registration.showNotification('Notification 1 of 3', {
 
 然后我们再发送一条通知，采用不同的 `tag` ，如下：
 
-```
+```javascript
 registration.showNotification('Notification 2 of 3', {
     body: 'With \'tag\' of \'message-group-2\'',
     tag: 'message-group-2'
@@ -129,7 +129,7 @@ registration.showNotification('Notification 2 of 3', {
 
 在发送第三条通知时，我们采用和第一条相同的 `tag` ，如下：
 
-```
+```javascript
 registration.showNotification('Notification 3 of 3', {
     body: 'With \'tag\' of \'message-group-1\'',
     tag: 'message-group-1'
@@ -146,7 +146,7 @@ registration.showNotification('Notification 3 of 3', {
 
 `renotify` 配置项是和 `tag` 一同使用的。在使用 `tag` 的同时，设置 `renotify` 为 `true` 可以让浏览器在替换通知时提示声音或者震动。最容易想到的使用场景在聊天应用中，有新消息时的提示。示例代码如下：
 
-```
+```javascript
 registration.showNotification('Notification 3 of 3', {
     tag: 'message-group-1',
     renotify: true
@@ -164,7 +164,7 @@ Notifications which set the renotify flag must specify a non-empty tag
 
 如字面意思，`silent` 配置项可以让一条通知静默提示，不播放声音或者震动，适合使用在不需要用户立刻响应的通知的情景下，示例如下：
 
-```
+```javascript
 registration.showNotification('Silent Notification', {
     silent: true
 });
@@ -178,7 +178,7 @@ registration.showNotification('Silent Notification', {
 
 为了显式的让通知一直显示直到用户交互，我们可以设置 `requireInteraction` 属性。
 
-```
+```javascript
 registration.showNotification('Require Interaction Notification', {
     body: 'With "requireInteraction: \'true\'".',
     requireInteraction: true
