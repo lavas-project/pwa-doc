@@ -1,0 +1,42 @@
+{
+    "menu": [
+        {
+            "name": "PWA 简介",
+            "key": "README"
+        },
+        {
+            "name": "起步",
+            "key": "getting-started"
+        },
+        {
+            "name": "产出",
+            "key": "production"
+        },
+        {
+            "name": "离线和缓存",
+            "key": "offline-and-cache-loading"
+        },
+        {
+            "name": "吸引并留住用户",
+            "key": "engage-retain-users",
+            "children": [
+                {
+                    "name": "将站点添加至首屏",
+                    "key": "engage-retain-users/add-to-home-screen"
+                }
+            ]
+        },
+        {
+            "name": "消息通知",
+            "key": "notification"
+        },
+        {
+            "name": "自动登录",
+            "key": "automatic-login"
+        },
+        {
+            "name": "网络安全",
+            "key": "web-security"
+        }
+    ]
+}
