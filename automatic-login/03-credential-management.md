@@ -80,7 +80,7 @@ fetch('/login/site/api', {
     // 后续操作
 })
 .catch(err => {
-    // 错误操作
+    // 错误处理
 })
 
 
@@ -123,7 +123,7 @@ if (navigator.credentials) {
 
 ```
 
-从上面的例子可以看到，首先需要将登录表单转换为 `PasswordCredetial` 对象，再通过调用 `navigator.credentials.store()` 方法进行存储。
+从上面的例子可以看到，首先需要将登录表单转换为 `PasswordCredential` 对象，再通过调用 `navigator.credentials.store()` 方法进行存储。
 
 navigator.credentials.store 的方法定义如下：
 
@@ -145,6 +145,19 @@ navigator.credentials.store 的方法定义如下：
 - `password`: **必须** 密码
 - `name`: **非必需** 用户名
 - `iconUrl`: **非必需** 用户头像
+
+如：
+
+```javascript
+
+let cred = new PasswordCredential({
+    id: profile.id,
+    password: profile.password,
+    name: profile.name,
+    iconUrl: profile.iconUrl
+});
+
+```
 
 其中 `name` 和 `iconUrl` 是用于账号选择器的显示，因为相比于不易阅读的账号，使用用户名和头像进行账号区分，会显得更加友好。可以在用户登录成功时，从服务端返回相应的信息供存储。
 
@@ -168,7 +181,7 @@ if (navigator.credentials) {
 
 ```
 
-如果该域名事先有进行登录信息存储，在执行上述代码时，将会弹出账号选择器供用户进行账户选择：
+如果该域名事先有调用凭证管理 API 进行登录信息存储，在执行上述代码时，将会弹出账号选择器供用户进行账户选择：
 
 如果存储的登录信息只有一个，那么还将会隐去账号选择器而直接将唯一的登录信息返回，并且在界面上产生如下提示信息：
 
@@ -190,13 +203,56 @@ options 包含以下字段：
     `{boolean}` 是否支持通过密码认证登录
 - `unmediated`:
     `{boolean}` 是否隐藏账号选择器
-- `federated`: 展示联合登录账号的配置信息
+- `federated`: 第三方登录
     `{Object}`
     - `providers`:
         `{Array}` 联合登录账号供应者 id 组成的数组
 
+### 是否支持通过密码认证登录
 
-## 第三方登录管理
+只有当 `options.password === true` 时，调用 `navigator.credentials.get(options)` 账号选择器才会展示类型为 `PasswordCredential` 的登录信息。在读取到凭证信息的时候，需要通过 `type` 字段去判断当前获取的信息是否为 `PasswordCredential` 的凭证信息。例如：
 
-## 示例
+```javascript
 
+navigator.credentials.get({password: true})
+.then(function (cred) {
+    if (cred) {
+        switch (cred.type) {
+            case 'password':
+                // 处理 PasswordCredential 凭证的方法
+            // ....
+        }
+    }
+})
+
+```
+
+### 是否隐藏账号选择器
+
+有时对于用户来说，在同一个网站仅仅保存了一个账号的情况下，在登录时仍然弹出账号选择器让用户选择的这个过程会显得有些多余。因此可以将 `options.unmediated` 设置为 `true`，在调用 `navigator.credentials.get(options)` 时，能够直接返回一个登录信息，省去账号选择器的显示与选择，帮助用户实现自动登录。自动登录需要满足以下条件：
+
+- 浏览器已经显式地告知用户正在进行自动登录
+- 用户曾经通过凭证管理 API 登录了网站
+- 用户在该网站只保存了一个认证对象
+- 用户在上一次访问时没有主动退出登录
+
+当任一条件不满足时，这个方法将会被 `reject` 或者是返回的凭证为 `undefined`，在这种情况下账号选择器也不会显示出来，这时用户就只能手动输入账号密码了... 因此不太建议将 `unmediated` 设为 `true`，而是不对其进行任何赋值操作，让浏览器自动去判断是应该显示账号选择器还是直接实现自动登录。
+
+### 第三方登录配置信息
+
+凭证管理 API 支持对第三方登录的凭证信息进行存储，在[第三方登录管理](./04-third-party-login.md)章节中，会进行详细说明。
+
+## 退出登录
+
+当用户退出网站时，应该确保用户在下次访问的时候不会自动登录。可以通过调用 `navigator.credentials.requireUserMediation()` 来关闭自动登录。
+
+```javascript
+
+app.logout = function () {
+    // 处理登出流程
+    navigator.credentials.requireUserMediation();
+};
+
+```
+
+这样调用 `app.logout()` 登出后，如果调用 `navigator.credentials.get()` 时，将不会触发自动登录。
