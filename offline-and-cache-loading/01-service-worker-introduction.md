@@ -65,20 +65,20 @@ service worker 可以描述为有以下功能和特性：
 
 ## 浏览器支持情况
 
-虽说 W3C 组织为了让用户体验做到极致操碎了心提出了这么有用的 API ，我们都知道根据以往标准或草案的提出各大浏览器厂商的实现步伐是不一样的，那么 serviceWoker 这么好用的东西到底浏览器支持情况怎么样呢？
+虽说 W3C 组织为了让用户体验做到极致操碎了心提出了这么有用的 API ，我们都知道根据以往标准或草案的提出各大浏览器厂商的实现步伐是不一样的，那么 service woker 这么好用的东西到底浏览器支持情况怎么样呢？
 
 
 ![service worker 浏览器兼容图](./images/compatibility.png)
 
 看到这张图还是相当激动的，至少也绿了一片，总结一下：
 
-- chrome 作为开路先锋早早的就在v40版本就支持了，还提供了完善的debug方案（ [service worker debug](./04-service-worker-debug) ）
+- chrome 作为开路先锋早早的就在 v40 版本就支持了，还提供了完善的 debug 方案（ [service worker debug](./04-service-worker-debug.md) ）
 
 - firefox，opera 不甘示弱在后续版本也进行了支持
 
 - 安卓手机 4.x 以上版本新系统形势一片大好（具体各手机的实现还得进一步探测）
 
-- 安卓chrome同样给力
+- 安卓 chrome 同样给力
 
 - iOS。。
 
