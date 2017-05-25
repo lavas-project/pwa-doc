@@ -44,17 +44,17 @@ PWA 添加至桌面的功能实现依赖于 manifest.json。当前 manifest.json
 通过对 manifest.json 进行相应配置，可以实现以下功能：
 
 - 基本功能
-    - [自定义名称](./02-basic-conditions.md/#自定义名称)
-    - [自定义图标](./02-basic-conditions.md/#自定义图标)
-    - [设置启动网址](./02-basic-conditions.md/#设置启动网址)
-    - [设置作用域](./02-basic-conditions.md/#设置作用域)
+    - [自定义名称](./02-basic-conditions.md#自定义名称)
+    - [自定义图标](./02-basic-conditions.md#自定义图标)
+    - [设置启动网址](./02-basic-conditions.md#设置启动网址)
+    - [设置作用域](./02-basic-conditions.md#设置作用域)
 
 - 改善应用体验
-    - [添加启动画面](./03-improved-webapp-experience.md/#添加启动画面)
-    - [设置显示类型](./03-improved-webapp-experience.md/#设置显示类型)
-    - [指定显示方向](./03-improved-webapp-experience.md/#指定页面显示方向)
-    - [设置主题色](./03-improved-webapp-experience.md/#设置主题颜色)
+    - [添加启动画面](./03-improved-webapp-experience.md#添加启动画面)
+    - [设置显示类型](./03-improved-webapp-experience.md#设置显示类型)
+    - [指定显示方向](./03-improved-webapp-experience.md#指定页面显示方向)
+    - [设置主题色](./03-improved-webapp-experience.md#设置主题颜色)
 
 - 应用安装横幅
-    - [引导用户添加应用](./04-app-install-banners.md/#引导用户添加应用至主屏幕)
+    - [引导用户添加应用](./04-app-install-banners.md#引导用户添加应用至主屏幕)
     - [引导用户安装原生应用](./04-app-install-banners.md/#引导用户安装原生应用)
