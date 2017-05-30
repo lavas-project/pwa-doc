@@ -59,8 +59,9 @@ if ('serviceWorker' in navigator) {
 
 代码执行完成之后，我们这就注册了一个 service worker，它工作在 worker context，所以没有访问 DOM 的权限。在正常的页面之外运行 service worker 的代码来控制它们的加载。
 
+#### 查看是否注册成功
 
-#### 如果你很困惑，我的 service worker 到底注册成功没有呢？注册成功的样子是个啥捏？
+如果你很困惑，我的 service worker 到底注册成功没有呢？注册成功的样子是个啥捏？
 
 可以在 PC 上打开我们的好伙伴 chrome 浏览器, 输入 `chrome://inspect/#service-workers`
 
@@ -70,10 +71,9 @@ if ('serviceWorker' in navigator) {
 
 当然，它还可用于测试隐身窗口中的 service worker 线程，您可以关闭 service worker 线程并重新打开，因为之前的 service worker 线程不会影响新窗口。从隐身窗口创建的任何注册和缓存在该窗口关闭后均将被清除。
 
+#### 注册失败的原因
 
-#### 为啥会导致 service worker 注册失败呢？
-
-注册的原因基本就是以下几种情况：
+为啥会导致 service worker 注册失败呢？原因基本就是以下几种情况：
 
 - 不是 https 环境，不是 `localhost` 或 `127.0.0.1`。
 
@@ -142,7 +142,7 @@ this.addEventListener('fetch', function (event) {
             if (response) {
                 return response;
             }
-            
+
             // 如果 service worker 没有返回，那就得直接请求真是远程服务
             var request = event.request.clone(); // 把原始请求拷过来
             return fetch(request).then(funciton (httpRes) {
@@ -184,9 +184,9 @@ this.addEventListener('fetch', function (event) {
 
 如果 `/sw.js` 内容有更新，当访问网站页面时浏览器获取了新的文件，逐字节比对 `/sw.js` 文件发现不同时它会认为有更新启动[更新算法](https://w3c.github.io/ServiceWorker/#update-algorithm)，于是会安装新的文件并触发 install 事件。但是此时已经处于激活状态的旧的 service worker 还在运行，新的 service worker 完成安装后会进入 waiting 状态。直到所有已打开的页面都关闭，旧的 service worker 自动停止，新的 service worker 才会在接下来重新打开的页面里生效。
 
-#### 如果希望在有了新版本时，所有的页面都得到及时自动更新怎么办呢？
+#### 如何自动更新所有页面
 
-可以在 install 事件中执行 `self.skipWaiting()` 方法跳过 waiting 状态，然后会直接进入 activate 阶段。接着在 activate 事件发生时，通过执行 `self.clients.claim()` 方法，更新所有客户端上的 service worker。
+如果希望在有了新版本时，所有的页面都得到及时自动更新怎么办呢？可以在 install 事件中执行 `self.skipWaiting()` 方法跳过 waiting 状态，然后会直接进入 activate 阶段。接着在 activate 事件发生时，通过执行 `self.clients.claim()` 方法，更新所有客户端上的 service worker。
 
 看一下具体实例：
 
