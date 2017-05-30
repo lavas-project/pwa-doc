@@ -5,12 +5,12 @@
             "key": "README"
         },
         {
-            "name": "起步",
-            "key": "getting-started"
+            "name": "为什么是渐进式",
+            "key": "why-is-progressive"
         },
         {
-            "name": "产出",
-            "key": "production"
+            "name": "如何评估 PWA 的效果",
+            "key": "how-to-evaluate-the-effect-of-pwa"
         },
         {
             "name": "离线和缓存",
@@ -21,14 +21,22 @@
             "key": "engage-retain-users",
             "children": [
                 {
+                    "name": "如何吸引并留住用户",
+                    "key": "engage-retain-users/introdution"
+                },
+                {
                     "name": "将站点添加至首屏",
                     "key": "engage-retain-users/add-to-home-screen"
+                },
+                {
+                    "name": "消息推送介绍",
+                    "key": "engage-retain-users/how-push-works"
+                },
+                {
+                    "name": "消息通知",
+                    "key": "engage-retain-users/notification"
                 }
             ]
-        },
-        {
-            "name": "消息通知",
-            "key": "notification"
         },
         {
             "name": "自动登录",
