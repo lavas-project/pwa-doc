@@ -1,4 +1,4 @@
-# PWA Documents
+# 什么是 PWA
 
 Progressive Web App, 简称 PWA，是提升 Web App 的体验的一种新方法，能给用户原生应用的体验。
 
@@ -10,7 +10,7 @@ PWA 的主要特点包括下面三点：
 * 体验 - 快速响应，并且有平滑的动画响应用户的操作
 * 再互动 - 像设备上的原生应用，具有沉浸式的用户体验，用户可以添加到桌面
 
-PWA 本身强调渐进式，并不要求一次性达到安全、性能和体验上的所有要求，开发者可以通过 **[PWA Checklist](https://developers.google.com/web/progressive-web-apps/checklist?hl=zh-ch)** 查看现有的特征。
+PWA 本身强调渐进式，并不要求一次性达到安全、性能和体验上的所有要求，开发者可以通过 **[PWA Checklist](https://developers.google.cN/web/progressive-web-apps/checklist)** 查看现有的特征。
 
 ## 可靠
 
@@ -18,7 +18,7 @@ PWA 本身强调渐进式，并不要求一次性达到安全、性能和体验�
 
 Service Worker 是用 JavaScript 编写的 JS 文件，能够代理请求，并且能够操作浏览器缓存，通过将缓存的内容直接返回，让请求能够瞬间完成。开发者可以预存储关键文件，可以淘汰过期的文件等等，给用户提供可靠的体验。
 
-详细请看 [Service Worker 介绍](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers)。
+详细请看 [Service Worker 介绍](https://developers.google.cn/web/fundamentals/getting-started/primers/service-workers)。
 
 ## 体验
 
@@ -26,7 +26,7 @@ Service Worker 是用 JavaScript 编写的 JS 文件，能够代理请求，并�
 
 为了保证首屏的加载，我们需要从设计上考虑，在内容请求完成之前，可以优先保证 App Shell 的渲染，做到和 Native App 一样的体验，App Shell 是 PWA 界面展现所需的最小资源。
 
-参考 [App Shell 设计规范](https://developers.google.com/web/fundamentals/architecture/app-shell?hl=zh-cn)。
+参考 [App Shell 设计规范](https://developers.google.cn/web/fundamentals/architecture/app-shell)。
 
 ## 再互动
 
@@ -38,7 +38,7 @@ Service Worker 是用 JavaScript 编写的 JS 文件，能够代理请求，并�
 
 Web App Manifest 允许开发者控制 PWA 添加到桌面，允许定制桌面图标、URL等等。
 
-参考 [Web App Manifest](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/?hl=zh-cn) 和 [Push Notification](https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/?hl=zh-cn)。
+参考 [Web App Manifest](https://developers.google.cn/web/fundamentals/engage-and-retain/web-app-manifest/?hl=zh-cn) 和 [Push Notification](https://developers.google.cn/web/fundamentals/engage-and-retain/push-notifications/?hl=zh-cn)。
 
 
 ## 其他
