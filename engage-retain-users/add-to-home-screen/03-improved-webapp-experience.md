@@ -87,8 +87,6 @@ background_color 的值可以通过如下几种形式定义：
 
 ![启动画面](./img/splash-blue.jpg)
 
-启动画面
-
 ## 设置显示类型
 
 可以通过设置 `display` 属性去指定 PWA 从主屏幕点击启动后的显示类型。
@@ -141,19 +139,11 @@ background_color 的值可以通过如下几种形式定义：
 
 ![fullscreen](./img/fullscreen.jpg)
 
-fullscreen
-
 ![standalone](./img/standalone.jpg)
-
-standalone
 
 ![minimal-ui（由于浏览器不支持，因此降级为browser）](./img/browser.jpg)
 
-minimal-ui（由于浏览器不支持，因此降级为browser）
-
 ![browser](./img/browser.jpg)
-
-browser
 
 
 ## 指定页面显示方向
@@ -202,8 +192,6 @@ orientation属性的值有以下几种：
 
 ![browser 模式下浏览器UI样式](./img/browser.jpg)
 
-browser 模式下浏览器UI样式
-
 在指定了 `theme_color` 的值之后，地址栏依然呈白色。针对这种情况，可以在页面 HTML 里设置 `name` 为 `theme-color` 的 `meta` 标签，例如：
 
 ```html
@@ -215,8 +203,6 @@ browser 模式下浏览器UI样式
 此时浏览器UI将显示如下：
 
 ![设置theme-color<meta>的 browser 模式](./img/meta.jpg)
-
-设置theme-color<meta>的 browser 模式
 
 需要注意的是，这个标签的色值会覆盖 manifest.json 里设置的 `theme_color`，如果两个色值不一样的话，会导致应用启动画面和内容页的主题色不一致，因此建议将 `theme_color` 的色值设置得与 `theme-color<meta>`的色值相等。
 
@@ -238,12 +224,7 @@ browser 模式下浏览器UI样式
 
 ![启动页状态栏呈蓝色](./img/no-meta.jpg)
 
-启动页状态栏呈蓝色
-
 ![内容页状态栏呈蓝色](./img/no-meta-content.jpg)
-
-内容页状态栏呈蓝色
-
 
 如果此时在网页的 HTML 头部加入如下 meta 标签：
 
@@ -257,8 +238,4 @@ browser 模式下浏览器UI样式
 
 ![启动页状态栏依旧呈蓝色](./img/no-meta.jpg)
 
-启动页状态栏依旧呈蓝色
-
 ![设置theme-color<meta>后的内容页状态栏呈绿色](./img/meta-content.jpg)
-
-设置theme-color<meta>后的内容页状态栏呈绿色
