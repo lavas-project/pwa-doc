@@ -19,7 +19,7 @@
 
 ### 设置图像和标题
 
-浏览器会从 [`icons`](./02-introduction.md/#自定义图标) 中选择最接近 `128dp` 的图片作为启动画面图像。标题则直接取自 [`name`](./02-introduction.md/#自定义名称)。
+浏览器会从 [icons](./02-introduction.md/#自定义图标) 中选择最接近 `128dp` 的图片作为启动画面图像。标题则直接取自 [name](./02-introduction.md/#自定义名称)。
 
 ### 设置背景颜色
 
@@ -49,7 +49,7 @@ background_color 的值可以通过如下几种形式定义：
 
 ### 设置显示类型
 
-仅当显示类型 `display` 设置为 `standalone` 或 `fullscreen` 时，PWA 启动的时候才会显示启动画面。关于 `display` 的详细介绍请阅读 [`设置显示类型`](#设置显示类型) 章节。
+仅当显示类型 `display` 设置为 `standalone` 或 `fullscreen` 时，PWA 启动的时候才会显示启动画面。关于 `display` 的详细介绍请阅读 [设置显示类型](#设置显示类型) 章节。
 
 ```json
 
@@ -103,7 +103,7 @@ background_color 的值可以通过如下几种形式定义：
 | minimal-ui | 显示形式与standalone类似，浏览器相关UI会最小化为一个按钮，不同浏览器在实现上略有不同 | browser |
 | browser | 浏览器模式，与普通网页在浏览器中打开的显示一致 | (None) |
 
-**注意** 可以通过 [`display-mode`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/%40media/display-mode) 这个媒体查询条件去指定在不同的显示类型下不同的显示样式，如：
+**注意** 可以通过 [display-mode](https://developer.mozilla.org/zh-CN/docs/Web/CSS/%40media/display-mode) 这个媒体查询条件去指定在不同的显示类型下不同的显示样式，如：
 
 ```css
 
@@ -237,5 +237,7 @@ orientation属性的值有以下几种：
 则对应内容页的状态栏显示为绿色。
 
 ![启动页状态栏依旧呈蓝色](./img/no-meta.jpg)
+
+
 
 ![设置theme-color<meta>后的内容页状态栏呈绿色](./img/meta-content.jpg)
