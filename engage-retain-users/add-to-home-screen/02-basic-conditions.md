@@ -18,7 +18,7 @@ PWA在通过应用安装横幅引导用户安装 app，以及被添加到主屏�
 
 之所以用两个字段做区分，是由于显示在主屏幕的应用名称长度有限，超长部分会被截断并显示省略号，需要设置较短的应用名称优化显示；而安装横幅没有长度限制，可以将完整的应用名称显示出来。
 
-**注** 目前如果修改了 manifest.json 的应用名称，已添加到主屏幕的名称并不会改变，只有当用户重新添加到桌面时，更改后的名称才会显示出来。但是在未来版本的 Chrome 浏览器将支持名称自动更新，详情请戳：[`Updating your app's icon and name`](https://developers.google.com/web/updates/2017/02/improved-add-to-home-screen#updating_your_apps_icon_and_name)。
+**注** 目前如果修改了 manifest.json 的应用名称，已添加到主屏幕的名称并不会改变，只有当用户重新添加到桌面时，更改后的名称才会显示出来。但是在未来版本的 Chrome 浏览器将支持名称自动更新，详情请戳：[Updating your app's icon and name](https://developers.google.com/web/updates/2017/02/improved-add-to-home-screen#updating_your_apps_icon_and_name)。
 
 ### 示例
 
@@ -56,7 +56,7 @@ PWA在通过应用安装横幅引导用户安装 app，以及被添加到主屏�
 - `sizes`
     `{string}` 图标尺寸，格式为`widthxheight`，宽高数值以 css 的 `px` 为单位。如果需要填写多个尺寸，则使用空格进行间隔，如"48x48 96x96 128x128"。
 
-更详尽的ImageObject介绍，请参阅 [`Image object and its members`](https://www.w3.org/TR/appmanifest/#dfn-image-object)。
+更详尽的ImageObject介绍，请参阅 [Image object and its members](https://www.w3.org/TR/appmanifest/#dfn-image-object)。
 
 当PWA添加到主屏幕时，浏览器会根据有效图标的 sizes 字段进行选择。首先寻找与显示密度相匹配并且尺寸调整到 48dp 屏幕密度的图标；如果未找到任何图标，则会查找与设备特性匹配度最高的图标；如果匹配到的图标路径错误，将会显示浏览器默认 icon。
 
@@ -64,7 +64,7 @@ PWA在通过应用安装横幅引导用户安装 app，以及被添加到主屏�
 
 1. 为了能够自动显示安装横幅，必须要配置一个 sizes 为 `144x144` 的图标，且图标的 mime 类型为 `image/png`。详情请参阅[应用安装横幅](#引导用户添加应用至主屏幕)章节；
 2. 在启动应用时，启动画面图像会从图标列表中提取最接近 `128dp` 的图标进行显示。详情请参阅[添加应用启动画面](#添加启动画面)章节。
-3. 目前如果修改了 manifest.json 的图标列表，已添加到主屏幕的名称并不会改变，只有当用户重新添加到桌面时，更改后的图标才会显示出来。但是在未来版本的 Chrome 浏览器将支持图标自动更新，详情请戳：[`Updating your app's icon and name`](https://developers.google.com/web/updates/2017/02/improved-add-to-home-screen#updating_your_apps_icon_and_name)。
+3. 目前如果修改了 manifest.json 的图标列表，已添加到主屏幕的名称并不会改变，只有当用户重新添加到桌面时，更改后的图标才会显示出来。但是在未来版本的 Chrome 浏览器将支持图标自动更新，详情请戳：[Updating your app's icon and name](https://developers.google.com/web/updates/2017/02/improved-add-to-home-screen#updating_your_apps_icon_and_name)。
 
 
 ### 示例
@@ -195,7 +195,7 @@ manifest.json 对应的 start_url 如果采用绝对地址的形式，其配置�
 
 **注** scope 属性在浏览器中的实现仍然在细化和改进。
 
-scope 应遵循如下[`规则`](https://developers.google.com/web/updates/2017/02/improved-add-to-home-screen#effectively_managing_your_apps_scope)：
+scope 应遵循如下[规则](https://developers.google.com/web/updates/2017/02/improved-add-to-home-screen#effectively_managing_your_apps_scope)：
 
 - 如果没有在 manifest 中设置 scope，则默认的作用域为 manifest.json 所在文件夹；
 - scope 可以设置为 `../` 或者更高层级的路径来扩大PWA的作用域；
