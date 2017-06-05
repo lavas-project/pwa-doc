@@ -12,7 +12,7 @@
 
 ## 标准现状
 
-PWA 添加至桌面的功能实现依赖于 manifest.json。当前 manifest.json 的标准仍属于草案阶段，Chrome 和 Firefox 已经实现了这个功能，微软正努力在 Edge 浏览器上实现，Apple 目前仍在考虑中。具体请查阅 [`caniuse.com`](http://caniuse.com/#search=manifest) 来查看主流浏览器的支持情况。同时需要注意的是，manifest.json 目前仍属于实验性技术，所以其部分属性和功能在未来有可能会发生改变。
+PWA 添加至桌面的功能实现依赖于 manifest.json。当前 manifest.json 的标准仍属于草案阶段，Chrome 和 Firefox 已经实现了这个功能，微软正努力在 Edge 浏览器上实现，Apple 目前仍在考虑中。具体请查阅 [caniuse.com](http://caniuse.com/#search=manifest) 来查看主流浏览器的支持情况。同时需要注意的是，manifest.json 目前仍属于实验性技术，所以其部分属性和功能在未来有可能会发生改变。
 
 ## 使用说明
 

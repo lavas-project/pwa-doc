@@ -24,11 +24,11 @@ PWA 提供两种添加应用横幅，分别实现**引导用户添加 PWA 至桌
 浏览器在 PWA 站点满足以下条件时会自动显示横幅：
 
 - 站点部署 manifest.json，该文件需配置如下属性：
-    - [`short_name`](./02-basic-conditions.md/#自定义名称) （用于主屏幕显示）
-    - [`name`](./02-basic-conditions.md/#自定义名称) （用于安装横幅显示）
-    - [`icons`](./02-basic-conditions.md/#自定义图标) （其中必须包含一个 `144x144` 且 mime 类型为 `image/png` 的图标声明）
-    - [`start_url`](./02-basic-conditions.md/#设置启动网址) （应用启动地址）
-    - [`display`](./03-improved-webapp-experience.md/#设置显示类型) （必须为 `standalone` 或 `fullscreen`）
+    - [short_name](./02-basic-conditions.md/#自定义名称) （用于主屏幕显示）
+    - [name](./02-basic-conditions.md/#自定义名称) （用于安装横幅显示）
+    - [icons](./02-basic-conditions.md/#自定义图标) （其中必须包含一个 `144x144` 且 mime 类型为 `image/png` 的图标声明）
+    - [start_url](./02-basic-conditions.md/#设置启动网址) （应用启动地址）
+    - [display](./03-improved-webapp-experience.md/#设置显示类型) （必须为 `standalone` 或 `fullscreen`）
 - 站点注册 Service Worker。
 - 站点支持 HTTPS 访问。
 - 站点在同一浏览器中被访问至少两次，两次访问间隔至少为 5 分钟。

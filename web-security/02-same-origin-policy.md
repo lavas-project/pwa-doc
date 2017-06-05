@@ -25,7 +25,7 @@ http://www.example.com/dir/page.html
 
 #### 更改源
 
-页面可以更改自己的源，但会受到一些限制。比如，可以使用 [`document.domain`](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/domain)来设置子域的 `domain` 值，允许其安全访问其父域。例如：
+页面可以更改自己的源，但会受到一些限制。比如，可以使用 [document.domain](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/domain)来设置子域的 `domain` 值，允许其安全访问其父域。例如：
 
 可以在 `http://child.company.com/dir/a.html`中执行：
 
@@ -59,5 +59,5 @@ document.domain = 'company.com';
 
 同源策略做了很严格的限制，但在实际的场景中，又确实有很多地方需要突破同源策略的限制，也就是我们常说的跨域。
 
-规避上述限制，实现跨域通信的解决方案有多种，如 [`CORS`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)，`JSONP`，使用`window.name`，使用[`window.postMessage`](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage) 等，这里就不一一展开讲了。
+规避上述限制，实现跨域通信的解决方案有多种，如 [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)，`JSONP`，使用`window.name`，使用[window.postMessage](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage) 等，这里就不一一展开讲了。
 
