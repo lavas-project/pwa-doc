@@ -22,10 +22,18 @@
 
 同样需要调用方法 `navigator.credentials.store()` 进行第三方登录凭证存储，只不过存入的凭证类型为 `FederatedCredential`。`FederatedCredential` 同样实现了 `Credential` 接口，同时还新增了 `provider` 字段作为第三方登录提供方的标识符。因此 `FederatedCredential` 初始化参数对象应包含以下信息：
 
-- `id`: **必须** 账号
-- `provider`: **必须** 第三方登录提供方
+- `id`: **必须** 账户名
+- `provider`: **必须** 第三方登录提供方网址
 - `name`: **非必需** 用户名
 - `iconUrl`: **非必需** 用户头像
+
+其中 `provider` 要求必须是完整的带协议头的 URL 地址。我们可以在控制台做如下实验：
+
+![provider 格式实验](./img/federatedcredential.jpg)
+
+可以看到，浏览器会校验 provider 的格式，当格式不符合 URL 格式时会抛出错误。
+
+这样，我们就可以使用 `FederatedCredential` 对第三方登录信息进行存储啦。
 
 例如：
 
@@ -71,30 +79,26 @@ thirdPartyLogin()
 ```javascript
 navigator.credentials.get({
     federated: {
-        providers: ['baidu.com', 'weibo.com', 'github.com']
+        providers: ['https://www.baidu.com', 'https://www.weibo.com', 'https://www.github.com']
     }
 });
 ```
 
-其中 `providers` 中填入的账号供应者信息只是作为第三方登录的标识符，您也可以写成诸如：
-
-```javascript
-providers: ['百度', '微博', 'Github']
-```
-
-之类的形式，前提是，这些标识符需要与 `FederatedCredential` 第三方登录凭证信息的 `provider` 象一致即可。
+这些 `providers` 需要与 `FederatedCredential` 第三方登录凭证信息的 `provider` 相一致。
 
 这样在弹出的账号选择列表中，就可以看到如下所示的账号信息：
 
-这些就是对应的第三方登录凭证信息。
+![第三方账号信息](./img/only-third-party.jpg)
 
-在获取到第三方登录凭证信息之后，需要通过 `type` 和 `provider` 字段进行凭证信息分类处理，如：
+那些带有`提供方`描述字样的信息就是对应的第三方登录凭证信息。
+
+对于不同的第三方登录具有不同的处理方式，因此在获取到第三方登录凭证信息之后，需要通过 `type` 和 `provider` 字段进行凭证信息分类处理，如：
 
 ```javascript
 navigator.credentials.get({
     password: true,
     federated: {
-        providers: ['baidu.com', 'weibo.com']
+        providers: ['https://www.baidu.com', 'https://www.weibo.com']
     }
 })
 .then(function (cred) {
@@ -105,12 +109,109 @@ navigator.credentials.get({
             case 'federated':
                 // FederatedCredential 凭证处理
                 switch (cred.provider) {
-                    case 'baidu.com':
+                    case 'https://www.baidu.com':
                         // 调起百度第三方登录
-                    case 'weibo.com':
+                    case 'https://www.weibo.com':
                         // 调起微博第三方登录
                 }
         }
     }
 });
 ```
+## 第三方登录示例
+
+完整的示例代码可以 [戳这里](https://github.com/searchfe/searchfe.github.io/blob/master/pwa-demo/credential-demo/third-party.html)
+
+第三方登录界面如下：
+
+![第三方登录界面](./img/third-party.jpg)
+
+点击登录界面的`百度登录`按钮，即可触发模拟第三方登录。相关代码如下：
+
+```html
+<button id="login-btn" data-provider="https://www.baidu.com">百度登录</button>
+```
+
+```javascript
+$btn.addEventListener('click', function () {
+    let provider = this.dataset.provider;
+    // 假装 fetch('./third-party.json') 是调用百度第三方登录的过程
+    fetch('./third-party.json')
+    .then(res => {
+        if (res.status === 200) {
+            return res.json();
+        }
+
+        return Promise.reject(res.status);
+    })
+    // 此处假装第三方登录并授权成功
+    .then(data => {
+        // 此处调用凭证管理 API 进行第三方登录信息存储
+        if (navigator.credentials) {
+            // 生成第三方登录凭证
+            let cred = new FederatedCredential({
+                id: data.uid,
+                provider: provider,
+                name: data.name,
+                iconURL: data.icon
+            });
+            // 存储
+            return navigator.credentials.store(cred)
+                .then(() => {
+                    return data;
+                });
+        }
+
+        return Promise.resolve(data);
+    })
+    // 存储完成后再跳转至登录成功页
+    .then(data => {
+        window.location.href = './main.html?from=third-party&username=' + data.name;
+    });
+});
+```
+
+其中模拟第三方授权登录的 `third-party.json` 返回如下：
+
+```javascript
+{
+    "name": "测试百度用户名",
+    "uid": "123456",
+    "icon": "https://searchfe.github.io/pwa-demo/credential-demo/images/logo-48x48.png"
+}
+```
+
+跳转到成功页时将提示如下信息：
+
+![是否保存账号对话框](./img/third-party-success.jpg)
+
+点击保存并重新打开登录页面时，将弹出如下账号选择器：
+
+![账号选择器](./img/third-party-select.jpg)
+
+可以看到提供方为 `www.baidu.com` 的账号信息显示在账号选择器列表中。对应的代码如下所示：
+
+```javascript
+if (navigator.credentials) {
+    navigator.credentials.get({
+        password: true,
+        federated: {
+            providers: ['https://www.baidu.com']
+        }
+    })
+    .then(cred => {
+        if (cred) {
+            switch (cred.type) {
+                case 'federated':
+                    // FederatedCredential 凭证处理
+                    switch (cred.provider) {
+                        case 'https://www.baidu.com':
+                            // 调起百度第三方登录
+                            window.location.href = './main.html?from=third-party&username=' + cred.name;
+                    }
+            }
+        }
+    });
+}
+```
+从这个例子也可以看出，对于第三方登录凭证，显示在账号选择器列表里的账号标识为 `id`，与密码凭证有所区别。

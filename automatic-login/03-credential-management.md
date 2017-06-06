@@ -151,6 +151,8 @@ let cred = new PasswordCredential({
 
 `navigator.credentials.store` 之所以是个异步操作，是因为在调用该方法时，浏览器会弹出提示框询问用户是否对登录信息进行存储，如图所示：
 
+![保存登录信息对话框](./img/save-dialog.jpg)
+
 只有当用户选择“保存”时，浏览器才会将登录信息存储起来。
 
 ## 获取用户登录信息
@@ -169,7 +171,13 @@ if (navigator.credentials) {
 
 如果该域名事先有调用凭证管理 API 进行登录信息存储，在执行上述代码时，将会弹出账号选择器供用户进行账户选择：
 
+![账号选择器](./img/multi-select.jpg)
+
 如果存储的登录信息只有一个，那么还将会隐去账号选择器而直接将唯一的登录信息返回，并且在界面上产生如下提示信息：
+
+![自动登录提示信息](./img/auto-bar.jpg)
+
+自动登录的触发和自动登录提示信息的显示需要满足一系列条件，详情请参阅小节：[是否隐藏账号选择器](#是否隐藏账号选择器)。
 
 navigator.credentials.get 方法的定义如下：
 
@@ -222,9 +230,58 @@ navigator.credentials.get({password: true})
 
 当任一条件不满足时，这个方法将会被 `reject` 或者是返回的凭证为 `undefined`，在这种情况下账号选择器也不会显示出来，这时用户就只能手动输入账号密码了... 因此不太建议将 `unmediated` 设为 `true`，而是不对其进行任何赋值操作，让浏览器自动去判断是应该显示账号选择器还是直接实现自动登录。
 
+触发自动登录时，会显式地弹出如下提示：
+
+![自动登录提示信息](./img/auto-login.jpg)
+
 ### 第三方登录配置信息
 
 凭证管理 API 支持对第三方登录的凭证信息进行存储，在[第三方登录管理](./04-third-party-login.md)章节中，会进行详细说明。
+
+### 获取登录信息过滤
+
+我们可以通过配置不同的 options 去实现账号信息的过滤，减少用户的选择。比如配置如下的时候：
+
+```javascript
+navigator.credentials.get({
+    password: true,
+    federated: {
+        providers: ['https://www.baidu.com']
+    }
+})
+```
+
+所有的账号密码凭证和第三方登录凭证信息都会罗列出来：
+
+![全部账号信息](./img/third-party-select.jpg)
+
+其中带`提供方`标识的属于第三方登录凭证信息。
+
+如果只选择获取账号密码凭证：
+
+```javascript
+navigator.credentials.get({password: true})
+```
+
+账号选择器将只显示帐号密码凭证信息：
+
+![账号密码凭证信息](./img/password-select.jpg)
+
+只选择获取第三方登录凭证：
+
+```javascript
+navigator.credentials.get({
+    federated: {
+        providers: ['https://www.baidu.com']
+    }
+})
+```
+
+账号选择器将只显示第三方凭证信息：
+
+![第三方凭证信息](./img/only-third-party.jpg)
+
+事实上，如果站点支持多种第三方登录的话，还可以通过配置不同的 providers 数组来进一步缩小第三方登录信息的选择范围。
 
 ## 退出登录
 
@@ -238,3 +295,108 @@ app.logout = function () {
 ```
 
 这样调用 `app.logout()` 登出后，如果调用 `navigator.credentials.get()` 时，将不会触发自动登录。
+
+## 示例
+
+完整的示例代码可以 [戳这里](https://github.com/searchfe/searchfe.github.io/blob/master/pwa-demo/credential-demo/login.html)
+
+首先在登录页填写用户名和密码：
+
+![登录页填写登录信息](./img/password.jpg)
+
+点击登录按钮之后，采用 AJAX 方式提交登录信息。AJAX 请求返回如下：
+
+```javascript
+{
+    "name": "测试名",
+    "icon": "https://searchfe.github.io/pwa-demo/credential-demo/images/logo-48x48.png"
+}
+```
+
+然后，调用凭证管理 API 进行登录信息存储后跳转至登录成功页，代码如下：
+
+```javascript
+// fetch('./login.json') 为假装登录并获取登录信息
+fetch('./login.json')
+.then(res => {
+    if (res.status === 200) {
+        return res.json();
+    }
+
+    return Promise.reject(res.status);
+})
+// 此处假装登录成功
+.then(data => {
+    // 此处调用凭证管理 API 进行登录信息存储
+    if (navigator.credentials) {
+        // 生成密码凭据
+        let cred = new PasswordCredential({
+            id: usr.value,
+            password: pwd.value,
+            name: data.name,
+            iconURL: data.icon
+        });
+        // 登录信息存储
+        return navigator.credentials.store(cred)
+            .then(() => {
+                return data;
+            });
+    }
+
+    return Promise.resolve(data);
+})
+// 存储完成后再跳转至登录成功页
+.then(data => {
+    window.location.href = './main.html?from=login&username=' + data.name;
+});
+```
+
+在存储至少一个登录信息的情况下重新打开登录页，将自动弹出账户选择器：
+
+![账户选择器](./img/password-select.jpg)
+
+如果有多个账户的时候，则列表显示多个账户：
+
+![存在多个账户的选择器](./img/multi-select.jpg)
+
+点击对应的账户，会自动将账户信息填充至登录表单。这个填充过程实际上是开发者自己控制的，我们也可以拿到账户信息之后，直接去自动登录。对应账户信息获取及填充表单的代码如下：
+
+```javascript
+// 获取登录凭证
+if (navigator.credentials) {
+    navigator.credentials.get({
+        password: true
+    })
+    .then(cred => {
+        if (cred) {
+
+            switch (cred.type) {
+                case 'password':
+                    // 此处为自动填充表单的代码
+                    // 开发者可以根据实际需要对账户信息进行其他处理
+                    usr.value = cred.id;
+                    pwd.value = cred.password;
+                    break;
+                default:
+                    break;
+            }
+        }
+    });
+}
+```
+
+在`只有一个登录信息`的情况下再次打开登录页，将出现自动登录提示信息：
+
+![自动登录提示](./img/auto-login.jpg)
+
+在登录成功页点击`退出登录`按钮，则自动注销当前凭证，在下次打开登录页时，将会重新弹出账号选择器，而不会自动登录了。注销凭证的代码如下：
+
+```javascript
+// 点击按钮触发注销凭证事件
+$btn.addEventListener('click', () => {
+    // 注销凭证
+    navigator.credentials.requireUserMediation()
+        .then(afterLogout)
+        .catch(afterLogout);
+});
+```

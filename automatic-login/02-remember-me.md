@@ -64,3 +64,44 @@
 `autocomplete` 属于 HTML5 中的新属性，该属性原先支持的值为 `on | off`，表示对应的输入框自动填充功能的打开或者关闭，默认值为 `on`。目前 `autocomplete` 的值新增了部分有助于自动填充功能的标记符，如上面表单提到的 `username`、`current-password` 等等。
 
 关于自动填充相关介绍，可以阅读文章： [“Autofill: What web devs should know, but don’t”](https://cloudfour.com/thinks/autofill-what-web-devs-should-know-but-dont/)；关于 autocomplete 的扩展标记符说明，请阅读[ w3c 标准](https://html.spec.whatwg.org/multipage/forms.html#autofill)。
+
+### 自动填充示例
+
+完整的示例代码可以 [戳这里](https://github.com/searchfe/searchfe.github.io/blob/master/pwa-demo/credential-demo/remember-me.html)
+
+其中表单的 HTML 如下：
+
+```html
+<form class="form"
+        action="./main.html"
+        method="get"
+    >
+    <h3>登录网站</h3>
+    <p>
+        <label>用户名</label>
+        <input type="text" name="username">
+    </p>
+    <p>
+        <label>密&ensp;&ensp;码</label>
+        <input type="password" name="password">
+    </p>
+    <input type="text" name="from" value="remember-me" style="display: none">
+    <button id="btn" type="submit">登录</button>
+</form>
+```
+
+在登录时提交如下信息：
+
+![提交登录信息](./img/remember-me.jpg)
+
+登录成功时会自动触发存储登录信息的对话框：
+
+![登录成功界面](./img/remember-me-success.jpg)
+
+点击保存后，重新打开登录界面，可以看到登录信息已被自动填充，同时自动填充的字段还被浏览器默认标上了淡黄色底色：
+
+![账户信息自动填充](./img/remember-me-auto.jpg)
+
+如果在该`域名`下保存了多个登录信息，在点击账户名时，会出现下拉框供用户选择对应的账户，当用户选择对应账户名的时候，对应的密码也会自动填充：
+
+![账户选择](./img/remember-me-select.jpg)
