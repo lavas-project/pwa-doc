@@ -18,8 +18,7 @@ PWA 添加至桌面的功能实现依赖于 manifest.json。当前 manifest.json
 
 为了实现 PWA 应用添加至桌面的功能，除了要求站点支持 HTTPS 之外，还需要准备 manifest.json 文件去配置应用的图标、名称等信息。举个例子，一个基本的 manifest.json 应包含如下信息：
 
-```json
-
+```javascript
 {
     "short_name": "短名称",
     "name": "这是一个完整名称",
@@ -32,7 +31,6 @@ PWA 添加至桌面的功能实现依赖于 manifest.json。当前 manifest.json
     ],
     "start_url": "index.html"
 }
-
 ```
 
 使用 `link` 标签将 manifest.json 部署到 PWA 站点 HTML 页面的头部，如下所示：

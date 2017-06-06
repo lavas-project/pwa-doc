@@ -28,24 +28,21 @@
 登录页面需要存在一个包含 `type="text"` 和 `type="password"` 的表单：
 
 ```html
-
 <form>
     <p>用户名：<input type="text" name="username"></p>
     <p>密码：<input type="password" name="password"></p>
 </form>
-
 ```
+
 事实上，浏览器会获取 `type="password"` 的输入框，以及这个输入框之上最近的一个 `type="text"` 的输入框内容，分别作为登录信息中的密码和账号进行存储，比如下面的表单结构：
 
 ```html
-
 <form>
     <p>用户名1：<input type="text" name="username1"></p>
     <p>用户名2：<input type="text" name="username2"></p>
     <p>密码：<input type="password" name="password"></p>
     <p><input type="submit" value="提交">
 </form>
-
 ```
 
 浏览器记住密码之后，只会自动填充 `username2` 和 `password` 这两个字段。因此在开发的时候，需要注意这一点。
@@ -55,13 +52,11 @@
 在表单字段中添加 `autocomplete` 属性，能够让登录信息的自动填充过程变得更友好些。假设表单结构如下所示：
 
 ```html
-
 <form>
     <p>用户名：<input type="text" name="usr" autocomplete="username"></p>
     <p>密码：<input type="password" name="pwd" autocomplete="current-password"></p>
     <p><input type="submit" value="提交">
 </form>
-
 ```
 
 在触发自动填充时，会增加如下提示：

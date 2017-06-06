@@ -30,8 +30,7 @@
 
 background_color 的值可以通过如下几种形式定义：
 
-```
-
+```javascript
 // 完整色值
 "background_color": "#0000ff"
 // 缩写
@@ -42,7 +41,6 @@ background_color 的值可以通过如下几种形式定义：
 "background_color": "rgb(0, 0, 255)"
 // transparent 背景色显示为黑色
 "background_color": "transparent"
-
 ```
 
 其余诸如`#0000ff90`、`rgba`、`hsl`、`hsla`等颜色定义方式浏览器不支持，因此背景色均显示为默认的白色。
@@ -51,10 +49,8 @@ background_color 的值可以通过如下几种形式定义：
 
 仅当显示类型 `display` 设置为 `standalone` 或 `fullscreen` 时，PWA 启动的时候才会显示启动画面。关于 `display` 的详细介绍请阅读 [设置显示类型](#设置显示类型) 章节。
 
-```json
-
+```javascript
 "display": "standalone"
-
 ```
 
 **注意**
@@ -66,8 +62,7 @@ background_color 的值可以通过如下几种形式定义：
 
 对 manifest.json 做如下配置：
 
-```json
-
+```javascript
 {
     "name": "这是一个完整名称",
     "icons": [
@@ -80,7 +75,6 @@ background_color 的值可以通过如下几种形式定义：
     "background_color": "#2196f3",
     "display": "standalone"
 }
-
 ```
 
 则应用启动画面如图所示：
@@ -106,7 +100,6 @@ background_color 的值可以通过如下几种形式定义：
 **注意** 可以通过 [display-mode](https://developer.mozilla.org/zh-CN/docs/Web/CSS/%40media/display-mode) 这个媒体查询条件去指定在不同的显示类型下不同的显示样式，如：
 
 ```css
-
 @media all and (display-mode: fullscreen) {
     body {
         margin: 0;
@@ -130,7 +123,6 @@ background_color 的值可以通过如下几种形式定义：
         margin: 3px;
     }
 }
-
 ```
 
 ### 示例
@@ -195,9 +187,7 @@ orientation属性的值有以下几种：
 在指定了 `theme_color` 的值之后，地址栏依然呈白色。针对这种情况，可以在页面 HTML 里设置 `name` 为 `theme-color` 的 `meta` 标签，例如：
 
 ```html
-
 <meta name="theme-color" content="green">
-
 ```
 
 此时浏览器UI将显示如下：
@@ -229,15 +219,11 @@ orientation属性的值有以下几种：
 如果此时在网页的 HTML 头部加入如下 meta 标签：
 
 ```html
-
 <meta name="theme-color" content="green">
-
 ```
 
 则对应内容页的状态栏显示为绿色。
 
 ![启动页状态栏依旧呈蓝色](./img/no-meta.jpg)
-
-
 
 ![设置theme-color<meta>后的内容页状态栏呈绿色](./img/meta-content.jpg)

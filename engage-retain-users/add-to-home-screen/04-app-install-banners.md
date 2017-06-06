@@ -135,7 +135,7 @@ button.addEventListener('click', function () {
 
 manifest.json 的配置如下：
 
-```json
+```javascript
 {
     "short_name": "短名称",
     "name": "这是一个完整名称",
@@ -242,7 +242,7 @@ AppInfo 的属性值包括：
 
 例如：
 
-```json
+```javascript
 "related_applications": [
     {
         "platform": "play",
@@ -253,6 +253,6 @@ AppInfo 的属性值包括：
 
 如果只希望用户安装原生应用，而不需要弹出横幅引导用户安装PWA，那么可以在 manifest.json 设置：
 
-```json
+```javascript
 "prefer_related_applications": true
 ```

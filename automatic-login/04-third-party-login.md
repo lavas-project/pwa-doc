@@ -30,7 +30,6 @@
 例如：
 
 ```javascript
-
 /* global THIRD_PARTY_PROVIDER */
 
 thirdPartyLogin()
@@ -54,7 +53,6 @@ thirdPartyLogin()
     .catch(function (err) {
         // 错误处理
     });
-
 ```
 
 ## 读取第三方登录凭证
@@ -71,21 +69,17 @@ thirdPartyLogin()
 例如：
 
 ```javascript
-
 navigator.credentials.get({
     federated: {
         providers: ['baidu.com', 'weibo.com', 'github.com']
     }
-})
-
+});
 ```
 
 其中 `providers` 中填入的账号供应者信息只是作为第三方登录的标识符，您也可以写成诸如：
 
 ```javascript
-
 providers: ['百度', '微博', 'Github']
-
 ```
 
 之类的形式，前提是，这些标识符需要与 `FederatedCredential` 第三方登录凭证信息的 `provider` 象一致即可。
@@ -97,7 +91,6 @@ providers: ['百度', '微博', 'Github']
 在获取到第三方登录凭证信息之后，需要通过 `type` 和 `provider` 字段进行凭证信息分类处理，如：
 
 ```javascript
-
 navigator.credentials.get({
     password: true,
     federated: {
@@ -120,5 +113,4 @@ navigator.credentials.get({
         }
     }
 });
-
 ```

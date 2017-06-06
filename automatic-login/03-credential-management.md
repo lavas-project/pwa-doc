@@ -23,36 +23,30 @@
 登录表单的创建比较自由，只要能够让用户输入账号密码信息并且能够让 JS 拿到相关数据即可，不一定非要构建传统的 `form` 表单，比如：
 
 ```html
-
 <div id="login-form">
     <input name="usr" type="text">
     <input name="pwd" type="password">
     <button id="btn">提交</button>
 </div>
-
 ```
 
 由于传统 `form` 表单在数据提交时，会发生页面跳转，因此如果采用传统 `form` 表单的写法，需要监听表单提交事件并且阻止默认的提交行为，再改用 AJAX 进行表单提交：
 
 ```html
-
 <form id="login-form">
     <input name="usr" type="text">
     <input name="pwd" type="password">
     <input type="submit" value="提交">
 </form>
-
 ```
 
 ```javascript
-
 var form = document.getElementById('login-form');
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
     // 改用 AJAX 进行表单提交
 });
-
 ```
 
 #### 异步表单提交
@@ -60,7 +54,6 @@ form.addEventListener('submit', function (e) {
 异步登录的方式也没有太多的限制，可以根据实际项目自行选择 `fetch`、`jQuery`、原生XHR 等方式实现：
 
 ```javascript
-
 var formData = new FormData(form);
 
 // fetch
@@ -99,7 +92,6 @@ $.ajax({
         // 错误操作
     }
 })
-
 ```
 
 登录成功之后，就可以对用户登录信息进行存储啦。
@@ -109,7 +101,6 @@ $.ajax({
 我们需要调用 `navigator.credentials.store()` 这个方法进行登录信息存储。由于仅有部分浏览器支持凭据管理 API，因此在使用前需要进行方法是否存在的判断：
 
 ```javascript
-
 if (navigator.credentials) {
     var cred = new PasswordCredential({
         id: formData.get('usr'),
@@ -120,7 +111,6 @@ if (navigator.credentials) {
     var promise = navigator.credentials.store(cred);
     // 后续操作
 }
-
 ```
 
 从上面的例子可以看到，首先需要将登录表单转换为 `PasswordCredential` 对象，再通过调用 `navigator.credentials.store()` 方法进行存储。
@@ -149,14 +139,12 @@ navigator.credentials.store 的方法定义如下：
 如：
 
 ```javascript
-
 let cred = new PasswordCredential({
     id: profile.id,
     password: profile.password,
     name: profile.name,
     iconUrl: profile.iconUrl
 });
-
 ```
 
 其中 `name` 和 `iconUrl` 是用于账号选择器的显示，因为相比于不易阅读的账号，使用用户名和头像进行账号区分，会显得更加友好。可以在用户登录成功时，从服务端返回相应的信息供存储。
@@ -172,13 +160,11 @@ let cred = new PasswordCredential({
 举例代码如下：
 
 ```javascript
-
 if (navigator.credentials) {
     navigator.credentials.get({
         password: true
     });
 }
-
 ```
 
 如果该域名事先有调用凭证管理 API 进行登录信息存储，在执行上述代码时，将会弹出账号选择器供用户进行账户选择：
@@ -213,7 +199,6 @@ options 包含以下字段：
 只有当 `options.password === true` 时，调用 `navigator.credentials.get(options)` 账号选择器才会展示类型为 `PasswordCredential` 的登录信息。在读取到凭证信息的时候，需要通过 `type` 字段去判断当前获取的信息是否为 `PasswordCredential` 的凭证信息。例如：
 
 ```javascript
-
 navigator.credentials.get({password: true})
 .then(function (cred) {
     if (cred) {
@@ -223,8 +208,7 @@ navigator.credentials.get({password: true})
             // ....
         }
     }
-})
-
+});
 ```
 
 ### 是否隐藏账号选择器
@@ -247,12 +231,10 @@ navigator.credentials.get({password: true})
 当用户退出网站时，应该确保用户在下次访问的时候不会自动登录。可以通过调用 `navigator.credentials.requireUserMediation()` 来关闭自动登录。
 
 ```javascript
-
 app.logout = function () {
     // 处理登出流程
     navigator.credentials.requireUserMediation();
 };
-
 ```
 
 这样调用 `app.logout()` 登出后，如果调用 `navigator.credentials.get()` 时，将不会触发自动登录。
