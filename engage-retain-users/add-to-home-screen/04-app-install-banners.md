@@ -46,7 +46,6 @@ PWA 提供两种添加应用横幅，分别实现**引导用户添加 PWA 至桌
 例如：
 
 ```javascript
-
 window.addEventListener('beforeinstallprompt', function (e) {
     // beforeinstallprompt event fired
 
@@ -59,7 +58,6 @@ window.addEventListener('beforeinstallprompt', function (e) {
         }
     });
 });
-
 ```
 
 利用 `userChoice` 返回的 Promise 对象，可以根据用户的安装选择结果进行互动。
@@ -72,18 +70,15 @@ window.addEventListener('beforeinstallprompt', function (e) {
 通过阻止 `beforeinstallprompt` 事件的默认行为，即可取消横幅弹出：
 
 ```javascript
-
 window.addEventListener('beforeinstallprompt', function (e) {
     e.preventDefault();
     return false;
 });
-
 ```
 
 `beforeinstallprompt` 事件返回一个名为 `prompt` 的方法，通过执行该方法可以触发安装横幅的显示。为了实现显示事件的延迟操作，可以将 beforeinstallprompt 事件的返回值给存储起来，再异步地调用 `prompt()`。
 
 ```javascript
-
 var deferredPrompt = null;
 
 window.addEventListener('beforeinstallprompt', function (e) {
@@ -103,13 +98,11 @@ button.addEventListener('click', function () {
         deferredPrompt = null;
     }
 });
-
 ```
 
 通过 `prompt()` 触发显示的横幅，同样可以通过 `userChoice` 去监测用户的安装行为：
 
 ```javascript
-
 button.addEventListener('click', function () {
     if (deferredPrompt != null) {
         // 异步触发横幅显示
@@ -132,20 +125,17 @@ button.addEventListener('click', function () {
 示例项目结构如下：
 
 ```
-
 |
 |----index.html
 |
 |----manifest.json
 |
 |----sw.js // Service Worker
-
 ```
 
 manifest.json 的配置如下：
 
 ```json
-
 {
     "short_name": "短名称",
     "name": "这是一个完整名称",
@@ -158,7 +148,6 @@ manifest.json 的配置如下：
     ],
     "start_url": "./index.html"
 }
-
 ```
 
 对应的横幅显示如下图所示：
@@ -168,13 +157,11 @@ manifest.json 的配置如下：
 代码添加事件监听：
 
 ```javascript
-
 window.addEventListener('beforeinstallprompt', function (e) {
     e.userChoice.then(function (choiceResult) {
         alert(choiceResult.outcome);
     });
 });
-
 ```
 
 则点击添加效果如下图所示：
@@ -185,7 +172,6 @@ window.addEventListener('beforeinstallprompt', function (e) {
 将事件监听更改如下：
 
 ```javascript
-
 var dfdPrompt = null;
 var button = document.getElementById('btn');
 
@@ -213,7 +199,6 @@ button.addEventListener('click', function (e) {
     button.style.display = 'none';
     dfdPrompt = null;
 });
-
 ```
 
 当浏览器触发横幅显示事件时，页面中的按钮将显示出来，同时横幅显示事件被取消；点击按钮时，应用安装横幅才会显示出来：
@@ -258,20 +243,16 @@ AppInfo 的属性值包括：
 例如：
 
 ```json
-
 "related_applications": [
     {
         "platform": "play",
         "id": "com.baidu.samples.apps.iosched"
     }
 ]
-
 ```
 
 如果只希望用户安装原生应用，而不需要弹出横幅引导用户安装PWA，那么可以在 manifest.json 设置：
 
 ```json
-
 "prefer_related_applications": true
-
 ```

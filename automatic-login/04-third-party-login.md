@@ -6,7 +6,7 @@
 
 一些大型的站点平台都会开放相应的第三方登录接口和说明文档，如国内的有：
 
-- 百度账号接入指南：[http://developer.baidu.com](#http://developer.baidu.com/wiki/index.php?title=%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3%E9%A6%96%E9%A1%B5/%E7%99%BE%E5%BA%A6%E5%B8%90%E5%8F%B7%E8%BF%9E%E6%8E%A5/%E7%99%BE%E5%BA%A6%E5%B8%90%E5%8F%B7%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97)
+- 百度账号接入指南：[http://developer.baidu.com](http://developer.baidu.com/wiki/index.php?title=%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3%E9%A6%96%E9%A1%B5/%E7%99%BE%E5%BA%A6%E5%B8%90%E5%8F%B7%E8%BF%9E%E6%8E%A5/%E7%99%BE%E5%BA%A6%E5%B8%90%E5%8F%B7%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97)
 - 新浪微博接入指南：[http://open.weibo.com](http://open.weibo.com/wiki/%E7%BD%91%E7%AB%99%E6%8E%A5%E5%85%A5%E4%BB%8B%E7%BB%8D)
 - 微信账号接入指南：[https://open.weixin.qq.com](https://open.weixin.qq.com/cgi-bin/frame?t=home/web_tmpl&lang=zh_CN)
 - QQ账号接入指南：[https://connect.qq.com/intro/login](https://connect.qq.com/intro/login)
