@@ -86,11 +86,22 @@ navigator.credentials.get({
 
 这些 `providers` 需要与 `FederatedCredential` 第三方登录凭证信息的 `provider` 相一致。
 
-这样在弹出的账号选择列表中，就可以看到如下所示的账号信息：
+这样假设存入的第三方登录凭证如下：
+
+```javascript
+let cred = new FederatedCredential({
+    id: '123456',
+    provider: 'https://www.baidu.com',
+    name: '测试百度用户名',
+    iconUrl: 'path-to-icon'
+});
+```
+
+则在弹出的账号选择列表中，就可以看到如下所示的账号信息：
 
 ![第三方账号信息](./img/only-third-party.jpg)
 
-那些带有`提供方`描述字样的信息就是对应的第三方登录凭证信息。
+那些带有`提供方`描述字样的信息就是对应的第三方登录凭证信息。没错，不同于密码凭证信息，第三方登录凭证信息会拿 `id` 字段作为账号的标识。
 
 对于不同的第三方登录具有不同的处理方式，因此在获取到第三方登录凭证信息之后，需要通过 `type` 和 `provider` 字段进行凭证信息分类处理，如：
 
@@ -214,4 +225,3 @@ if (navigator.credentials) {
     });
 }
 ```
-从这个例子也可以看出，对于第三方登录凭证，显示在账号选择器列表里的账号标识为 `id`，与密码凭证有所区别。
