@@ -4,6 +4,6 @@
 
 本文将从传统的“记住我”功能实现、凭证管理 API以及第三方登录三个方面来讲解登录操作的优化方案。
 
-- [传统“记住我”功能实现](./02-remember-me.md)
+- [传统 Remember-Me 功能实现](./02-remember-me.md)
 - [凭证管理 API](./03-credential-management.md)
 - [第三方登录](./04-third-party-login.md)
