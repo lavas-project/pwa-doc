@@ -41,7 +41,7 @@
     <p>用户名1：<input type="text" name="username1"></p>
     <p>用户名2：<input type="text" name="username2"></p>
     <p>密码：<input type="password" name="password"></p>
-    <p><input type="submit" value="提交">
+    <p><input type="submit" value="提交"></p>
 </form>
 ```
 
@@ -55,7 +55,7 @@
 <form>
     <p>用户名：<input type="text" name="usr" autocomplete="username"></p>
     <p>密码：<input type="password" name="pwd" autocomplete="current-password"></p>
-    <p><input type="submit" value="提交">
+    <p><input type="submit" value="提交"></p>
 </form>
 ```
 
