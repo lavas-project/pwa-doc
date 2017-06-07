@@ -26,7 +26,13 @@
                 },
                 {
                     "name": "将站点添加至首屏",
-                    "key": "engage-retain-users/add-to-home-screen"
+                    "key": "engage-retain-users/add-to-home-screen",
+                    "children": [
+                        {
+                            "name": "介绍",
+                            "key": "engage-retain-users/add-to-home-screen/01-introduction"
+                        }
+                    ]
                 },
                 {
                     "name": "消息推送介绍",
