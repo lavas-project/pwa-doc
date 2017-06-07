@@ -1,4 +1,4 @@
-# 第三方登录管理
+# 第三方登录凭证管理
 
 对于用户而言，注册账号密码是一件非常麻烦的事情，不但注册过程繁琐且花时间，同时也提高了用户的账号维护成本。因此如果网站能够提供第三方登录，让用户能够直接复用一些现有且常用的网站账号，将能够大大提高用户体验。
 
@@ -25,7 +25,7 @@
 - `id`: **必须** 账户名
 - `provider`: **必须** 第三方登录提供方网址
 - `name`: **非必需** 用户名
-- `iconUrl`: **非必需** 用户头像
+- `iconURL`: **非必需** 用户头像
 
 其中 `provider` 要求必须是完整的带协议头的 URL 地址。我们可以在控制台做如下实验：
 
@@ -67,7 +67,7 @@ thirdPartyLogin()
 
 需要调用方法 `navigator.credentials.get()` 方法进行第三方登录凭证的读取。
 
-在前文[获取用户登录信息](#获取用户登录信息)章节中提到，`navigator.credentials.get(options)` 方法传入参数包含一个字段 `federated`，可以通过这个字段去读取第三方登录的凭证信息。
+在前文[凭据获取](./01-introduction.md#凭据获取)章节中提到，`navigator.credentials.get(options)` 方法传入参数包含一个字段 `federated`，可以通过这个字段去读取第三方登录的凭证信息。
 
 - `options.federated`: 第三方登录
     `{Object}`
@@ -220,6 +220,7 @@ if (navigator.credentials) {
                             // 调起百度第三方登录
                             window.location.href = './main.html?from=third-party&username=' + cred.name;
                     }
+                // ...
             }
         }
     });

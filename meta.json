@@ -46,7 +46,19 @@
         },
         {
             "name": "自动登录",
-            "key": "automatic-login"
+            "key": "automatic-login",
+            "children": [
+                {
+                    "key": "automatic-login/01-introduction"
+                },
+                {
+                    "key": "automatic-login/02-remember-me"
+                },
+                {
+                    "name": "凭据管理 API",
+                    "key": "automatic-login/credential-management-api"
+                }
+            ]
         },
         {
             "name": "网络安全",
