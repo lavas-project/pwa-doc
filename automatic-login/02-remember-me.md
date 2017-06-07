@@ -72,10 +72,7 @@
 其中表单的 HTML 如下：
 
 ```html
-<form class="form"
-        action="./main.html"
-        method="get"
-    >
+<form class="form" action="./main.html" method="get">
     <h3>登录网站</h3>
     <p>
         <label>用户名</label>
