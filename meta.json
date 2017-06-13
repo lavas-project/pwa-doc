@@ -26,13 +26,7 @@
                 },
                 {
                     "name": "将站点添加至首屏",
-                    "key": "engage-retain-users/add-to-home-screen",
-                    "children": [
-                        {
-                            "name": "介绍",
-                            "key": "engage-retain-users/add-to-home-screen/01-introduction"
-                        }
-                    ]
+                    "key": "engage-retain-users/add-to-home-screen"
                 },
                 {
                     "name": "消息推送介绍",
@@ -56,7 +50,13 @@
                 },
                 {
                     "name": "凭据管理 API",
-                    "key": "automatic-login/credential-management-api"
+                    "key": "automatic-login/credential-management-api",
+                    "children": [
+                        {
+                            "name": "凭据管理 API 简介",
+                            "key": "automatic-login/credential-management-api/01-introduction"
+                        }
+                    ]
                 }
             ]
         },
