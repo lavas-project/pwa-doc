@@ -16,24 +16,23 @@ RAIL 是一种以用户为中心的性能模型。每个网络应用均具有与
 
 让用户成为您的性能工作的中心。用户花在网站上的大多数时间不是等待加载，而是在使用时等待响应。了解用户如何评价性能延迟：
 
-<style lang="stylus">
-table
-    .header
-        line-height 40px
-        background #78909c
-        color #fff
-
-    th
-        font-weight normal
-        padding 5px 0 5px 10px
-        text-align left
-
-.leg-table
-    th
-        width 160px
-</style>
-
 <table class="leg-table">
+    <style lang="stylus">
+    table
+        .header
+            line-height 40px
+            background #78909c
+            color #fff
+
+        th
+            font-weight normal
+            padding 5px 0 5px 10px
+            text-align left
+
+    .leg-table
+        th
+            width 160px
+    </style>
     <tr class="header">
         <td colspan="2">延迟时间与用户反应</td>
     </tr>
