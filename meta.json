@@ -50,7 +50,13 @@
                 },
                 {
                     "name": "凭据管理 API",
-                    "key": "automatic-login/credential-management-api"
+                    "key": "automatic-login/credential-management-api",
+                    "children": [
+                        {
+                            "name": "凭据管理 API 简介",
+                            "key": "automatic-login/credential-management-api/01-introduction"
+                        }
+                    ]
                 }
             ]
         },
