@@ -93,6 +93,10 @@
         {
             "name": "Lighthouse",
             "key": "lighthouse"
+        },
+        {
+            "name": "探索",
+            "key": "discovery"
         }
     ]
 }
