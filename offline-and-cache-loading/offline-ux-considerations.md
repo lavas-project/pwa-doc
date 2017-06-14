@@ -39,29 +39,29 @@
 “You seem to have a bad network connection. [Not to worry!] Messages will be “sent when the network is restored.”
 ```
 
-[Emojoy，表情符号消息应用，当状态发生变化时通知用户。](./img/emojoy-toast-message.png "当状态发生变化时尽快清楚地通知用户。")
+![Emojoy，表情符号消息应用，当状态发生变化时通知用户。](./img/emojoy-toast-message.png "当状态发生变化时尽快清楚地通知用户。")
 
-[I/O 2016 应用，当状态发生变化时通知用户。](./img/io-toast-message.png "Google I/O 应用使用一个 Material Design“toast”通知用户其处于离线状态。")
+![I/O 2016 应用，当状态发生变化时通知用户。](./img/io-toast-message.png "Google I/O 应用使用一个 Material Design“toast”通知用户其处于离线状态。")
 
 ### 网络连接已改善或已恢复
 
-[一个天气应用示例。](./img/weather-app.png "某些应用，如这个天气应用，需要自动更新，因为旧数据对用户没有任何用。")
+![一个天气应用示例。](./img/weather-app.png "某些应用，如这个天气应用，需要自动更新，因为旧数据对用户没有任何用。")
 
 在用户的网络连接改善后如何通知用户在很大程度上取决于您的应用。 对于需要将显示的更新信息作为优先级的应用，如股市应用，尽快自动更新和通知用户非常重要。
 
 您可能还会始终在醒目位置显示最后一次更新应用的时间。例如，这对于货币转换应用同样非常有用
 
-[过时的 Material Money](./img/material-money-rates-out-of-date.png)
+![过时的 Material Money](./img/material-money-rates-out-of-date.png)
 
-[应用Material Money 已更新](./img/material-money-rates-updated.png)
+![应用Material Money 已更新](./img/material-money-rates-updated.png)
 
 Material Money 尽可能显示最新货币，并在应用尚未更新时通知用户。
 
 其他应用，如新闻应用，可显示一个简单通知，使用一个 tap-to-update 功能通知用户有更新的内容。这样做的原因是如果某个用户目前在阅读一篇文章，自动更新将刷新页面，用户将退出他们上次阅读到的地方。
 
-[新闻应用示例，处于正常状态的 Tailpiece](./img/tailpiece-normal.png)
+![新闻应用示例，处于正常状态的 Tailpiece](./img/tailpiece-normal.png)
 
-[新闻应用示例，准备更新时的 Tailpiece](./img/tailpiece-tap-to-update.png)
+![新闻应用示例，准备更新时的 Tailpiece](./img/tailpiece-tap-to-update.png)
 
 Tailpiece 将自动下载最新新闻，但允许用户手动刷新，以便他们不会退出己看到的文章中的位置。
 
@@ -81,8 +81,8 @@ UI 的每个字节都有自己的上下文和功能，其根据否需要成功�
 
 自动下载和保存当天最新新闻内容能够让新闻网站受益，用户可阅读当天新闻，无需联网，可能会下载不含文章图像的文本。同时也要适应用户的行为，如果用户通常浏览体育专栏，则可能会优先下载此类数据。
 
-[Tailpiece 使用各种设计小部件通知用户其处于离线状态](./img/tailpiece-offline.png)
-[Tailpiece 具有一个导航视图，其显示哪些部分可以离线使用。](./img/tailpiece-offline-sidebar.png)
+![Tailpiece 使用各种设计小部件通知用户其处于离线状态](./img/tailpiece-offline.png)
+![Tailpiece 具有一个导航视图，其显示哪些部分可以离线使用。](./img/tailpiece-offline-sidebar.png)
 
 如果设备处于离线状态，Tailpiece 将使用一个状态消息通知用户，让用户知道他们仍可以使用此应用。
 
@@ -92,8 +92,8 @@ UI 的每个字节都有自己的上下文和功能，其根据否需要成功�
 
 同样，考虑您目前使用的语言以确保它适合您的受众。 如果使用消息传递，则确保在所有实例中提供相同消息。 非技术受众往往对离线这个术语有误解，因此，请使用基于操作的语言，以便您的受众可以理解。
 
-[离线工作的 I/O](./img/io-offline-ready.png)
-[应用离线工作的 Chrome Status 网站](./img/chome-offline.png)
+![离线工作的 I/O](./img/io-offline-ready.png)
+![应用离线工作的 Chrome Status 网站](./img/chome-offline.png)
 
 Google I/O 2016 应用和 Chrome Status 网站在应用可离线工作时通知用户。
 
@@ -131,10 +131,10 @@ Google I/O 2016 应用和 Chrome Status 网站在应用可离线工作时通知�
 
 良好的 UX 不只是一个精心设计的界面。它还包含用户执行的流程，以及应用中使用的语言。 在解释应用的状态或单个 UI 组件时，请避免使用科技术语。 我们认为短语“app offline”可能无法向用户传达应用的当前状态。
 
-[下载图标示例就是一个很好的例子](./img/download.png "宜：使用可描述此操作的语言和图像。")
+![下载图标示例就是一个很好的例子](./img/download.png "宜：使用可描述此操作的语言和图像。")
 
 
-[服务工作线程图标示例则是个糟糕的例子](./img/service-worker-ready.png "忌：避免使用可能让人无法理解的抽象术语。")
+![服务工作线程图标示例则是个糟糕的例子](./img/service-worker-ready.png "忌：避免使用可能让人无法理解的抽象术语。")
 
 ### 使用多个设计设备打造容易理解的用户体验
 
@@ -142,9 +142,9 @@ Google I/O 2016 应用和 Chrome Status 网站在应用可离线工作时通知�
 
 为防止出现误解的情况，可采用多种方式向用户表达不同状态：例如，使用颜色、标签和 UI 组件。
 
-[以下示例使用颜色和文本显示错误，效果很好。](./img/accessibility_color7_do.png "宜：使用混合设计元素表达含义")
+![以下示例使用颜色和文本显示错误，效果很好。](./img/accessibility_color7_do.png "宜：使用混合设计元素表达含义")
 
-[以下示例仅使用颜色，效果很差。](./img/accessibility_color8_dont.png "忌：仅使用颜色描述所进行的操作。")
+![以下示例仅使用颜色，效果很差。](./img/accessibility_color8_dont.png "忌：仅使用颜色描述所进行的操作。")
 
 ### 使用可表达含义的图标
 
@@ -152,7 +152,7 @@ Google I/O 2016 应用和 Chrome Status 网站在应用可离线工作时通知�
 
 在引入离线图标时应尽量与行业标准可视项（如有）保持一致，并提供文本标签和说明。例如，保存以供离线使用可能指的是一个典型的下载图标，如果此操作涉及同步，那么它也可能是一个同步图标。 某些操作可理解为保存以供离线使用，而不是展示网络的状态。要考虑您尝试表达的操作，而不是向用户展示抽象概念。 例如，保存或下载数据应基于操作。
 
-[表示离线的各种图标示例](./img/download-icons-exampels.png)
+![表示离线的各种图标示例](./img/download-icons-exampels.png)
 
 根据上下文，离线可以有许多含义，如下载、导出、固定等。 想获得更多灵感，请查看 [Material Design 图标集](https://material.io/icons/)
 
@@ -160,9 +160,9 @@ Google I/O 2016 应用和 Chrome Status 网站在应用可离线工作时通知�
 
 框架布局是一个非常重要的应用框架版本，其在加载内容时显示。 框架布局有助于向用户展示将要加载的内容。 同时考虑使用一个预加载程序 UI，以及一个通知用户应用正在加载的文本标签。 例如，使线框图内容发生震动，从而让应用感觉它处于活动状态并且正在加载中。这可向用户保证正在进行操作，并有助于防止重新提交或刷新您的应用。
 
-[框架布局示例](./img/tailpiece-skel-article.png "使用框架布局之前")
+![框架布局示例](./img/tailpiece-skel-article.png "使用框架布局之前")
 
-[已加载的文章示例](./img/tailpiece-normal.png "使用框架布局之后")
+![已加载的文章示例](./img/tailpiece-normal.png "使用框架布局之后")
 
 ### 请勿拦截内容
 
