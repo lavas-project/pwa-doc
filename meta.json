@@ -89,6 +89,10 @@
         {
             "name": "架构",
             "key": "architecture"
+        },
+        {
+            "name": "Lighthouse",
+            "key": "lighthouse"
         }
     ]
 }
