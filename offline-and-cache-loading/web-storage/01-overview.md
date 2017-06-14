@@ -1,7 +1,9 @@
 # 网页存储概览
 
 > 本文转载自 develops.google.com
+>
 > 作者：**Marc Cohen**
+>
 > 原文链接：[网页存储概览](https://developers.google.cn/web/fundamentals/instant-and-offline/web-storage/)
 
 选择正确的存储机制对于本地设备存储和基于云的服务器存储都非常重要。 良好的存储引擎可确保以可靠的方式保存信息，并减少带宽和提升响应能力。正确的存储缓存策略是实现离线移动网页体验的核心构建基块。
@@ -46,14 +48,14 @@
 
 |API                |数据模型  | 持久化 | 浏览器支持 | 事务处理 | 同步/异步 |
 | ----------------- | -------- | ------ | ---------- | -------- | --------- |
-|File system        |字节流    |设备     |52%        |不支持    |异步|
-|Local Storage      |键/值     |设备    |93%        |不支持    |同步|
-|Session Storage    |键/值     |会话    |93%        |不支持    |同步|
-|Cookie             |结构化    |设备     |100%       |不支持    |同步|
-|WebSQL             |结构化    |设备     |77%        |支持     |异步|
-|Cache              |键/值     |设备    |60%        |不支持    |异步|
-|IndexedDB          |混合      |设备    |83%        |支持     |异步|
-|cloud storage      |字节流    |全局     |100%       |不支持    |两者皆有|
+|[File system](https://developer.mozilla.org/en-US/docs/Web/API/FileSystem)        |字节流    |设备     |[52%](http://caniuse.com/#feat=filesystem)        |不支持    |异步|
+|[Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)      |键/值     |设备    |[93%](http://caniuse.com/#feat=namevalue-storage)        |不支持    |同步|
+|[Session Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)    |键/值     |会话    |[93%](http://caniuse.com/#feat=namevalue-storage)        |不支持    |同步|
+|[Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)             |结构化    |设备     |100%       |不支持    |同步|
+|[WebSQL](https://www.w3.org/TR/webdatabase/)             |结构化    |设备     |[77%](http://caniuse.com/#feat=sql-storage)        |支持     |异步|
+|[Cache](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage)              |键/值     |设备    |[60%](http://caniuse.com/#feat=serviceworkers)        |不支持    |异步|
+|[IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)          |混合      |设备    |[83%](http://caniuse.com/#feat=indexeddb)        |支持     |异步|
+|[cloud storage](https://cloud.google.com/storage/)      |字节流    |全局     |100%       |不支持    |两者皆有|
 
 如上所述，最好选择在尽可能多的浏览器上受广泛支持的 API，其可提供异步调用模型，以最大程度提高与 UI 的互操作性。这些条件自然会产生以下技术选择：
 
