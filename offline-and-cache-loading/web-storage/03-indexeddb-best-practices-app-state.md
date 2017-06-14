@@ -1,7 +1,9 @@
 # 利用 indexedDB 保持应用状态的最佳实践
 
 > 本文翻译自 develops.google.com
+>
 > 作者：**Philip Walton**
+>
 > 原文链接：[Best Practices for Persisting Application State with IndexedDB](https://developers.google.cn/web/fundamentals/instant-and-offline/web-storage/indexeddb-best-practices-app-state)
 
 当网站或应用首次被加载时，首先通常需要准备大量工作去构造初始的应用状态信息，然后再使用这些信息去渲染界面。例如，有的应用需要用户进行身份验证，之后才能去发一些 API 请求获取数据，最后才是将返回的数据呈现到页面中。
