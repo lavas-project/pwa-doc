@@ -109,3 +109,61 @@ Jake Archibald 的[离线维基百科应用](https://wiki-offline.jakearchibald.
 ```
 
 注：请参阅 [https://app-shell.appspot.com/](https://app-shell.appspot.com/)，查看一个非常简单的、使用 App Shell 和内容服务器端渲染的 PWA 的真实演示。App Shell 可通过使用任意内容库或框架实现。
+
+## 缓存 App Shell
+
+您可以使用手动编写的服务工作线程或通过 sw-precache 等静态资产预缓存工具生成的服务工作线程缓存 App Shell。
+
+注：这些示例仅为呈现一般信息以及进行说明而提供。 您的应用使用的实际资源很可能不同。
+
+### 手动缓存 App Shell
+
+以下是使用服务工作线程的 install 事件将 App Shell 中的静态资源缓存到 Cache API 中的服务工作线程代码示例：
+
+```javascript
+var cacheName = 'shell-content';
+var filesToCache = [
+  '/css/styles.css',
+  '/js/scripts.js',
+  '/images/logo.svg',
+  '/offline.html',
+  '/'
+];
+
+self.addEventListener('install', function(e) {
+  console.log('[ServiceWorker] Install');
+  e.waitUntil(
+    caches.open(cacheName).then(function(cache) {
+      console.log('[ServiceWorker] Caching app shell');
+      return cache.addAll(filesToCache);
+    })
+  );
+});
+```
+
+### 使用 sw-precache 缓存 App Shell
+
+sw-precache 生成的服务工作线程会缓存并提供您在构建过程中配置的资源。 您可以让此线程预先缓存构成 App Shell 的每个 HTML、JavaScript 和 CSS 文件。 所有资源都可以离线工作，并且可在随后的访问中快速加载相关内容，无需其他操作。
+
+以下是在 gulp 构建过程中使用 sw-precache 的基本示例：
+
+```javascript
+gulp.task('generate-service-worker', function(callback) {
+  var path = require('path');
+  var swPrecache = require('sw-precache');
+  var rootDir = 'app';
+
+  swPrecache.write(path.join(rootDir, 'service-worker.js'), {
+    staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif}'],
+    stripPrefix: rootDir
+  }, callback);
+});
+```
+
+注：sw-precache 对于离线缓存您的静态资源非常有用。对于运行时/动态资源，我们建议使用我们的免费内容库 sw-toolbox。
+
+## 结论
+
+使用服务工作线程的 App Shell 是实现离线缓存的强大模式，但同时还可以针对 PWA 的重复访问实现即时加载这一重要性能。您可以缓存自己的 App Shell，以便它可以离线使用并使用 JavaScript 填充其内容。
+
+如果重复访问，这样还可让您在没有网络的情况下（即使您的内容最终源自网络）在屏幕上获得有意义的像素。
