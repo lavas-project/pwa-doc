@@ -305,7 +305,7 @@ robots 元标记的其他选项包括：
 1. 转到各搜索引擎上的请求页面。（Google 和 Bing 要求您注册并验证对网站的所有权。）
 1. 发送一个请求。
 
-![remove_urls](./images/remove_urls.png)
+![remove-urls](./images/remove-urls.png)
 
 可在各搜索引擎的帮助页面查看具体步骤：  
 
