@@ -30,7 +30,7 @@
 
 > info
 >
-> ***Note:*
+> **Note:**
 >
 > 新的[存储 API](https://storage.spec.whatwg.org/) 目前正在开发当中，这些 API 将能够让开发者在请求大容量存取配额或者是[持久性存储](https://storage.spec.whatwg.org/#persistence)的时候，获取可用的存储空间的[估计](https://storage.spec.whatwg.org/#usage-and-quota)。这就意味着即使在执行标准清除缓存/cookie 的操作时，用户也可以选择保留某些站点的数据。
 
