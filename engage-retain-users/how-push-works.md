@@ -123,10 +123,10 @@ function subscribe(serviceWorkerReg) {
         if (Notification.permission === 'denied') {
             // 用户拒绝了订阅请求
         }
-    }); 
+    });
 }
 if ('serviceWorker' in navigator && 'PushManager' in window) {
-    navigator.serviceWorker.register('./service-worker.js')  // 1. 注册Service Worker  
+    navigator.serviceWorker.register('./service-worker.js')  // 1. 注册Service Worker
         .then(function(reg) {});
     navigator.serviceWorker.ready.then(function(reg) {subscribe(reg)});
 }
@@ -192,15 +192,15 @@ Authorization 的内容由三部分组成，使用`.`连接，前两部分是使
     ``` json
     {
         "typ": "JWT",
-        "alg": "ES256"  
+        "alg": "ES256"
     }
     ```
 - JWT Data，包含发送者的信息，推送服务的源地址，失效时间，和发送者的联系方式
     ``` json
-    {  
+    {
         "aud": "https://some-push-service.org",
         "exp": "1469618703",
-        "sub": "mailto:example@web-push-book.org"  
+        "sub": "mailto:example@web-push-book.org"
     }
     ```
 - 签名，连接前两部分，服务端使用私钥加密。还记得之前添加订阅的时候，使用到的服务端生成的公钥吗，此处使用的正是与之配对的私钥
@@ -216,7 +216,7 @@ Authorization 的内容由三部分组成，使用`.`连接，前两部分是使
 
 还记得最初用户订阅成功后，浏览器生成的推送订阅对象吗？里面包含了`endpoint`，而加密过程会使用其中的`keys`对象。
 
-[复杂的加密过程](https://developers.google.com/web/fundamentals/engage-and-retain/push-notifications/web-push-protocol)在这里就不展开介绍了。总之，只有订阅的浏览器能使用生成的私钥解密推送的消息。
+[复杂的加密过程](https://developers.google.cn/web/fundamentals/engage-and-retain/push-notifications/web-push-protocol)在这里就不展开介绍了。总之，只有订阅的浏览器能使用生成的私钥解密推送的消息。
 
 ### 推送服务的响应
 

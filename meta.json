@@ -14,7 +14,25 @@
         },
         {
             "name": "离线和缓存",
-            "key": "offline-and-cache-loading"
+            "key": "offline-and-cache-loading",
+            "children": [
+                {
+                    "key": "offline-and-cache-loading/01-service-worker-introduction"
+                },
+                {
+                    "key": "offline-and-cache-loading/02-how-to-use-service-worker"
+                },
+                {
+                    "key": "offline-and-cache-loading/03-service-worker-lifecycle"
+                },
+                {
+                    "key": "offline-and-cache-loading/04-service-worker-debug"
+                },
+                {
+                    "name": "Web 存储",
+                    "key": "offline-and-cache-loading/web-storage"
+                }
+            ]
         },
         {
             "name": "吸引并留住用户",
@@ -71,6 +89,10 @@
         {
             "name": "架构",
             "key": "architecture"
+        },
+        {
+            "name": "Lighthouse",
+            "key": "lighthouse"
         }
     ]
 }
