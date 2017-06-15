@@ -1,6 +1,6 @@
 # 利用 indexedDB 保持应用状态的最佳实践
 
-> 本文翻译自 develops.google.com
+> 本文**翻译**自 developers.google.com
 >
 > 作者：**Philip Walton**
 >

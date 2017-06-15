@@ -1,6 +1,6 @@
 # 网页存储概览
 
-> 本文转载自 develops.google.com
+> 本文**转载**自 developers.google.com
 >
 > 作者：**Marc Cohen**
 >
