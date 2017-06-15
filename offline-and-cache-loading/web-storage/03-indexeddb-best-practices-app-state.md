@@ -1,7 +1,9 @@
 # 利用 indexedDB 保持应用状态的最佳实践
 
 > 本文翻译自 develops.google.com
+>
 > 作者：**Philip Walton**
+>
 > 原文链接：[Best Practices for Persisting Application State with IndexedDB](https://developers.google.cn/web/fundamentals/instant-and-offline/web-storage/indexeddb-best-practices-app-state)
 
 当网站或应用首次被加载时，首先通常需要准备大量工作去构造初始的应用状态信息，然后再使用这些信息去渲染界面。例如，有的应用需要用户进行身份验证，之后才能去发一些 API 请求获取数据，最后才是将返回的数据呈现到页面中。
@@ -28,7 +30,7 @@
 
 > info
 >
-> ***Note:*
+> **Note:**
 >
 > 新的[存储 API](https://storage.spec.whatwg.org/) 目前正在开发当中，这些 API 将能够让开发者在请求大容量存取配额或者是[持久性存储](https://storage.spec.whatwg.org/#persistence)的时候，获取可用的存储空间的[估计](https://storage.spec.whatwg.org/#usage-and-quota)。这就意味着即使在执行标准清除缓存/cookie 的操作时，用户也可以选择保留某些站点的数据。
 

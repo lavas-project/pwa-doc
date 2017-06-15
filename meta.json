@@ -17,16 +17,11 @@
             "key": "offline-and-cache-loading",
             "children": [
                 {
-                    "key": "offline-and-cache-loading/01-service-worker-introduction"
+                    "name": "Service Worker",
+                    "key": "offline-and-cache-loading/service-worker"
                 },
                 {
-                    "key": "offline-and-cache-loading/02-how-to-use-service-worker"
-                },
-                {
-                    "key": "offline-and-cache-loading/03-service-worker-lifecycle"
-                },
-                {
-                    "key": "offline-and-cache-loading/04-service-worker-debug"
+                    "key": "offline-and-cache-loading/offline-ux-considerations"
                 },
                 {
                     "name": "Web 存储",
@@ -93,6 +88,10 @@
         {
             "name": "Lighthouse",
             "key": "lighthouse"
+        },
+        {
+            "name": "探索",
+            "key": "discovery"
         }
     ]
 }
