@@ -28,7 +28,7 @@ Service Worker 是用 JavaScript 编写的 JS 文件，能够代理请求，并�
 
 参考 [App Shell 设计规范](https://developers.google.cn/web/fundamentals/architecture/app-shell)。
 
-## 再互动
+## 粘性
 
 * PWA 是可以安装的，用户点击安装到桌面后，会在桌面创建一个 PWA 应用，并且不需要从应用商店下载。
 
