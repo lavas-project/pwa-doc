@@ -1,6 +1,6 @@
 # 离线 UX 注意事项
 
-> 本文转载自 develops.google.com
+> 本文**转载**自 developers.google.com
 >
 > 作者：**Mustafa Kurtuldu**
 >
