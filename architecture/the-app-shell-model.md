@@ -1,5 +1,11 @@
 # App Shell 模型
 
+> 本文转载自 develops.google.com
+>
+> 作者：**Addy Osmani**
+>
+> 原文链接：[App Shell 模型](https://developers.google.com/web/fundamentals/architecture/app-shell)
+
 __App Shell__ 架构是构建 Progressive Web App 的一种方式，这种应用能可靠且即时地加载到您的用户屏幕上，与本机应用相似。
 
 App“shell”是支持用户界面所需的最小的 HTML、CSS 和 JavaScript，如果离线缓存，可确保在用户重复访问时提供__即时、可靠的良好性能__。这意味着并不是每次用户访问时都要从网络加载 App Shell。 只需要从网络中加载必要的内容。

@@ -1,5 +1,11 @@
 # 使用 RAIL 模型评估性能
 
+> 本文转载自 develops.google.com
+>
+> 作者：**Meggin Kearney**
+>
+> 原文链接：[使用 RAIL 模型评估性能](https://developers.google.com/web/fundamentals/performance/rail)
+
 RAIL 是一种以用户为中心的性能模型。每个网络应用均具有与其生命周期有关的四个不同方面，且这些方面以不同的方式影响着性能：
 
 ![rail](./images/rail.png)

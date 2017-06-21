@@ -18,14 +18,14 @@
             "children": [
                 {
                     "name": "Service Worker",
-                    "key": "offline-and-cache-loading/service-worker"
+                    "key": "service-worker"
                 },
                 {
-                    "key": "offline-and-cache-loading/offline-ux-considerations"
+                    "key": "offline-ux-considerations"
                 },
                 {
                     "name": "Web 存储",
-                    "key": "offline-and-cache-loading/web-storage"
+                    "key": "web-storage"
                 }
             ]
         },
@@ -35,19 +35,19 @@
             "children": [
                 {
                     "name": "如何吸引并留住用户",
-                    "key": "engage-retain-users/introduction"
+                    "key": "introduction"
                 },
                 {
                     "name": "将站点添加至首屏",
-                    "key": "engage-retain-users/add-to-home-screen"
+                    "key": "add-to-home-screen"
                 },
                 {
                     "name": "消息推送介绍",
-                    "key": "engage-retain-users/how-push-works"
+                    "key": "how-push-works"
                 },
                 {
                     "name": "消息通知",
-                    "key": "engage-retain-users/notification"
+                    "key": "notification"
                 }
             ]
         },
@@ -56,18 +56,18 @@
             "key": "automatic-login",
             "children": [
                 {
-                    "key": "automatic-login/01-introduction"
+                    "key": "01-introduction"
                 },
                 {
-                    "key": "automatic-login/02-remember-me"
+                    "key": "02-remember-me"
                 },
                 {
                     "name": "凭据管理 API",
-                    "key": "automatic-login/credential-management-api",
+                    "key": "credential-management-api",
                     "children": [
                         {
                             "name": "凭据管理 API 简介",
-                            "key": "automatic-login/credential-management-api/01-introduction"
+                            "key": "01-introduction"
                         }
                     ]
                 }
@@ -92,6 +92,10 @@
         {
             "name": "探索",
             "key": "discovery"
+        },
+        {
+            "name": "代码规范",
+            "url": "https://github.com/ecomfe/spec"
         }
     ]
 }
