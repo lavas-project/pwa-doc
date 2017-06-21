@@ -163,17 +163,18 @@
 
 **http://pages.example.com/robots.txt**
 
-    User-agent:Googlebot
-    Disallow: /nogooglebot/
+    User-agent: Baiduspider
+    Disallow: /nospider
     
 
 您可以通过指示 User Agent 名称来指定每个自动程序 (User Agent) 的行为。
-在上例中，您禁止名为 `Googlebot` 的 User Agent 抓取 `/nogooglebot/` 以及该目录下的所有内容。
+在上例中，您禁止名为 `Baiduspider` 的 User Agent 抓取 `/nospider/` 以及该目录下的所有内容。
   
 
 可通过各搜索引擎自动程序的帮助页面了解更多相关信息：
 
-* [Google](/webmasters/control-crawl-index/docs/robots_txt)
+* [Baidu](http://zhanzhang.baidu.com/robots/index)
+* [Google](https://developers.google.com/webmasters/control-crawl-index/docs/robots_txt?hl=zh-cn)
 * [Bing](http://www.bing.com/webmaster/help/how-to-create-a-robots-txt-file-cb7c31ec)
 * [Yandex](https://help.yandex.com/webmaster/controlling-robot/robots-txt.xml)
 
@@ -183,12 +184,12 @@
 #### 测试 robots.txt
 
 根据 robots.txt 所针对的抓取工具，搜索引擎提供商可能会提供相应工具来测试 `robots.txt`。
-例如，对于 Google，其[网站站长工具](https://www.google.com/webmasters/tools/robots-testing-tool)中有一个验证器可用来测试 robots.txt。
+例如，对于 Baidu，其[网站站长工具](http://zhanzhang.baidu.com/robots/index)中有一个验证器可用来测试 robots.txt。
 
-![robots-txt-validator](./images/robots-txt-validator.png)
+![robots-txt-validator](./images/robot-validate.png)
 
 
-Yandex 也提供了[类似的工具](https://webmaster.yandex.com/tools/robotstxt/)。  
+Google 也提供了[类似的工具](https://www.google.com/webmasters/tools/robots-testing-tool)。
 
 ### 使用元标记控制搜索索引
 
@@ -290,31 +291,19 @@ robots 元标记的其他选项包括：
 
 ### 请求从搜索引擎中移除网页
 
-在下列情况下，您可能希望移除某个搜索结果：  
+在下列情况下，您可能希望移除某个搜索结果：
 
 * 页面不再存在。
 * 某个被意外索引的网页包含机密信息。
 
+主流搜索引擎均提供了通过发送请求来移除此类网页的途径。
 
-主流搜索引擎均提供了通过发送请求来移除此类网页的途径。移除过程通常包含下列步骤：  
+![remove-urls](./images/remove_url.png)
 
-1. 确保您想移除的网页：
-    * 已从服务器删除，并返回 404
-    * 配置为不进行索引（例如：noindex）
+可在各搜索引擎的帮助页面查看具体步骤：
 
-1. 转到各搜索引擎上的请求页面。（Google 和 Bing 要求您注册并验证对网站的所有权。）
-1. 发送一个请求。
-
-![remove-urls](./images/remove-urls.png)
-
-可在各搜索引擎的帮助页面查看具体步骤：  
-
+* [Baidu](http://zhanzhang.baidu.com/badlink/index)
 * [Google](https://support.google.com/webmasters/answer/1663419)
 * [Bing](http://www.bing.com/webmaster/help/bing-content-removal-tool-cb6c294d)
 * [Yandex](https://help.yandex.com/webmaster/yandex-indexing/removing-from-index.xml)
 
-### 附录：抓取工具 User Agent 列表
-
-* [Google](https://support.google.com/webmasters/answer/1061943)
-* [Bing](http://www.bing.com/webmaster/help/which-crawlers-does-bing-use-8c184ec0)
-* [Yandex](https://help.yandex.com/search/robots/logs.xml)
