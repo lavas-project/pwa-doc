@@ -54,7 +54,7 @@ fecs check --help
 
 如果代码存在不符合规范的地方，会将有问题的代码文件和对应的行号信息打印出来：
 
-![fecs fail](./images/spec-fecs-faile.jpg)
+![fecs fail](./images/spec-fecs-fail.jpg)
 
 ### 代码修复
 
