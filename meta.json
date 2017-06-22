@@ -92,10 +92,6 @@
         {
             "name": "探索",
             "key": "discovery"
-        },
-        {
-            "name": "代码规范",
-            "url": "https://github.com/ecomfe/spec"
         }
     ]
 }
