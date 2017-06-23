@@ -37,6 +37,7 @@ Firefox则略有差别，在Linux系统的Firefox中，通知会是这样
 ## 图标(icon)
 
 你可能注意到了在Google Chrome下通知的左侧有一大段空白区域。这里其实是用来显示图标的，为此我们需要用到配置项的 `icon` ，如下：
+
 ```javascript
 registration.showNotification('Icon Notification', {
     icon: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/icon-512x512.png'
@@ -58,6 +59,7 @@ registration.showNotification('Icon Notification', {
 ## 小图标(Badge)
 
 小图标(Badge)是在手机上展现通知缩略信息时使用的图标。我们可以使用如下代码
+
 ```javascript
 registration.showNotification('Badge Notification', {
     badge: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/badge-128x128.png'
@@ -75,6 +77,7 @@ registration.showNotification('Badge Notification', {
 ## 图片(image)
 
 和图标(icon)不同，图片(image)在通知的展现尺寸要大不少，可以给用户展现一些预览图片。我们可以使用如下代码
+
 ```javascript
 registration.showNotification('Image Notification', {
     image: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/unsplash-farzad-nazifi-1600x1100.jpg'
@@ -98,6 +101,7 @@ registration.showNotification('Image Notification', {
 ## 按钮(Actions)
 
 我们可以通过使用 `actions` 配置项来为通知增加一些按钮，代码如下：
+
 ```javascript
 registration.showNotification('Actions Notification', {
     actions: [
@@ -156,6 +160,7 @@ registration.showNotification('Actions Notification', {
 ## 震动
 
 我们可以使用 `vibrate` 配置项来设置通知的震动模式。 `vibrate` 以数组的形式进行配置，其中的数字以2个为一组，分别表示震动的毫秒数，和不震动的毫秒数，如此往复。
+
 ```javascript
 registration.showNotification('Vibrate Notification', {
     vibrate: [500,110,500,110,450,110,200,110,170,40,450,110,200,110,170,40,500]
@@ -167,6 +172,7 @@ registration.showNotification('Vibrate Notification', {
 ## 声音
 
 按照规范，声音可以使用 `sound` 配置项进行配置，用以在通知弹出时播放对应的音频文件。
+
 ```javascript
 registration.showNotification('Sound Notification', {
     sound: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/notification-sound.mp3'
@@ -178,6 +184,7 @@ registration.showNotification('Sound Notification', {
 ## 时间戳
 
 我们可以使用 `timestamp` 配置项来达到定时发送通知的目的。 `timestamp` 配置项的值是数字类型，表示设定时间距离1970年1月1日0点的毫秒数。例子如下：
+
 ```javascript
 registration.showNotification('Timestamp Notification', {
     body: 'Timestamp is set to "01 Jan 2000 00:00:00".',

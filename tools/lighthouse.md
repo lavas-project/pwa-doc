@@ -47,18 +47,18 @@ Lighthouse 是一个开源的自动化工具，用于评价 WebApp 多方面的�
 
 以全局方式安装：
 
-```
+```shell
 npm install -g lighthouse
 ```
 
 针对一个页面运行 `lighthouse` 命令，进行审查：
 
-```
+```shell
 lighthouse https://www.example.com/
 ```
 
 输入 `--help` 选项可以查看可用的输入、输出选项
 
-```
+```shell
 lighthouse --help
 ```

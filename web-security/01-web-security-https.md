@@ -58,27 +58,34 @@ HTTPS 是由证书认证机构 CA（Certificate Authority）颁发的、并包�
 将 HTTP 的访问请求 301 到 HTTPS
 
 Nginx
-```
+
+```nginx
 server {
 	listen 80;
 	server_name domain.com www.domain.com;
 	return 301 https://domain.com$request_uri;
 }
 ```
+
 Apache （.htaccess文件）
-```
+
+```apache
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 ```
+
 4.修改资源链接
 
 将站点所有的 HTTP 资源地址替换成 HTTPS，一个比较好的方法是直接将协议头替换成 `//`，这样浏览器会自动根据当前页面的协议加载相同协议头的资源，更为灵活。例如：
-```
+
+```html
 <script src="http://a.com/jquery.js"></script>
 ```
+
 改为
-```
+
+```html
 <script src="//a.com/jquery.js"></script>
 ```
 
@@ -89,7 +96,8 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 如果用户的身份验证 Cookie 将在明文中暴露，则整个会话的安全保障将被破坏，因此，应该确保浏览器只在使用 HTTPS 时，才发送 Cookie。
 
 在网站响应头里面，Set-Cookie字段加上Secure标志即可。
-```
+
+```http
 Set-Cookie: LSID=DQAAAK...Eaem_vYg; Secure
 ```
 
@@ -129,23 +137,31 @@ Content-Security-Policy-Report-Only: default-src https: 'unsafe-inline' 'unsafe-
 可以使用 CSP 的 [upgrade-insecure-requests](https://www.w3.org/TR/upgrade-insecure-requests/) 配置项，浏览器在请求 http 资源时，会自动升级请求对应的 https 资源。
 
 如，配置请求头
-```
+
+```http
 Content-Security-Policy: upgrade-insecure-requests
 ```
+
 或，使用`meta`标签
-```
+
+```html
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 ```
+
 都能使浏览器对 `<img src="http://example.com/image.jpg">` 的请求转向 `https://example.com/image.jpg`。但注意，这时需要保证升级后的资源地址可用，不然就会请求失败。
 
 3.阻止所有混合内容
 
 配置请求头
-```
+
+```http
 Content-Security-Policy: block-all-mixed-content
 ```
+
 或，使用`meta`标签
-```
+
+```html
 <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 ```
+
 将导致所有不安全的混合内容被浏览器阻止，但这个存在"误杀"的风险，慎重使用。

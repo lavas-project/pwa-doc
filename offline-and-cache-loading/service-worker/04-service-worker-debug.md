@@ -22,13 +22,11 @@ service worker 作为独立于主线程的独立线程，在调试方面有其�
 在开发调试 service Worker 时肯定希望重新加载后立即激活，我们不希望每次都重新打开当前页面调试，为此我们可以在 `install` 事件发生时通过 `skipWaiting()` 来设置 skip waiting 标记。 这样每次 service worker 安装后就会被立即激活。
 
 ```javascript
-
 self.addEventListener('install', function () {
     if (ENV === 'development') {
         self.skipWaiting();
     }
 });
-
 ```
 
 但是当浏览器未检测到 service worker 发生变化时（比如该文件设置了 HTTP 缓存）， 甚至连安装都不会被触发。现在可以借助于浏览器 DevTools 调试了： 比如在 Chrome DevTools 的 Application 标签页勾选 `Update on reload`，Chrome 会在每次刷新时去访问 service worker 文件并重新安装和激活。

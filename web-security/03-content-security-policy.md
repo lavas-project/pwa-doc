@@ -13,13 +13,17 @@ CSP(Content Security Policy) 即内容安全策略，主要目标是减少、并
 有两种方法配置并启用 CSP
 
 1.设置 HTTP 头的 Content-Security-Policy 字段（旧版 X-Content-Security-Policy）
-```
+
+```http
 Content-Security-Policy: script-src 'self'; object-src 'none';style-src cdn.example.org third-party.org; child-src https:
 ```
+
 2.设置页面的 `<meta>` 标签
-```
+
+```html
 <meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; style-src cdn.example.org third-party.org; child-src https:">
 ```
+
 上述例子进行了配置
 
 - script: 只信任当前域名

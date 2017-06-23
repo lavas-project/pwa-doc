@@ -46,7 +46,7 @@ service worker 的使用过程很简单，所处理的事情也相对单一，�
 - **安装后( installed )**：service worker 已经完成了安装，并且等待其他的 service worker 线程被关闭。
 
 - **激活( activating )**：在这个状态下没有被其他的 service worker 控制的客户端，允许当前的 worker 完成安装，并且清除了其他的 worker 以及关联缓存的旧缓存资源，等待新的 service worker 线程被激活。
-    
+
     `activate` 回调中有两个方法：
 
     - `event.waitUntil()`：传入一个 Promise 为参数，等到该 Promise 为 resolve 状态为止。

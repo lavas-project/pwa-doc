@@ -4,7 +4,7 @@
 
 凭证管理 API 提供了 `PasswordCredential` 凭据对象，需要将账号密码信息转换为凭证之后再进行存取操作。
 
-`PasswordCredential` 实现了 `Credetial` 的接口。`PasswordCredential` 初始化传入的对象需要包含以下信息：
+`PasswordCredential` 实现了 `Credetial` 的接口。PasswordCredential 初始化传入的对象需要包含以下信息：
 
 - `id`: **必须** 账号
 - `password`: **必须** 密码

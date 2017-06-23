@@ -73,6 +73,7 @@ function askPermission() {
 2. 在请求发送之前，浏览器已经生成了一个推送订阅对象(PushSubscription)。得到响应之后，会将推送服务生成的地址加入这个推送订阅对象中。
 
 一个完整的推送订阅对象结构如下：
+
 ``` json
 {
     "endpoint": "https://fcm.googleapis.com/fcm/send/...",
@@ -96,6 +97,7 @@ function askPermission() {
 3. 得到推送服务成功响应后，浏览器将推送服务返回的 endpoint 加入推送订阅对象，向服务器发送这个对象供其存储
 
 以上步骤对应的具体代码实现如下：
+
 ``` javascript
 // 将base64的applicationServerKey转换成UInt8Array
 function urlBase64ToUint8Array(base64String) {
@@ -150,11 +152,16 @@ GCM(Google Cloud Messaging)是 Google 早期的推送服务，现已更名为 FC
 
 ```javascript
 navigator.serviceWorker.ready.then(function(reg) {
-    reg.pushManager.getSubscription().then(function(subscription) {
-        subscription.unsubscribe().then(function(successful) {
-        }).catch(function(e) {
+    reg.pushManager.getSubscription()
+        .then(function (subscription) {
+            subscription.unsubscribe()
+                .then(function (successful) {
+                    //
+                })
+                .catch(function (e) {
+                    //
+                });
         });
-    });
 });
 ```
 
@@ -189,20 +196,24 @@ Authorization 就包含了 JWT 格式的字符串：
 
 Authorization 的内容由三部分组成，使用`.`连接，前两部分是使用base64编码后的JSON字符串：
 - JWT Info，指明了签名使用的加密算法
-    ``` json
-    {
-        "typ": "JWT",
-        "alg": "ES256"
-    }
-    ```
+
+```json
+{
+    "typ": "JWT",
+    "alg": "ES256"
+}
+```
+
 - JWT Data，包含发送者的信息，推送服务的源地址，失效时间，和发送者的联系方式
-    ``` json
-    {
-        "aud": "https://some-push-service.org",
-        "exp": "1469618703",
-        "sub": "mailto:example@web-push-book.org"
-    }
-    ```
+
+```json
+{
+    "aud": "https://some-push-service.org",
+    "exp": "1469618703",
+    "sub": "mailto:example@web-push-book.org"
+}
+```
+
 - 签名，连接前两部分，服务端使用私钥加密。还记得之前添加订阅的时候，使用到的服务端生成的公钥吗，此处使用的正是与之配对的私钥
 
 另外，请求头中还需要将公钥带给推送服务：
@@ -239,6 +250,7 @@ Authorization 的内容由三部分组成，使用`.`连接，前两部分是使
 4. 调用`sendNotification`向推送服务发起调用请求，如果返回错误状态码，从数据库中删除保存的推送订阅对象。
 
 以上步骤实现代码如下：
+
 ``` javascript
 const webpush = require('web-push');
 const vapidKeys = webpush.generateVAPIDKeys(); // 1.生成公私钥
@@ -262,16 +274,14 @@ webpush.sendNotification(pushSubscription, '推送消息内容')
 Service Worker 就是扮演这样的角色，它监听 push 事件，显示通知。
 
 使用消息中携带的数据，展示通知，此处省略了通知对象(Notification)的配置信息，示例代码如下：
+
 ``` javascript
 self.addEventListener('push', event => {
-    let promiseChain;
     if (event.data) {
-        promiseChain = Promise.resolve(event.data.json());
+        let promiseChain = Promise.resolve(event.data.json())
+                .then(data => self.registration.showNotification(data.title, {}));
+        event.waitUntil(promiseChain);
     }
-    promiseChain = promiseChain.then(data => {
-        return self.registration.showNotification(data.title, {});
-    });
-    event.waitUntil(promiseChain);
 });
 ```
 

@@ -11,9 +11,11 @@
 如果协议，端口和主机对于两个页面是相同的，则两个页面具有相同的源。
 
 例如，相对于
+
 ```
 http://www.example.com/dir/page.html
 ```
+
 同源情况如下
 
 | 地址 | 结果 |
@@ -29,7 +31,7 @@ http://www.example.com/dir/page.html
 
 可以在 `http://child.company.com/dir/a.html`中执行：
 
-```
+```javascript
 document.domain = 'company.com';
 ```
 

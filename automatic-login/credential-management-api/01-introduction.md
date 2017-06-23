@@ -108,7 +108,7 @@ if (navigator.credentials) {
 
 navigator.credentials.store 的方法定义如下：
 
-`{Promise} navigator.credentials.store({Credetial} cred)`
+`{Promise}` navigator.credentials.store(`{Credetial}` cred)
 
 存储凭证的方法
 
@@ -116,7 +116,7 @@ navigator.credentials.store 的方法定义如下：
 
 - `{Promise}` : promise 对象，存储操作完成时，会返回所存储的 cred 的值。
 
-`navigator.credentials.store` 之所以是个异步操作，是因为在调用该方法时，浏览器会弹出提示框询问用户是否对登录信息进行存储，如图所示：
+navigator.credentials.store 之所以是个异步操作，是因为在调用该方法时，浏览器会弹出提示框询问用户是否对登录信息进行存储，如图所示：
 
 ![保存登录信息对话框](./img/save-dialog.jpg)
 
@@ -190,7 +190,7 @@ if (navigator.credentials) {
 
 navigator.credentials.get 方法的定义如下：
 
-`{Promise} navigator.credentials.get({Object} options)`
+`{Promise}` navigator.credentials.get(`{Object}` options)
 
 获取凭证的方法
 
@@ -240,7 +240,7 @@ navigator.credentials.get({
 
 ![全部账号信息](./img/third-party-select.jpg)
 
-其中带`提供方`标识的属于第三方登录凭证信息。
+其中带**提供方**标识的属于第三方登录凭证信息。
 
 如果只选择获取账号密码凭证：
 

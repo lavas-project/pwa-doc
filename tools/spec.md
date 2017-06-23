@@ -33,7 +33,7 @@ FECS 详细的使用方法请参考：[快速开始](http://fecs.baidu.com/api)
 
 FECS 的安装过程也相当简单，通过 npm 进行如下安装即可：
 
-```bash
+```shell
 [sudo] npm install fecs -g
 ```
 
@@ -41,7 +41,7 @@ FECS 的安装过程也相当简单，通过 npm 进行如下安装即可：
 
 在使用的时候只需要在待检查的项目根目录的命令行输入 `fecs` 即可实现代码检查：
 
-```bash
+```shell
 fecs
 fecs path
 fecs path/to/file
@@ -60,7 +60,7 @@ fecs check --help
 
 代码自动修复可以通过 `fecs format` 命令实现：
 
-```bash
+```shell
 fecs format src --output=fixed
 fecs format src --replace
 fecs format --help

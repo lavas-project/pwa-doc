@@ -24,7 +24,6 @@ service worker 出于安全性和其实现原理，在使用的时候有一定�
 先啥也不说了，来感受一段代码：
 
 ```javascript
-
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
         navigator.serviceWorker.register('/sw.js', { scope: '/' }).then(function (registration) {
@@ -36,7 +35,6 @@ if ('serviceWorker' in navigator) {
         });
     });
 }
-
 ```
 
 - 这段代码首先是要判断 service worker API 的可用情况，支持的话咱们才继续谈实现，否则免谈了。
@@ -95,7 +93,6 @@ install 事件一般是被用来填充你的浏览器的离线缓存能力。为
 
 
 ```javascript
-
 this.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open('my-test-cache-v1').then(function (cache) {
@@ -109,7 +106,6 @@ this.addEventListener('install', function (event) {
         })
     );
 });
-
 ```
 
 - 这里我们 新增了一个 install 事件监听器，接着在事件上接了一个 `ExtendableEvent.waitUntil()` 方法——这会确保 service Worker 不会在 waitUntil() 里面的代码执行完毕之前安装完成。
@@ -132,7 +128,6 @@ this.addEventListener('install', function (event) {
 话扯这么多，代码咋实现呢？你可以给 service worker 添加一个 fetch 的事件监听器，接着调用 event 上的 respondWith() 方法来劫持我们的 HTTP 响应，然后你用可以用自己的魔法来更新他们。
 
 ```javascript
-
 this.addEventListener('fetch', function (event) {
     event.respondWith(
         caches.match(event.request).then(function (response) {
@@ -165,7 +160,6 @@ this.addEventListener('fetch', function (event) {
         })
     );
 });
-
 ```
 
 我们可以在 `install` 的时候进行静态资源缓存，也可以通过 `fetch` 事件处理回调来代理页面请求从而实现资源缓存。
@@ -191,33 +185,31 @@ this.addEventListener('fetch', function (event) {
 看一下具体实例：
 
 ```javascript
+// 安装阶段跳过等待，直接进入 active
+self.addEventListener('install', function (event) {
+    event.waitUntil(self.skipWaiting());
+});
 
-    // 安装阶段跳过等待，直接进入 active
-    self.addEventListener('install', function (event) {
-        event.waitUntil(self.skipWaiting());
-    });
+self.addEventListener('activate', function (evnet) {
+    event.waitUntil(
+        Promise.all([
 
-    self.addEventListener('activate', function (evnet) {
-        event.waitUntil(
-            Promise.all([
+            // 更新客户端
+            self.clients.claim(),
 
-                // 更新客户端
-                self.clients.claim(),
-
-                // 清理旧版本
-                caches.keys().then(function (cacheList) {
-                    Promise.all(
-                        cacheList.map(function (cacheName) {
-                            if (cacheName !== 'my-test-cache-v1') {
-                                caches.delete(cacheName);
-                            }
-                        })
-                    )
-                })
-            ])
-        );
-    });
-
+            // 清理旧版本
+            caches.keys().then(function (cacheList) {
+                Promise.all(
+                    cacheList.map(function (cacheName) {
+                        if (cacheName !== 'my-test-cache-v1') {
+                            caches.delete(cacheName);
+                        }
+                    })
+                )
+            })
+        ])
+    );
+});
 ```
 
 另外要注意一点，`/sw.js` 文件可能会因为浏览器缓存问题，当文件有了变化时，浏览器里还是旧的文件。这会导致更新得不到响应。如遇到该问题，可尝试这么做：在 webserver 上添加对该文件的过滤规则，不缓存或设置较短的有效期。
@@ -230,7 +222,6 @@ this.addEventListener('fetch', function (event) {
 参考如下示例：
 
 ```javascript
-
 var version = '1.0.1';
 
 navigator.serviceWorker.register('/sw.js').then(function (reg) {
@@ -250,7 +241,6 @@ navigator.serviceWorker.register('/sw.js').then(function (reg) {
 代码如下：
 
 ```javascript
-
 self.addEventListener('install', function () {
     self.skipWaiting();
 });
