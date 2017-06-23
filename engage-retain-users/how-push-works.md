@@ -8,9 +8,8 @@
 
 但是目前[整体支持度并不高](http://caniuse.com/#search=push)，在手机端更是只有安卓 Chrome57 支持。
 
-如同淘宝卖家将商品送到用户家中需要依赖快递公司，
-服务器向浏览器推送消息，也需要推送服务(Push Service)的帮助。
-下面让我们看看*服务器*，*浏览器*和*推送服务*这三者在推送过程中扮演的角色。
+如同淘宝卖家将商品送到用户家中需要依赖快递公司，服务器向浏览器推送消息，也需要推送服务(Push Service)的帮助。
+下面让我们看看**服务器**，**浏览器**和**推送服务**这三者在推送过程中扮演的角色。
 
 ## 获取授权
 
@@ -23,6 +22,7 @@
 2. 如果不选择使用方法1，在正式订阅时浏览器也会自动弹出，对于开发者而言不需要显式调用
 
 在第一种使用`Notification.requestPermission`的方式中，由于[通知API](https://developer.mozilla.org/en-US/docs/Web/API/Notification/requestPermission)还不稳定，需要兼容新旧版本的返回值：
+
 ``` javascript
 function askPermission() {
     return new Promise(function (resolve, reject) {
@@ -151,7 +151,7 @@ GCM(Google Cloud Messaging)是 Google 早期的推送服务，现已更名为 FC
 在某些情况下，例如服务端请求推送服务，返回了推送服务失效错误码，此时需要[取消订阅](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/unsubscribe)，代码实现如下：
 
 ```javascript
-navigator.serviceWorker.ready.then(function(reg) {
+navigator.serviceWorker.ready.then(function (reg) {
     reg.pushManager.getSubscription()
         .then(function (subscription) {
             subscription.unsubscribe()
@@ -263,7 +263,8 @@ webpush.setVapidDetails( // 2.设置公私钥
 // 4.向推送服务发起调用请求
 webpush.sendNotification(pushSubscription, '推送消息内容')
     .catch((err) => {
-        if (err.statusCode === 410) { // 从数据库中删除推送订阅对象
+        if (err.statusCode === 410) {
+            // 从数据库中删除推送订阅对象
         }
     });
 ```
