@@ -33,7 +33,7 @@ FECS 详细的使用方法请参考：[快速开始](http://fecs.baidu.com/api)
 
 FECS 的安装过程也相当简单，通过 npm 进行如下安装即可：
 
-```shell
+```npm
 [sudo] npm install fecs -g
 ```
 
