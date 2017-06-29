@@ -87,7 +87,7 @@ navigator.credentials.get({
 
 ## 示例
 
-完整的示例代码可以 [戳这里](https://github.com/searchfe/searchfe.github.io/blob/master/pwa-demo/credential-demo/login.html)
+完整的示例代码可以 [戳这里](https://github.com/lavas-project/lavas-project.github.io/blob/master/pwa-demo/credential-demo/login.html)
 
 首先在登录页填写用户名和密码：
 
@@ -98,7 +98,7 @@ navigator.credentials.get({
 ```javascript
 {
     "name": "测试名",
-    "icon": "https://searchfe.github.io/pwa-demo/credential-demo/images/logo-48x48.png"
+    "icon": "https://lavas-project.github.io/pwa-demo/credential-demo/images/logo-48x48.png"
 }
 ```
 

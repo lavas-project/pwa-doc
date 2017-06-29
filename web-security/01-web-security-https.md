@@ -123,7 +123,7 @@ Set-Cookie: LSID=DQAAAK...Eaem_vYg; Secure
 
 ### 批量处理 HTTPS 站点中的混合内容
 
-1.使用 [CSP](https://github.com/searchfe/pwa-doc/blob/master/web-security/03-content-security-policy.md) 查找混合内容
+1.使用 [CSP](https://github.com/lavas-project/pwa-doc/blob/master/web-security/03-content-security-policy.md) 查找混合内容
 
 给网站设置响应头：
 ```

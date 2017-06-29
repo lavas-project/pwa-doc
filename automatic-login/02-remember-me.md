@@ -1,8 +1,8 @@
-# 传统 Remember-Me 功能实现
+# 传统“记住密码”功能实现
 
-不少网站在登录界面会提供“**记住我**”这样一个勾选项，方便用户省去输入账号密码，以实现网站的快速登录。
+不少网站在登录界面会提供“**记住密码**”这样一个勾选项，方便用户省去输入账号密码，以实现网站的快速登录。
 
-传统的“记住我”功能主要有两种实现方式：
+传统的“记住密码”功能主要有两种实现方式：
 
 - [cookie存储登录信息](#cookie存储登录信息)
 - [浏览器自动填充登录信息](#浏览器自动填充登录信息)
@@ -67,7 +67,7 @@
 
 ### 自动填充示例
 
-完整的示例代码可以 [戳这里](https://github.com/searchfe/searchfe.github.io/blob/master/pwa-demo/credential-demo/remember-me.html)
+完整的示例代码可以 [戳这里](https://github.com/lavas-project/lavas-project.github.io/blob/master/pwa-demo/credential-demo/remember-me.html)
 
 其中表单的 HTML 如下：
 

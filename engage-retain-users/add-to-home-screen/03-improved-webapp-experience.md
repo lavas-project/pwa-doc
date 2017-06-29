@@ -156,26 +156,26 @@ orientation属性的值有以下几种：
 - `natural`
 - `any`
 
-由于不同的设备的宽高比不同，因此对于`横屏`、`竖屏`不能简单地通过屏幕旋转角去定义。如对于手机来说，`90°` 和 `270°` 为横屏，而在某些平板电脑中，`0°` 和 `180°` 才是横屏。因此需要通过应用视窗去定义。
+由于不同的设备的宽高比不同，因此对于“横屏”、“竖屏”不能简单地通过屏幕旋转角去定义。如对于手机来说，90° 和 270° 为横屏，而在某些平板电脑中，0° 和 180° 才是横屏。因此需要通过应用视窗去定义。
 
-- 当视窗宽度大于高度时，当前应用处于`横屏`状态。横屏分为两种角度，两者相位差为 `180°`，分别为 `landscape-primary` 和 `landscape-secondary`。
-- 当视窗宽度小于等于高度时，当前应用处于`竖屏`状态。同样，竖屏分为两种，两者相位差为 `180°`，分别为 `portrait-primary` 和 `portrait-secondary`。
+- 当视窗宽度大于高度时，当前应用处于“横屏”状态。横屏分为两种角度，两者相位差为 180°，分别为 `landscape-primary` 和 `landscape-secondary`。
+- 当视窗宽度小于等于高度时，当前应用处于“竖屏”状态。同样，竖屏分为两种，两者相位差为 180°，分别为 `portrait-primary` 和 `portrait-secondary`。
 
-有了 `landscape-primary`、`landscape-secondary`、`portrait-primary`、`portrait-secondary` 的定义，我们就可以用它们来定义其他的属性值了。
+有了 landscape-primary、landscape-secondary、portrait-primary、portrait-secondary 的定义，我们就可以用它们来定义其他的属性值了。
 
 - `landscape`:
-    根据不同平台的规则，该值可等效于 `landscape-primary` 或 `landscape-secondary`，或者根据当前屏幕旋转角不同，去自由切换 `landscape-primary` 或 `landscape-secondary`；
+    根据不同平台的规则，该值可等效于 landscape-primary 或 landscape-secondary，或者根据当前屏幕旋转角不同，去自由切换 landscape-primary 或 landscape-secondary；
 - `portrait`:
-    根据不同平台的规则，该值可等效于 `portrait-primary` 或 `portrait-secondary`，或者根据当前屏幕旋转角不同，去自由切换 `portrait-primary` 或 `portrait-secondary`；
+    根据不同平台的规则，该值可等效于 portrait-primary 或 portrait-secondary，或者根据当前屏幕旋转角不同，去自由切换 portrait-primary 或 portrait-secondary；
 - `natural`:
-    根据不同平台的规则，该值可等效于 `portrait-primary` 或 `landscape-primary`，即当前屏幕旋转角为`0°`时所对应的显示方向；
+    根据不同平台的规则，该值可等效于 portrait-primary 或 landscape-primary，即当前屏幕旋转角为 0° 时所对应的显示方向；
 - `any`:
-    根据屏幕旋转角自由切换 `landscape-primary`、`landscape-secondary`、`portrait-primary`、`portrait-secondary`。
+    根据屏幕旋转角自由切换 landscape-primary、landscape-secondary、portrait-primary、portrait-secondary。
 
 
 ## 设置主题颜色
 
-通过设置 `theme_color` 属性可以指定PWA的主题颜色。可以通过该属性来控制浏览器 UI 的颜色。比如 PWA 启动画面上状态栏、内容页中状态栏、地址栏的颜色，会被 `theme_color` 所影响。
+通过设置 `theme_color` 属性可以指定PWA的主题颜色。可以通过该属性来控制浏览器 UI 的颜色。比如 PWA 启动画面上状态栏、内容页中状态栏、地址栏的颜色，会被 theme_color 所影响。
 
 - `theme_color`:
     `{Color}` css色值
@@ -184,7 +184,7 @@ orientation属性的值有以下几种：
 
 ![browser 模式下浏览器UI样式](./img/browser.jpg)
 
-在指定了 `theme_color` 的值之后，地址栏依然呈白色。针对这种情况，可以在页面 HTML 里设置 `name` 为 `theme-color` 的 `meta` 标签，例如：
+在指定了 theme_color 的值之后，地址栏依然呈白色。针对这种情况，可以在页面 HTML 里设置 name 为 `theme-color` 的 meta 标签，例如：
 
 ```html
 <meta name="theme-color" content="green">
@@ -194,7 +194,7 @@ orientation属性的值有以下几种：
 
 ![设置theme-color<meta>的 browser 模式](./img/meta.jpg)
 
-需要注意的是，这个标签的色值会覆盖 manifest.json 里设置的 `theme_color`，如果两个色值不一样的话，会导致应用启动画面和内容页的主题色不一致，因此建议将 `theme_color` 的色值设置得与 `theme-color<meta>`的色值相等。
+需要注意的是，这个标签的色值会覆盖 manifest.json 里设置的 theme_color，如果两个色值不一样的话，会导致应用启动画面和内容页的主题色不一致，因此建议将 theme_color 的色值设置得与 `theme-color<meta>` 的色值相等。
 
 
 ### 示例

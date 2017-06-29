@@ -131,7 +131,7 @@ navigator.credentials.get({
 ```
 ## 第三方登录示例
 
-完整的示例代码可以 [戳这里](https://github.com/searchfe/searchfe.github.io/blob/master/pwa-demo/credential-demo/third-party.html)
+完整的示例代码可以 [戳这里](https://github.com/lavas-project/lavas-project.github.io/blob/master/pwa-demo/credential-demo/third-party.html)
 
 第三方登录界面如下：
 
@@ -188,7 +188,7 @@ $btn.addEventListener('click', function () {
 {
     "name": "测试百度用户名",
     "uid": "123456",
-    "icon": "https://searchfe.github.io/pwa-demo/credential-demo/images/logo-48x48.png"
+    "icon": "https://lavas-project.github.io/pwa-demo/credential-demo/images/logo-48x48.png"
 }
 ```
 

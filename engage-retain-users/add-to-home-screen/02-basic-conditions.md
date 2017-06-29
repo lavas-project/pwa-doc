@@ -179,7 +179,7 @@ manifest.json 对应的 start_url 如果采用绝对地址的形式，其配置�
 
 假设用户在 detail.html 页面将应用添加至首屏，如果 start_url 为空，从首屏打开应用时，打开的页面将是 `/detail.html`
 
-可使用 Chrome 分别访问 [index](https://searchfe.github.io/pwa-demo/manifest-demo/start-url/index.html) 和 [detail](https://searchfe.github.io/pwa-demo/manifest-demo/start-url/detail.html)进行验证。
+可使用 Chrome 分别访问 [index](https://lavas-project.github.io/pwa-demo/manifest-demo/start-url/index.html) 和 [detail](https://lavas-project.github.io/pwa-demo/manifest-demo/start-url/detail.html)进行验证。
 
 ## 设置作用域
 

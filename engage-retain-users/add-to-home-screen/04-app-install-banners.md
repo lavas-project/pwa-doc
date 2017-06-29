@@ -120,7 +120,7 @@ button.addEventListener('click', function () {
 
 ### 示例
 
-完整的项目代码可以[戳这里](https://github.com/searchfe/searchfe.github.io/tree/master/pwa-demo/manifest-demo/add-to-home-screen/delay)。
+完整的项目代码可以[戳这里](https://github.com/lavas-project/lavas-project.github.io/tree/master/pwa-demo/manifest-demo/add-to-home-screen/delay)。
 
 示例项目结构如下：
 
