@@ -19,7 +19,7 @@
 
 ### 设置图像和标题
 
-浏览器会从 [icons](./02-basic-introduction.md/#自定义图标) 中选择最接近 `128dp` 的图片作为启动画面图像。标题则直接取自 [name](./02-basic-introduction.md/#自定义名称)。
+浏览器会从 [icons](./02-basic-introduction.md#自定义图标) 中选择最接近 `128dp` 的图片作为启动画面图像。标题则直接取自 [name](./02-basic-introduction.md#自定义名称)。
 
 ### 设置启动背景颜色
 
@@ -47,7 +47,7 @@ background_color 的值可以通过如下几种形式定义：
 
 ### 设置启动显示类型
 
-仅当显示类型 `display` 设置为 `standalone` 或 `fullscreen` 时，PWA 启动的时候才会显示启动画面。关于 `display` 的详细介绍请阅读 [设置显示类型](#设置显示类型) 章节。
+仅当显示类型 `display` 设置为 `standalone` 或 `fullscreen` 时，PWA 启动的时候才会显示启动画面。关于 display 的详细介绍请阅读 [设置显示类型](#设置显示类型) 章节。
 
 ```javascript
 "display": "standalone"
