@@ -1,6 +1,6 @@
 # 搜索优化
 
-> 本文转载自 develops.google.com
+> 本文转载自 developers.google.com
 >
 > 作者：**Eiji Kitamura**
 >
@@ -180,7 +180,7 @@ Disallow: /nospider
 可通过各搜索引擎自动程序的帮助页面了解更多相关信息：
 
 * [Baidu](http://zhanzhang.baidu.com/robots/index)
-* [Google](https://developers.google.com/webmasters/control-crawl-index/docs/robots_txt?hl=zh-cn)
+* [Google](https://developers.google.cn/webmasters/control-crawl-index/docs/robots_txt?hl=zh-cn)
 * [Bing](http://www.bing.com/webmaster/help/how-to-create-a-robots-txt-file-cb7c31ec)
 * [Yandex](https://help.yandex.com/webmaster/controlling-robot/robots-txt.xml)
 

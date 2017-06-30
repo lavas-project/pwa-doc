@@ -10,7 +10,7 @@ PWA 的主要特点包括下面三点：
 * 体验 - 快速响应，并且有平滑的动画响应用户的操作
 * 粘性 - 像设备上的原生应用，具有沉浸式的用户体验，用户可以添加到桌面
 
-PWA 本身强调渐进式，并不要求一次性达到安全、性能和体验上的所有要求，开发者可以通过 **[PWA Checklist](https://developers.google.cN/web/progressive-web-apps/checklist)** 查看现有的特征。
+PWA 本身强调渐进式，并不要求一次性达到安全、性能和体验上的所有要求，开发者可以通过 **[PWA Checklist](https://developers.google.cn/web/progressive-web-apps/checklist)** 查看现有的特征。
 
 ## 可靠
 
