@@ -13,7 +13,7 @@
 我们可以将如下代码增加到 `service-worker.js` 中。其中 `notificationCloseAnalytics` 方法是用来做一些统计工作，因为可能包含异步因此返回为 `Promise` 对象，也因此必须使用 `waitUntil` 等待其执行完成。
 
 ```javascript
-self.addEventListener('notificationclose', function(event) {
+self.addEventListener('notificationclose', function (event) {
     const dismissedNotification = event.notification;
 
     const promiseChain = notificationCloseAnalytics();
@@ -42,7 +42,7 @@ registration.showNotification('Notification With Data', {
 ```javascript
 const notificationData = event.notification.data;
 console.log('The data notification had the following parameters:');
-Object.keys(notificationData).forEach((key) => {
+Object.keys(notificationData).forEach(function (key) {
     console.log(`  ${key}: ${notificationData[key]}`);
 });
 ```
@@ -74,10 +74,10 @@ const promiseChain = clients.matchAll({
     type: 'window',
     includeUncontrolled: true
 })
-.then((windowClients) => {
+.then(windowClients => {
     let matchingClient = null;
 
-    for (let i = 0; i < windowClients.length; i++) {
+    for (let i = 0, max = windowClients.length; i < max; i++) {
         const windowClient = windowClients[i];
         if (windowClient.url === urlToOpen) {
             matchingClient = windowClient;
@@ -85,11 +85,9 @@ const promiseChain = clients.matchAll({
         }
     }
 
-    if (matchingClient) {
-        return matchingClient.focus();
-    } else {
-        return clients.openWindow(urlToOpen);
-    }
+    return matchingClient
+        ? matchingClient.focus()
+        : clients.openWindow(urlToOpen);
 });
 
 event.waitUntil(promiseChain);
@@ -134,10 +132,10 @@ const promiseChain = registration.getNotifications()
     .then(notifications => {
         let currentNotification;
 
-        for(let i = 0; i < notifications.length; i++) {
-            if (notifications[i].data &&
-                notifications[i].data.userName === userName) {
+        for(let i = 0, max = notifications.length; i < max; i++) {
+            if (notifications[i].data && notifications[i].data.userName === userName) {
                 currentNotification = notifications[i];
+                break;
             }
         }
 
@@ -151,8 +149,8 @@ const promiseChain = registration.getNotifications()
     .then((currentNotification) => {
         let notificationTitle;
         const options = {
-            icon: userIcon,
-        }
+            icon: userIcon
+        };
 
         if (currentNotification) {
             // 找到之前X发送信息的通知，整合通知。
@@ -167,7 +165,8 @@ const promiseChain = registration.getNotifications()
 
             // 把之前的信息删除
             currentNotification.close();
-        } else {
+        }
+        else {
             // 没找到，则常规处理
             options.body = `"${userMessage}"`;
             options.data = {
@@ -177,10 +176,7 @@ const promiseChain = registration.getNotifications()
             notificationTitle = `New Message from ${userName}`;
         }
 
-        return registration.showNotification(
-            notificationTitle,
-            options
-        );
+        return registration.showNotification(notificationTitle, options);
     });
 ```
 
@@ -206,12 +202,11 @@ function isClientFocused() {
         type: 'window',
         includeUncontrolled: true
     })
-    .then((windowClients) => {
+    .then(windowClients => {
         let clientIsFocused = false;
 
-        for (let i = 0; i < windowClients.length; i++) {
-            const windowClient = windowClients[i];
-            if (windowClient.focused) {
+        for (let i = 0, max = windowClients.length; i < max; i++) {
+            if (windowClients[i].focused) {
                 clientIsFocused = true;
                 break;
             }
@@ -228,7 +223,7 @@ function isClientFocused() {
 
 ```javascript
 const promiseChain = isClientFocused()
-    .then((clientIsFocused) => {
+    .then(clientIsFocused => {
         // 窗口处于激活状态，不需要发送通知
         if (clientIsFocused) {
             console.log('Don\'t need to show a notification.');
@@ -276,7 +271,7 @@ event.waitUntil(promiseChain);
 而在每个页面中，我们可以通过监听 `message` 事件来获取这些数据。在主程序中代码如下：
 
 ```javascript
-navigator.serviceWorker.addEventListener('message', function(event) {
+navigator.serviceWorker.addEventListener('message', function (event) {
     console.log('Received a message from service worker: ', event.data);
 });
 ```

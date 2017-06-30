@@ -66,7 +66,7 @@ registration.showNotification('Actions Notification', {
 在用户点击某个按钮时，我们可以监听 `notificationclick` 事件，通过 `event.action` 属性获得按钮的ID（对应 `action` 属性）。例如我们点击咖啡图标，则 `event.action` 的值为 `'coffee-action'`。我们可以参考如下代码：
 
 ```javascript
-self.addEventListener('notificationclick', function(event) {
+self.addEventListener('notificationclick', function (event) {
     if (!event.action) {
         // 没有点击在按钮上
         console.log('Notification Click.');
