@@ -42,7 +42,7 @@ registration.showNotification('Notification With Data', {
 ```javascript
 const notificationData = event.notification.data;
 console.log('The data notification had the following parameters:');
-Object.keys(notificationData).forEach(function (key) {
+Object.keys(notificationData).forEach(key => {
     console.log(`  ${key}: ${notificationData[key]}`);
 });
 ```
@@ -146,7 +146,7 @@ const promiseChain = registration.getNotifications()
 注意 `registration.getNotifications()` 是一个异步方法，因此我们需要使用 `then` 进行后续处理，筛选出X发来的信息，进行下一步操作。
 
 ```javascript
-    .then((currentNotification) => {
+    .then(currentNotification => {
         let notificationTitle;
         const options = {
             icon: userIcon
@@ -271,7 +271,7 @@ event.waitUntil(promiseChain);
 而在每个页面中，我们可以通过监听 `message` 事件来获取这些数据。在主程序中代码如下：
 
 ```javascript
-navigator.serviceWorker.addEventListener('message', function (event) {
+navigator.serviceWorker.addEventListener('message', event => {
     console.log('Received a message from service worker: ', event.data);
 });
 ```
