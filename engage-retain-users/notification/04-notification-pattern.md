@@ -247,10 +247,10 @@ event.waitUntil(promiseChain);
 
 ```javascript
 const promiseChain = isClientFocused()
-    .then((clientIsFocused) => {
+    .then(clientIsFocused => {
         // 如果处于激活状态，向页面发送数据
         if (clientIsFocused) {
-            windowClients.forEach((windowClient) => {
+            windowClients.forEach(windowClient => {
                 windowClient.postMessage({
                     message: 'Received a push message.',
                     time: new Date().toString()
