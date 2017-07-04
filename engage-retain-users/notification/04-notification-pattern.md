@@ -13,10 +13,9 @@
 我们可以将如下代码增加到 `service-worker.js` 中。其中 `notificationCloseAnalytics` 方法是用来做一些统计工作，因为可能包含异步因此返回为 `Promise` 对象，也因此必须使用 `waitUntil` 等待其执行完成。
 
 ```javascript
-self.addEventListener('notificationclose', function (event) {
-    const dismissedNotification = event.notification;
-
-    const promiseChain = notificationCloseAnalytics();
+self.addEventListener('notificationclose', event => {
+    let dismissedNotification = event.notification;
+    let promiseChain = notificationCloseAnalytics();
     event.waitUntil(promiseChain);
 });
 ```
@@ -54,8 +53,8 @@ Object.keys(notificationData).forEach(key => {
 上面一部分提过，用户通过点击通知访问某个URL是非常常见的做法。那么如何做到打开页面访问某个URL呢？我们可以通过 `clients.openWindow()` 方法。 如下代码可以允许我们在捕获 `notificationclick` 事件的处理中打开新页面：
 
 ```javascript
-const examplePage = '/demos/notification-examples/example-page.html';
-const promiseChain = clients.openWindow(examplePage);
+let examplePage = '/demos/notification-examples/example-page.html';
+let promiseChain = clients.openWindow(examplePage);
 event.waitUntil(promiseChain);
 ```
 
@@ -68,9 +67,9 @@ event.waitUntil(promiseChain);
 接上一节的例子，我们先判断需要打开的页面是否已经打开了，如下：
 
 ```javascript
-const urlToOpen = new URL(examplePage, self.location.origin).href;
+let urlToOpen = new URL(examplePage, self.location.origin).href;
 
-const promiseChain = clients.matchAll({
+let promiseChain = clients.matchAll({
     type: 'window',
     includeUncontrolled: true
 })
@@ -78,7 +77,7 @@ const promiseChain = clients.matchAll({
     let matchingClient = null;
 
     for (let i = 0, max = windowClients.length; i < max; i++) {
-        const windowClient = windowClients[i];
+        let windowClient = windowClients[i];
         if (windowClient.url === urlToOpen) {
             matchingClient = windowClient;
             break;
@@ -128,7 +127,7 @@ const promiseChain = clients.matchAll({
 
 ```javascript
 const userName = 'X';
-const promiseChain = registration.getNotifications()
+let promiseChain = registration.getNotifications()
     .then(notifications => {
         let currentNotification;
 
@@ -146,38 +145,38 @@ const promiseChain = registration.getNotifications()
 注意 `registration.getNotifications()` 是一个异步方法，因此我们需要使用 `then` 进行后续处理，筛选出X发来的信息，进行下一步操作。
 
 ```javascript
-    .then(currentNotification => {
-        let notificationTitle;
-        const options = {
-            icon: userIcon
+promiseChain.then(currentNotification => {
+    let notificationTitle;
+    let options = {
+        icon: userIcon
+    };
+
+    if (currentNotification) {
+        // 找到之前X发送信息的通知，整合通知。
+        let messageCount = currentNotification.data.newMessageCount + 1;
+
+        options.body = `You have ${messageCount} new messages from ${userName}.`;
+        options.data = {
+            userName: userName,
+            newMessageCount: messageCount
         };
+        notificationTitle = `New Messages from ${userName}`;
 
-        if (currentNotification) {
-            // 找到之前X发送信息的通知，整合通知。
-            const messageCount = currentNotification.data.newMessageCount + 1;
+        // 把之前的信息删除
+        currentNotification.close();
+    }
+    else {
+        // 没找到，则常规处理
+        options.body = `"${userMessage}"`;
+        options.data = {
+            userName: userName,
+            newMessageCount: 1
+        };
+        notificationTitle = `New Message from ${userName}`;
+    }
 
-            options.body = `You have ${messageCount} new messages from ${userName}.`;
-            options.data = {
-                userName: userName,
-                newMessageCount: messageCount
-            };
-            notificationTitle = `New Messages from ${userName}`;
-
-            // 把之前的信息删除
-            currentNotification.close();
-        }
-        else {
-            // 没找到，则常规处理
-            options.body = `"${userMessage}"`;
-            options.data = {
-                userName: userName,
-                newMessageCount: 1
-            };
-            notificationTitle = `New Message from ${userName}`;
-        }
-
-        return registration.showNotification(notificationTitle, options);
-    });
+    return registration.showNotification(notificationTitle, options);
+});
 ```
 
 通过 `data` 属性和 `getNotification()` 方法，我们做到了整合通知。当X第一次发送信息，通知如下：

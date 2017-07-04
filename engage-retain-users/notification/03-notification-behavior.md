@@ -16,12 +16,12 @@
 刚才提过，默认情况下用户点击通知不会有任何变化，例如关闭通知。而事实上通知被点击则关闭比较符合我们常见的交互习惯，为了达成这个效果，我们需要在 `service-worker.js` 中进行事件注册，代码如下：
 
 ```javascript
-self.addEventListener('notificationclick', function (event) {
-    const clickedNotification = event.notification;
+self.addEventListener('notificationclick', event => {
+    let clickedNotification = event.notification;
     clickedNotification.close();
 
     // 执行某些异步操作，等待它完成
-    const promiseChain = doSomething();
+    let promiseChain = doSomething();
     event.waitUntil(promiseChain);
 });
 ```
@@ -42,22 +42,22 @@ registration.showNotification('Actions Notification', {
         {
             action: 'coffee-action',
             title: 'Coffee',
-            icon: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/action-1-128x128.png'
+            icon: 'path/to/action-1.png'
         },
         {
             action: 'doughnut-action',
             title: 'Doughnut',
-            icon: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/action-2-128x128.png'
+            icon: 'path/to/action-2.png'
         },
         {
             action: 'gramophone-action',
             title: 'gramophone',
-            icon: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/action-3-128x128.png'
+            icon: 'path/to/action-3.png'
         },
         {
             action: 'atom-action',
             title: 'Atom',
-            icon: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/action-4-128x128.png'
+            icon: 'path/to/action-4.png'
         }
     ]
 });
@@ -66,7 +66,7 @@ registration.showNotification('Actions Notification', {
 在用户点击某个按钮时，我们可以监听 `notificationclick` 事件，通过 `event.action` 属性获得按钮的ID（对应 `action` 属性）。例如我们点击咖啡图标，则 `event.action` 的值为 `'coffee-action'`。我们可以参考如下代码：
 
 ```javascript
-self.addEventListener('notificationclick', function (event) {
+self.addEventListener('notificationclick', event => {
     if (!event.action) {
         // 没有点击在按钮上
         console.log('Notification Click.');

@@ -40,7 +40,7 @@ Firefox则略有差别，在Linux系统的Firefox中，通知会是这样
 
 ```javascript
 registration.showNotification('Icon Notification', {
-    icon: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/icon-512x512.png'
+    icon: 'path/to/icon.png'
 });
 ```
 
@@ -62,7 +62,7 @@ registration.showNotification('Icon Notification', {
 
 ```javascript
 registration.showNotification('Badge Notification', {
-    badge: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/badge-128x128.png'
+    badge: 'path/to/badge.png'
 });
 ```
 
@@ -80,7 +80,7 @@ registration.showNotification('Badge Notification', {
 
 ```javascript
 registration.showNotification('Image Notification', {
-    image: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/unsplash-farzad-nazifi-1600x1100.jpg'
+    image: 'path/to/image.jpg'
 });
 ```
 
@@ -108,22 +108,22 @@ registration.showNotification('Actions Notification', {
         {
             action: 'coffee-action',
             title: 'Coffee',
-            icon: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/action-1-128x128.png'
+            icon: 'path/to/action-1.png'
         },
         {
             action: 'doughnut-action',
             title: 'Doughnut',
-            icon: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/action-2-128x128.png'
+            icon: 'path/to/action-2.png'
         },
         {
             action: 'gramophone-action',
             title: 'gramophone',
-            icon: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/action-3-128x128.png'
+            icon: 'path/to/action-3.png'
         },
         {
             action: 'atom-action',
             title: 'Atom',
-            icon: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/action-4-128x128.png'
+            icon: 'path/to/action-4.png'
         }
     ]
 });
@@ -175,7 +175,7 @@ registration.showNotification('Vibrate Notification', {
 
 ```javascript
 registration.showNotification('Sound Notification', {
-    sound: 'https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/notification-sound.mp3'
+    sound: 'path/to/sound.mp3'
 });
 ```
 

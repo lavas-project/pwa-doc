@@ -26,7 +26,7 @@
 ``` javascript
 function askPermission() {
     return new Promise(function (resolve, reject) {
-        const permissionResult = Notification.requestPermission(function (result) {
+        var permissionResult = Notification.requestPermission(function (result) {
             // 旧版本
             resolve(result);
         });
@@ -101,13 +101,13 @@ function askPermission() {
 ``` javascript
 // 将base64的applicationServerKey转换成UInt8Array
 function urlBase64ToUint8Array(base64String) {
-    const padding = '='.repeat((4 - base64String.length % 4) % 4);
-    const base64 = (base64String + padding)
+    var padding = '='.repeat((4 - base64String.length % 4) % 4);
+    var base64 = (base64String + padding)
         .replace(/\-/g, '+')
         .replace(/_/g, '/');
-    const rawData = window.atob(base64);
-    const outputArray = new Uint8Array(rawData.length);
-    for (let i = 0; i < rawData.length; ++i) {
+    var rawData = window.atob(base64);
+    var outputArray = new Uint8Array(rawData.length);
+    for (var i = 0, max = rawData.length; i < max; ++i) {
         outputArray[i] = rawData.charCodeAt(i);
     }
     return outputArray;
@@ -117,11 +117,11 @@ function subscribe(serviceWorkerReg) {
         userVisibleOnly: true,
         applicationServerKey: urlBase64ToUint8Array('<applicationServerKey>')
     })
-    .then((subscription) => {
+    .then(function (subscription) {
         // 3. 发送推送订阅对象到服务器，具体实现中发送请求到后端api
         sendEndpointInSubscription(subscription);
     })
-    .catch(() => {
+    .catch(function () {
         if (Notification.permission === 'denied') {
             // 用户拒绝了订阅请求
         }
@@ -252,8 +252,8 @@ Authorization 的内容由三部分组成，使用`.`连接，前两部分是使
 以上步骤实现代码如下：
 
 ``` javascript
-const webpush = require('web-push');
-const vapidKeys = webpush.generateVAPIDKeys(); // 1.生成公私钥
+var webpush = require('web-push');
+var vapidKeys = webpush.generateVAPIDKeys(); // 1.生成公私钥
 webpush.setVapidDetails( // 2.设置公私钥
     'mailto:sender@example.com',
     vapidKeys.publicKey,
@@ -262,7 +262,7 @@ webpush.setVapidDetails( // 2.设置公私钥
 // 3.从数据库中拿出之前保存的pushSubscription，具体实现省略
 // 4.向推送服务发起调用请求
 webpush.sendNotification(pushSubscription, '推送消息内容')
-    .catch((err) => {
+    .catch(function (err) {
         if (err.statusCode === 410) {
             // 从数据库中删除推送订阅对象
         }
@@ -277,9 +277,9 @@ Service Worker 就是扮演这样的角色，它监听 push 事件，显示通�
 使用消息中携带的数据，展示通知，此处省略了通知对象(Notification)的配置信息，示例代码如下：
 
 ``` javascript
-self.addEventListener('push', event => {
+self.addEventListener('push', function (event) {
     if (event.data) {
-        let promiseChain = Promise.resolve(event.data.json())
+        var promiseChain = Promise.resolve(event.data.json())
                 .then(data => self.registration.showNotification(data.title, {}));
         event.waitUntil(promiseChain);
     }

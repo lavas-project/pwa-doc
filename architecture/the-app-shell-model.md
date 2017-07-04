@@ -67,50 +67,55 @@ Jake Archibald 的[离线维基百科应用](https://wiki-offline.jakearchibald.
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>App Shell</title>
-  <link rel="manifest" href="/manifest.json">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>App Shell</title>
-  <link rel="stylesheet" type="text/css" href="styles/inline.css">
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>App Shell</title>
+        <link rel="manifest" href="/manifest.json">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>App Shell</title>
+        <link rel="stylesheet" type="text/css" href="styles/inline.css">
+    </head>
 
-<body>
-  <header class="header">
-    <h1 class="header__title">App Shell</h1>
-  </header>
+    <body>
+        <header class="header">
+            <h1 class="header__title">App Shell</h1>
+        </header>
 
-  <nav class="nav">
-  ...
-  </nav>
+        <nav class="nav">
+        ...
+        </nav>
 
-  <main class="main">
-  ...
-  </main>
+        <main class="main">
+        ...
+        </main>
 
-  <div class="dialog-container">
-  ...
-  </div>
+        <div class="dialog-container">
+        ...
+        </div>
 
-  <div class="loader">
-    <!-- Show a spinner or placeholders for content -->
-  </div>
+        <div class="loader">
+            <!-- Show a spinner or placeholders for content -->
+        </div>
 
-  <script src="app.js" async></script>
-  <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
-      // Registration was successful
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }).catch(function(err) {
-      // registration failed :(
-      console.log('ServiceWorker registration failed: ', err);
-    });
-  }
-  </script>
-</body>
+        <script src="app.js" async></script>
+        <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+              .then(function (registration) {
+                  // Registration was successful
+                  console.log(
+                      'ServiceWorker registration successful with scope: ',
+                      registration.scope
+                  );
+              })
+              .catch(function (err) {
+                  // registration failed :(
+                  console.log('ServiceWorker registration failed: ', err);
+              });
+        }
+        </script>
+    </body>
 </html>
 ```
 
@@ -129,21 +134,21 @@ Jake Archibald 的[离线维基百科应用](https://wiki-offline.jakearchibald.
 ```javascript
 var cacheName = 'shell-content';
 var filesToCache = [
-  '/css/styles.css',
-  '/js/scripts.js',
-  '/images/logo.svg',
-  '/offline.html',
-  '/'
+    '/css/styles.css',
+    '/js/scripts.js',
+    '/images/logo.svg',
+    '/offline.html',
+    '/'
 ];
 
-self.addEventListener('install', function(e) {
-  console.log('[ServiceWorker] Install');
-  e.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      console.log('[ServiceWorker] Caching app shell');
-      return cache.addAll(filesToCache);
-    })
-  );
+self.addEventListener('install', function (e) {
+    console.log('[ServiceWorker] Install');
+    e.waitUntil(
+        caches.open(cacheName).then(function (cache) {
+            console.log('[ServiceWorker] Caching app shell');
+            return cache.addAll(filesToCache);
+        })
+    );
 });
 ```
 
@@ -154,15 +159,19 @@ sw-precache 生成的服务工作线程会缓存并提供您在构建过程中�
 以下是在 gulp 构建过程中使用 sw-precache 的基本示例：
 
 ```javascript
-gulp.task('generate-service-worker', function(callback) {
-  var path = require('path');
-  var swPrecache = require('sw-precache');
-  var rootDir = 'app';
+gulp.task('generate-service-worker', function (callback) {
+    var path = require('path');
+    var swPrecache = require('sw-precache');
+    var rootDir = 'app';
 
-  swPrecache.write(path.join(rootDir, 'service-worker.js'), {
-    staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif}'],
-    stripPrefix: rootDir
-  }, callback);
+    swPrecache.write(
+        path.join(rootDir, 'service-worker.js'),
+        {
+            staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif}'],
+            stripPrefix: rootDir
+        },
+        callback
+    );
 });
 ```
 
