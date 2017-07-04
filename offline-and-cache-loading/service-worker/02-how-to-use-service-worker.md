@@ -26,13 +26,15 @@ service worker 出于安全性和其实现原理，在使用的时候有一定�
 ```javascript
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/sw.js', { scope: '/' }).then(function (registration) {
-            // 注册成功
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }).catch(function (err) {
-            // 注册失败:(
-            console.log('ServiceWorker registration failed: ', err);
-        });
+        navigator.serviceWorker.register('/sw.js', {scope: '/'})
+            .then(function (registration) {
+                // 注册成功
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            })
+            .catch(function (err) {
+                // 注册失败:(
+                console.log('ServiceWorker registration failed: ', err);
+            });
     });
 }
 ```
@@ -140,7 +142,7 @@ this.addEventListener('fetch', function (event) {
 
             // 如果 service worker 没有返回，那就得直接请求真是远程服务
             var request = event.request.clone(); // 把原始请求拷过来
-            return fetch(request).then(funciton (httpRes) {
+            return fetch(request).then(function (httpRes) {
 
                 // http请求的返回已被抓到，可以处置了。
 
@@ -199,13 +201,13 @@ self.addEventListener('activate', function (evnet) {
 
             // 清理旧版本
             caches.keys().then(function (cacheList) {
-                Promise.all(
+                return Promise.all(
                     cacheList.map(function (cacheName) {
                         if (cacheName !== 'my-test-cache-v1') {
-                            caches.delete(cacheName);
+                            return caches.delete(cacheName);
                         }
                     })
-                )
+                );
             })
         ])
     );
