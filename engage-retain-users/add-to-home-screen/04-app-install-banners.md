@@ -251,7 +251,7 @@ AppInfo 的属性值包括：
 ]
 ```
 
-如果只希望用户安装原生应用，而不需要弹出横幅引导用户安装PWA，那么可以在 manifest.json 设置：
+如果只希望用户安装原生应用，而不需要弹出横幅引导用户安装 PWA，那么可以在 manifest.json 设置：
 
 ```javascript
 "prefer_related_applications": true
