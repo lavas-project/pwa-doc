@@ -4,7 +4,7 @@
 
 开发 service worker 的过程中，我们如何让我们的开发更加高效并且准确的找出 bug 所在呢？我们在这一章专门讲一讲如何调试 service worker。
 
-service worker 作为独立于主线程的独立线程，在调试方面有其实和常规的 javascript 开发类似，我们关注的点大概有如下几点：
+service worker 作为独立于主线程的独立线程，在调试方面有其实和常规的 JavaScript 开发类似，我们关注的点大概有如下几点：
 
 - 代码是否有报错
 
@@ -19,7 +19,7 @@ service worker 作为独立于主线程的独立线程，在调试方面有其�
 
 我们都知道，根据 service worker 生命周期的特性，如果浏览器还在使用旧的 service worker 版本，如果有 service worker 新的版本的话也不会立即被浏览器激活，只能进行安装并进入等待状态，直到浏览器 tab 标签被重新关闭打开。
 
-在开发调试 service Worker 时肯定希望重新加载后立即激活，我们不希望每次都重新打开当前页面调试，为此我们可以在 `install` 事件发生时通过 `skipWaiting()` 来设置 skip waiting 标记。 这样每次 service worker 安装后就会被立即激活。
+在开发调试 service worker 时肯定希望重新加载后立即激活，我们不希望每次都重新打开当前页面调试，为此我们可以在 `install` 事件发生时通过 `skipWaiting()` 来设置 skip waiting 标记。 这样每次 service worker 安装后就会被立即激活。
 
 ```javascript
 self.addEventListener('install', function () {
@@ -104,7 +104,7 @@ Cache Storage 选项卡提供了一个已使用（service worker 线程）Cache 
 
 例如下图中，第一个名为 `300` 的请求是一张 jpeg 图片， 其 URL 为 `https://unsplash.it/200/300`，该请求是由 service worker 代理的， 因此被标注为 `from ServiceWorker`。
 
-为了响应页面请求，Service Worker 也发出了名为 `300` 的请求（这是图中第二个请求）， 但 Service Worker 把 URL 改成了 `https://unsplash.it/g/200/300`，因此返回给页面的图片是灰色的。
+为了响应页面请求，service worker 也发出了名为 `300` 的请求（这是图中第二个请求）， 但 service worker 把 URL 改成了 `https://unsplash.it/g/200/300`，因此返回给页面的图片是灰色的。
 
 ![service worker network](./images/service-worker-network.png)
 

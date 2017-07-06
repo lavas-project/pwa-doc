@@ -14,7 +14,7 @@ service worker 的使用过程很简单，所处理的事情也相对单一，�
 
 - 首先我们需要在页面的 javaScript 主线程中使用 `serviceWorkerContainer.register()` 来注册 servcie worker ，在注册的过程中，浏览器会在后台启动尝试 service worker 的安装步骤。
 
-- 如果注册成功，service worker 在 ServiceWorkerGlobalScope 环境中运行； 这是一个特殊的 woker conetxt，与主脚本的运行线程相独立，同时也没有访问 DOM 的能力。
+- 如果注册成功，service worker 在 ServiceWorkerGlobalScope 环境中运行； 这是一个特殊的 worker context，与主脚本的运行线程相独立，同时也没有访问 DOM 的能力。
 
 - 后台开始安装步骤， 通常在安装的过程中需要缓存一些静态资源。如果所有的资源成功缓存则安装成功，如果有任何静态资源缓存失败则安装失败，在这里失败的不要紧，会自动继续安装直到安装成功，如果安装不成功无法进行下一步 — 激活 service worker。
 

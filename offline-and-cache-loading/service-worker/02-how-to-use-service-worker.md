@@ -19,7 +19,7 @@ service worker 出于安全性和其实现原理，在使用的时候有一定�
 
 ## 注册
 
-要安装 servic worker， 我们需要通过在 js 主线程（常规的页面里的 js ）注册 service worker 来启动安装，这个过程将会通知浏览器我们的 service worker 线程的 javaScript 文件在什么地方呆着。
+要安装 servic worker， 我们需要通过在 js 主线程（常规的页面里的 js ）注册 service worker 来启动安装，这个过程将会通知浏览器我们的 service worker 线程的 JavaScript 文件在什么地方呆着。
 
 先啥也不说了，来感受一段代码：
 
@@ -47,7 +47,7 @@ if ('serviceWorker' in navigator) {
 
 - register 方法的 scope 参数是可选的，用于指定你想让 service worker 控制的内容的子目录。本 demo 中服务工作线程文件位于根网域， 这意味着服务工作线程的作用域将是整个来源。
 
-    关于 `register` 方法的 scope 参数，需要说明一下：service worker 线程将接收 scope 指定网域目录上所有事项的 fetch 事件，如果我们的 service worker 的 javaScript 文件在 `/a/b/sw.js`， 不传 scope 值的情况下, scope 的值就是 `/a/b`。
+    关于 `register` 方法的 scope 参数，需要说明一下：service worker 线程将接收 scope 指定网域目录上所有事项的 fetch 事件，如果我们的 service worker 的 JavaScript 文件在 `/a/b/sw.js`， 不传 scope 值的情况下, scope 的值就是 `/a/b`。
 
     scope 的值的意义在于，如果 scope 的值为 `/a/b`， 那么 service worker 线程只能捕获到 path 为 `/a/b` 开头的( `/a/b/page1`, `/a/b/page2`，...)页面的 fetch 事件。通过 scope 的意义我们也能看出 service worker 不是服务单个页面的，所以在 service worker 的 js 逻辑中全局变量需要慎用。
 
