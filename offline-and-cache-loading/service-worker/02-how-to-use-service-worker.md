@@ -90,7 +90,7 @@ install 事件我们会绑定在 service worker 文件中，在 service worker �
 
 install 事件一般是被用来填充你的浏览器的离线缓存能力。为了达成这个目的，我们使用了 service worker 新的标志性的存储 cache API — 一个 service worker 上的全局对象，它使我们可以存储网络响应发来的资源，并且根据它们的请求来生成key。这个 API 和浏览器的标准的缓存工作原理很相似，但是是只对应你的站点的域的。它会一直持久存在，直到你告诉它不再存储，你拥有全部的控制权。
 
-**localStorage 的用法和 service worker cache 的用法很相似，但是由于 localStorage 是同步的用法，所有不允许在 service worker 中使用。**
+**localStorage 的用法和 service worker cache 的用法很相似，但是由于 localStorage 是同步的用法，所以不允许在 service worker 中使用。**
 **IndexedDB 也可以在  service worker 内做数据存储。**
 
 
