@@ -65,7 +65,7 @@ if ('serviceWorker' in navigator) {
 
 可以在 PC 上打开我们的好伙伴 chrome 浏览器, 输入 `chrome://inspect/#service-workers`
 
-![chorme inspect-service worker](https://developers.google.cn/web/fundamentals/getting-started/primers/imgs/sw-chrome-inspect.png?hl=zh-cn)
+![chorme inspect-service worker](./images/sw-chrome-inspect.png)
 
 我们还可以通过 `chrome://serviceworker-internals` 来查看服务工作线程详情。 如果只是想了解服务工作线程的生命周期，这仍很有用，但是日后其很有可能被  `chrome://inspect/#service-workers` 完全取代。
 

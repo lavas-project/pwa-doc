@@ -96,7 +96,7 @@ registration.showNotification('Image Notification', {
 
 最后，在Firefox中，图片暂时无法显示：
 
-![Image on Firefox](https://gss0.bdstatic.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/example/image.png)
+![Image on Firefox](./images/image-in-firefox.png)
 
 ## 按钮(Actions)
 

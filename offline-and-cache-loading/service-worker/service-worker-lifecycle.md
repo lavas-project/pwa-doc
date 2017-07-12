@@ -32,7 +32,7 @@ service worker 的使用过程很简单，所处理的事情也相对单一，�
 
 这里我们需要了解一下 service worker 的生命周期的概念，这有利于我们学会在各个生命周期的阶段进行有目的性的回调，让我们自定义的工作在 service worker 中正确有效的开展下去。MDN给出了详细的 service worker 生命周期图：
 
-![service worker生命周期](https://mdn.mozillademos.org/files/12636/sw-lifecycle.png)
+![service worker生命周期](./images/sw-lifecycle.png)
 
 我们可以看到生命周期分为这么几个状态 `安装中`, `安装后`, `激活中`，`激活后`, `废弃`
 
@@ -70,7 +70,7 @@ service worker 的使用过程很简单，所处理的事情也相对单一，�
 
 MDN 也列出了 service worker 所有支持的事件：
 
-![service worker支持的所有事件](https://mdn.mozillademos.org/files/12632/sw-events.png)
+![service worker支持的所有事件](./images/sw-events.png)
 
 
 - **install**： service worker 安装成功后被触发的事件，在事件处理函数中可以添加需要缓存的文件（详见[使用service worker](./how-to-use-service-worker.md)）

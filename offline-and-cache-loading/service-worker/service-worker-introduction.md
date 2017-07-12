@@ -10,7 +10,7 @@ service worker 简介
 
 那么到了今天，如果有人告诉你：“`我们的站点可以秒开，离线的情况下也能浏览，不是 file:// 协议的哦！`”，你是不是要送他一个大大的问号脸？
 
-![问号脸](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493894698909&di=af0d8131b4988261d0769aa4dda47fe9&imgtype=0&src=http%3A%2F%2Fi10.hoopchina.com.cn%2Fhupuapp%2Fbbs%2F600%2F19471600%2Fthread_19471600_20161010154103_s_117261_o_1617512482.png)
+![问号脸](./images/nick.jpg)
 
 
 我们这里要讲到的是一个叫做 service worker 的东东。
