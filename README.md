@@ -10,7 +10,7 @@ PWA 的主要特点包括下面三点：
 * 体验 - 快速响应，并且有平滑的动画响应用户的操作
 * 粘性 - 像设备上的原生应用，具有沉浸式的用户体验，用户可以添加到桌面
 
-PWA 本身强调渐进式，并不要求一次性达到安全、性能和体验上的所有要求，开发者可以通过 **[PWA Checklist](https://developers.google.cn/web/progressive-web-apps/checklist)** 查看现有的特征。
+PWA 本身强调渐进式，并不要求一次性达到安全、性能和体验上的所有要求，开发者可以通过 [PWA Checklist](https://developers.google.cn/web/progressive-web-apps/checklist) 查看现有的特征。
 
 ## 可靠
 
@@ -48,7 +48,6 @@ Web App Manifest 允许开发者控制 PWA 添加到桌面，允许定制桌面�
 总结，PWA 具有下面一些特性
 
 * **渐进式** - 适用于所有浏览器，因为它是以渐进式增强作为宗旨开发的
-* **自适应** - 响应式，页面需要自适应各分辨率的设备，包括 PC, Mobile, PAD 等
 * **连接无关性** - 能够借助 Service Worker 在离线或者网络较差的情况下正常访问
 * **类似应用** - 由于是在 App Shell 模型基础上开发，因为应具有 Native App 的交互和导航，给用户 Native App 的体验
 * **持续更新** - 始终是最新的，无版本和更新问题
