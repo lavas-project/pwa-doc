@@ -30,11 +30,11 @@ Service Worker 是用 JavaScript 编写的 JS 文件，能够代理请求，并�
 
 ## 粘性
 
-* PWA 是可以安装的，用户点击安装到桌面后，会在桌面创建一个 PWA 应用，并且不需要从应用商店下载。
+* PWA 是可以安装的，用户点击安装到桌面后，会在桌面创建一个 PWA 应用，并且不需要从应用商店下载
 
-* PWA 可以借助 Web App Manifest 提供给用户和 Native App 一样的沉浸式体验。
+* PWA 可以借助 Web App Manifest 提供给用户和 Native App 一样的沉浸式体验
 
-* PWA 可以通过给用户发送离线通知，让用户回流。
+* PWA 可以通过给用户发送离线通知，让用户回流
 
 Web App Manifest 允许开发者控制 PWA 添加到桌面，允许定制桌面图标、URL等等。
 
