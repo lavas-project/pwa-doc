@@ -56,10 +56,10 @@
             "key": "automatic-login",
             "children": [
                 {
-                    "key": "01-introduction"
+                    "key": "introduction"
                 },
                 {
-                    "key": "02-remember-me"
+                    "key": "remember-me"
                 },
                 {
                     "name": "凭据管理 API",
@@ -67,7 +67,7 @@
                     "children": [
                         {
                             "name": "凭据管理 API 简介",
-                            "key": "01-introduction"
+                            "key": "introduction"
                         }
                     ]
                 }
