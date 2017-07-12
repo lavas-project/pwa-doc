@@ -67,7 +67,7 @@ thirdPartyLogin()
 
 需要调用方法 `navigator.credentials.get()` 方法进行第三方登录凭证的读取。
 
-在前文[凭据获取](./01-introduction.md#凭据获取)章节中提到，`navigator.credentials.get(options)` 方法传入参数包含一个字段 `federated`，可以通过这个字段去读取第三方登录的凭证信息。
+在前文[凭据获取](./introduction.md#凭据获取)章节中提到，`navigator.credentials.get(options)` 方法传入参数包含一个字段 `federated`，可以通过这个字段去读取第三方登录的凭证信息。
 
 - `options.federated`: 第三方登录
     `{Object}`

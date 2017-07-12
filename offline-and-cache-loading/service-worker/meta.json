@@ -1,0 +1,16 @@
+{
+    "menu": [
+        {
+            "key": "service-worker-introduction"
+        },
+        {
+            "key": "how-to-use-service-worker"
+        },
+        {
+            "key": "service-worker-lifecycle"
+        },
+        {
+            "key": "service-worker-debug"
+        }
+    ]
+}

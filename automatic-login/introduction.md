@@ -4,7 +4,7 @@
 
 本文将从传统的“记住密码”功能实现、凭证管理 API 两个方面去介绍自动登录的实现，并介绍了账号密码登录和第三方登录结合凭证管理 API 实现自动登录的新思路。
 
-- [传统“记住密码”功能实现](./02-remember-me.md)
-- [凭证管理 API](./credential-management-api/01-introduction.md)
-    - [账号密码登录](./credential-management-api/02-password-credential.md)
-    - [第三方登录](./credential-management-api/03-federated-credential.md)
+- [传统“记住密码”功能实现](./remember-me.md)
+- [凭证管理 API](./credential-management-api/introduction.md)
+    - [账号密码登录](./credential-management-api/password-credential.md)
+    - [第三方登录](./credential-management-api/federated-credential.md)

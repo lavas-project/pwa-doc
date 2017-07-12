@@ -72,7 +72,7 @@ service worker 可以描述为有以下功能和特性：
 
 看到这张图还是相当激动的，至少也绿了一片，总结一下：
 
-- chrome 作为开路先锋早早的就在 v40 版本就支持了，还提供了完善的 debug 方案（ [service worker debug](./04-service-worker-debug.md) ）
+- chrome 作为开路先锋早早的就在 v40 版本就支持了，还提供了完善的 debug 方案（ [service worker debug](./service-worker-debug.md) ）
 
 - firefox，opera 不甘示弱在后续版本也进行了支持
 

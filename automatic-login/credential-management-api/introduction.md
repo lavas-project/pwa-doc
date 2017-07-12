@@ -1,6 +1,6 @@
 # 凭证管理 API
 
-前文提到传统 Remember-Me 的实现方式中，通过 [cookie 存储登录信息的方式](../02-remember-me.md#cookie存储登录信息)存在安全问题，需要制定一系列校验策略和失效规则等等来确保可靠性，对开发者的技术要求较高；而通过表单登录的方式去触发浏览器的账户信息存储和自动填充的这种方法限制条件较多，且浏览器行为不可控，具体操作起来会比较麻烦。
+前文提到传统 Remember-Me 的实现方式中，通过 [cookie 存储登录信息的方式](../remember-me.md#cookie存储登录信息)存在安全问题，需要制定一系列校验策略和失效规则等等来确保可靠性，对开发者的技术要求较高；而通过表单登录的方式去触发浏览器的账户信息存储和自动填充的这种方法限制条件较多，且浏览器行为不可控，具体操作起来会比较麻烦。
 
 因此浏览器提供了一套凭据管理 API（Crediential Management API），可以把用户的登录信息直接存储于客户端中，这些信息不会写到 cookie 中，因此安全性很高。同时因为账号密码直接写入本地，安全性和可靠性由浏览器保证，因此就不需要额外设计 token 之类的机制进行校验，从而大大降低开发难度。
 
@@ -160,9 +160,9 @@ if (navigator.credentials) {
 }
 ```
 
-关于 `PasswordCredential` 凭证对象的存储，可以[点这里](./02-password-credential.md)进一步了解。
+关于 `PasswordCredential` 凭证对象的存储，可以[点这里](./password-credential.md)进一步了解。
 
-关于 `FederatedCredential` 凭证对象的存储，可以[点这里](./03-federated-credential.md)进一步了解。
+关于 `FederatedCredential` 凭证对象的存储，可以[点这里](./federated-credential.md)进一步了解。
 
 ## 凭据获取
 
@@ -215,13 +215,13 @@ options 包含以下字段：
 
 只有当 `options.password === true` 时，账号选择器才会展示类型为 `PasswordCredential` 的登录信息。
 
-关于账号密码登录凭证信息的获取，在[帐号密码登录凭证管理](./02-password-credential.md)章节中，会进行详细说明。
+关于账号密码登录凭证信息的获取，在[帐号密码登录凭证管理](./password-credential.md)章节中，会进行详细说明。
 
 ### 获取第三方登录凭证配置信息
 
 只有当 `federated.providers` 配置了相应的第三方登录账号提供者 id 列表，账号选择器才会展示类型为 `FederatedCredential`，同时账号提供者在 `providers` 列表中的登录信息。
 
-关于第三方登录凭证信息的获取，在[第三方登录凭证管理](./03-federated-credential.md)章节中，会进行详细说明。
+关于第三方登录凭证信息的获取，在[第三方登录凭证管理](./federated-credential.md)章节中，会进行详细说明。
 
 #### 获取登录信息过滤
 

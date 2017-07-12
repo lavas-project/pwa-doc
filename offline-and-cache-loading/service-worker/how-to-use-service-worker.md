@@ -1,7 +1,7 @@
 怎么使用 service worker
 ====
 
-我们在 [service worker 简介](./01-service-worker-introduction.md)中介绍了 service worker 的背景和兼容性等内容，然后在 [service worker 生命周期](./03-service-worker-lifecycle.md)中介绍了 service worker 的生命周期以及所有的事件和 API, 但是我们还是不清楚如何才能使用 service worker， 以及在什么场景下使用什么 API 等等，这将是这篇文档所要提到的内容。
+我们在 [service worker 简介](./service-worker-introduction.md)中介绍了 service worker 的背景和兼容性等内容，然后在 [service worker 生命周期](./service-worker-lifecycle.md)中介绍了 service worker 的生命周期以及所有的事件和 API, 但是我们还是不清楚如何才能使用 service worker， 以及在什么场景下使用什么 API 等等，这将是这篇文档所要提到的内容。
 
 
 ## 前提条件
@@ -238,7 +238,7 @@ navigator.serviceWorker.register('/sw.js').then(function (reg) {
 
 #### debug时更新
 
-[service worker debug技巧](./04-service-worker-debug.md)中也会提到, service worker 被载入后立即激活可以保证每次 `/sw.js` 为最新的。
+[service worker debug技巧](./service-worker-debug.md)中也会提到, service worker 被载入后立即激活可以保证每次 `/sw.js` 为最新的。
 
 代码如下：
 
