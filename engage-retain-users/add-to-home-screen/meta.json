@@ -1,0 +1,16 @@
+{
+    "menu": [
+        {
+            "key": "introduction"
+        },
+        {
+            "key": "basic-conditions"
+        },
+        {
+            "key": "improved-webapp-experience"
+        },
+        {
+            "key": "app-install-banners"
+        }
+    ]
+}

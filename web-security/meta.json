@@ -1,0 +1,19 @@
+{
+    "menu": [
+        {
+            "key": "introduction"
+        },
+        {
+            "key": "web-security-https"
+        },
+        {
+            "key": "same-origin-policy"
+        },
+        {
+            "key": "content-security-policys"
+        },
+        {
+            "key": "typical-web-attack"
+        }
+    ]
+}

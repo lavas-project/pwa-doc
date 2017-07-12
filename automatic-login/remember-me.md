@@ -9,7 +9,7 @@
 
 ## cookie存储登录信息
 
-直接利用 cookie 存储用户的用户名和密码是非常不安全的，攻击者可以通过各种漏洞访问到 cookie 从而导致用户密码泄露（[常见的安全漏洞](../web-security/04-typical-web-attack.md)）。
+直接利用 cookie 存储用户的用户名和密码是非常不安全的，攻击者可以通过各种漏洞访问到 cookie 从而导致用户密码泄露（[常见的安全漏洞](../web-security/typical-web-attack.md)）。
 
 常用做法是，当用户登录成功时，服务端为用户生成一个 token，并且写入 cookie，然后用这个 token 作为用户的标识符，供用户直接使用 Token 进行登录。Token 需要制定一系列校验策略和失效规则来确保 Token 的可靠性，因此对开发者的技术要求较高。
 

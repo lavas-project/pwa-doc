@@ -12,11 +12,11 @@ PWA 就提供了**添加到主屏幕**和**网络推送通知**功能，开发�
 
 PWA 提供了 `manifest.json` 配置文件，可以让开发者自定义添加至桌面时的图标、显示名称、启动方式等等信息，并提供 API 方便开发者管理网络应用安装横幅，让用户可以方便快捷地将您的站点添加到主屏幕中。
 
-[使用入门](./add-to-home-screen/01-introduction.md)
+[使用入门](./add-to-home-screen/introduction.md)
 
 ## 网络推送通知
 
 即使在浏览器关闭的情况下，网络推送通知也可以像原生 APP 那样进行消息推送，并且将推送的消息显示在通知栏里。推送通知将分为以下两部分内容进行说明：
 
 - 如何实现消息推送：[使用入门](./how-push-works.md)
-- 如何实现消息通知：[使用入门](./notification/01-notification-introduction.md)
+- 如何实现消息通知：[使用入门](./notification/notification-introduction.md)

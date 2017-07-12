@@ -89,7 +89,7 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 <script src="//a.com/jquery.js"></script>
 ```
 
-如果修改不完全，HTTPS 资源和 HTTP 资源混合出现，即页面包含 [混合内容](#防止混合内容)，浏览器将警告用户已失去 HTTPS 的全部能力（直观的看，地址栏 HTTPS 的标识将处于失效状态）。事实上，如果是主动混合内容（脚本、插件、CSS、iframe），则浏览器通常根本不会加载或执行此内容，从而导致页面残缺。
+如果修改不完全，HTTPS 资源和 HTTP 资源混合出现，即页面包含混合内容，浏览器将警告用户已失去 HTTPS 的全部能力（直观的看，地址栏 HTTPS 的标识将处于失效状态）。事实上，如果是主动混合内容（脚本、插件、CSS、iframe），则浏览器通常根本不会加载或执行此内容，从而导致页面残缺。
 
 5.可以进一步保证安全：设置 Cookie 安全标记
 
@@ -123,7 +123,7 @@ Set-Cookie: LSID=DQAAAK...Eaem_vYg; Secure
 
 ### 批量处理 HTTPS 站点中的混合内容
 
-1.使用 [CSP](https://github.com/lavas-project/pwa-doc/blob/master/web-security/03-content-security-policy.md) 查找混合内容
+1.使用 [CSP](./content-security-policy.md) 查找混合内容
 
 给网站设置响应头：
 ```

@@ -1,0 +1,16 @@
+{
+    "menu": [
+        {
+            "key": "notification-introduction"
+        },
+        {
+            "key": "notification-display"
+        },
+        {
+            "key": "notification-behavior"
+        },
+        {
+            "key": "notification-pattern"
+        }
+    ]
+}
