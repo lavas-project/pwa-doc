@@ -32,7 +32,7 @@ self.addEventListener('install', function () {
 
 使用 Chrome 浏览器，可以通过进入控制台 `Application -> Service Workers` 面板查看和调试。如下图所示：
 
-![Chrome debug](./images/Chrome_debug.png)
+![Chrome debug](./images/chrome_debug.png)
 
 如果 Service Worker 线程已安装到当前打开的页面上，您会看到它将列示在此窗格中。 例如，在上方的屏幕截图中，`zoumiaojiang.github.io/serviceWorker/sw-test/` 的作用域内安装了一个 Service Worker 线程。
 
@@ -60,7 +60,7 @@ self.addEventListener('install', function () {
 
 如果 Service Worker 文件在运行过程中出现了任何的错误，将显示一个 `Error` 新标签。
 
-![Chrome debug error](./images/Chrome_debug_error.png)
+![Chrome debug error](./images/chrome_debug_error.png)
 
 当然我们也可以通过 `Chrome://serviceworker-internals` 也可以打开 serviceWorker 的配置面板，查看所有注册的 Service Worker 情况。注意一点，如无必要，不要选中顶部的 `Open DevTools window and pause javaScript execution on Service Worker startup for debugging` 复选框，否则每当刷新页面调试时都会弹出一个开发者窗口来。
 

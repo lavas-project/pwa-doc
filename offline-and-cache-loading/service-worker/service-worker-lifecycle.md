@@ -62,9 +62,9 @@ MDN 也列出了 Service Worker 所有支持的事件：
 
 ![Service Worker 支持的所有事件](./images/sw-events.png)
 
-- **install**： Service Worker 安装成功后被触发的事件，在事件处理函数中可以添加需要缓存的文件（详见 [使用 Service Worker](./how-to-use-service-worker.md)）
+- **install**： Service Worker 安装成功后被触发的事件，在事件处理函数中可以添加需要缓存的文件（详见 [使用 Service Worker](./how-to-use-service-worker.md) ）
 
-- **activate**： 当 Service Worker 安装完成后并进入激活状态，会触发 activate 事件。通过监听 activate 事件你可以做一些预处理，如对于旧版本的更新、对于无用缓存的清理等。（详见 [更新 Service Worker](./how-to-use-service-worker.md)）
+- **activate**： 当 Service Worker 安装完成后并进入激活状态，会触发 activate 事件。通过监听 activate 事件你可以做一些预处理，如对于旧版本的更新、对于无用缓存的清理等。（详见 [更新 Service Worker](./how-to-use-service-worker.md) ）
 
 - **message**：Service Worker 运行于独立 context 中，无法直接访问当前页面主线程的 DOM 等信息，但是通过 postMessage API，可以实现他们之间的消息传递，这样主线程就可以接受 Service Worker 的指令操作 DOM。
 

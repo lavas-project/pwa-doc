@@ -1,6 +1,6 @@
 # 怎么使用 Service Worker
 
-我们在 [Service Worker 简介](./service-worker-introduction.md)中介绍了 Service Worker 的背景和兼容性等内容，然后在 [Service Worker 生命周期](./service-worker-lifecycle.md)中介绍了 Service Worker 的生命周期以及所有的事件和 API, 但是我们还是不清楚如何才能使用 Service Worker， 以及在什么场景下使用什么 API 等等，这将是这篇文档所要提到的内容。
+我们在 [Service Worker 简介](./service-worker-introduction.md) 中介绍了 Service Worker 的背景和兼容性等内容，然后在 [Service Worker 生命周期](./service-worker-lifecycle.md) 中介绍了 Service Worker 的生命周期以及所有的事件和 API, 但是我们还是不清楚如何才能使用 Service Worker， 以及在什么场景下使用什么 API 等等，这将是这篇文档所要提到的内容。
 
 ## 前提条件
 
@@ -161,6 +161,7 @@ this.addEventListener('fetch', function (event) {
 两种方式可以比较一下：
 
 - on install 的优点是第二次访问即可离线，缺点是需要将需要缓存的 URL 在编译时插入到脚本中，增加代码量和降低可维护性；
+
 - on fetch 的优点是无需更改编译过程，也不会产生额外的流量，缺点是需要多一次访问才能离线可用。
 
 除了静态的页面和文件之外，如果对 Ajax 数据加以适当的缓存可以实现真正的离线可用， 要达到这一步可能需要对既有的 Web App 进行一些重构以分离数据和模板。
@@ -169,7 +170,7 @@ this.addEventListener('fetch', function (event) {
 
 `/sw.js` 控制着页面资源和请求的缓存，那么如果缓存策略需要更新呢？也就是如果 `/sw.js` 有更新怎么办？`/sw.js` 自身该如何更新？
 
-如果 `/sw.js` 内容有更新，当访问网站页面时浏览器获取了新的文件，逐字节比对 `/sw.js` 文件发现不同时它会认为有更新启动[更新算法](https://w3c.github.io/ServiceWorker/#update-algorithm)，于是会安装新的文件并触发 install 事件。但是此时已经处于激活状态的旧的 Service Worker 还在运行，新的 Service Worker 完成安装后会进入 waiting 状态。直到所有已打开的页面都关闭，旧的 Service Worker 自动停止，新的 Service Worker 才会在接下来重新打开的页面里生效。
+如果 `/sw.js` 内容有更新，当访问网站页面时浏览器获取了新的文件，逐字节比对 `/sw.js` 文件发现不同时它会认为有更新启动 [更新算法](https://w3c.github.io/ServiceWorker/#update-algorithm)，于是会安装新的文件并触发 install 事件。但是此时已经处于激活状态的旧的 Service Worker 还在运行，新的 Service Worker 完成安装后会进入 waiting 状态。直到所有已打开的页面都关闭，旧的 Service Worker 自动停止，新的 Service Worker 才会在接下来重新打开的页面里生效。
 
 ### 自动更新所有页面
 
