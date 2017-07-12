@@ -10,7 +10,7 @@ service worker 的使用过程很简单，所处理的事情也相对单一，�
 我们之前[介绍](./service-worker-introduction.md)了这么多 service worker 相关的背景和现状，我们已经知道 service worker 是干嘛的了，但是我们还不是很清楚它具体是怎么运作起来的。
 
 
-通常我们如果要要使用 service worker 基本就是以下几个步骤：
+通常我们如果要使用 service worker 基本就是以下几个步骤：
 
 - 首先我们需要在页面的 javaScript 主线程中使用 `serviceWorkerContainer.register()` 来注册 service worker ，在注册的过程中，浏览器会在后台启动尝试 service worker 的安装步骤。
 
@@ -34,7 +34,7 @@ service worker 的使用过程很简单，所处理的事情也相对单一，�
 
 ![service worker生命周期](./images/sw-lifecycle.png)
 
-我们可以看到生命周期分为这么几个状态 `安装中`, `安装后`, `激活中`，`激活后`, `废弃`
+我们可以看到生命周期分为这么几个状态 `安装中`, `安装后`, `激活中`, `激活后`, `废弃`
 
 - **安装( installing )**：这个状态发生在 service worker 注册之后，表示开始安装，触发 install 事件回调指定一些静态资源进行离线缓存。
 
@@ -73,12 +73,12 @@ MDN 也列出了 service worker 所有支持的事件：
 ![service worker支持的所有事件](./images/sw-events.png)
 
 
-- **install**： service worker 安装成功后被触发的事件，在事件处理函数中可以添加需要缓存的文件（详见[使用service worker](./how-to-use-service-worker.md)）
+- **install**：service worker 安装成功后被触发的事件，在事件处理函数中可以添加需要缓存的文件（详见[使用service worker](./how-to-use-service-worker.md)）
 
 
-- **activate**： 当 service worker 安装完成后并进入激活状态，会触发 activate 事件。通过监听 activate 事件你可以做一些预处理，如对于旧版本的更新、对于无用缓存的清理等。（详见[更新service worker](./how-to-use-service-worker.md)）
+- **activate**：当 service worker 安装完成后并进入激活状态，会触发 activate 事件。通过监听 activate 事件你可以做一些预处理，如对旧版本的更新、对无用缓存的清理等。（详见[更新service worker](./how-to-use-service-worker.md)）
 
-- **message**：service worker 运行于独立context中，无法直接访问当前页面主线程的 DOM 等信息，但是通过 postMessage API，可以实现他们之间的消息传递，这样主线程就可以接受 service worker 的指令操作 DOM 啦。
+- **message**：service worker 运行于独立context中，无法直接访问当前页面主线程的 DOM 等信息，但是通过 postMessage API，可以实现他们之间的消息传递，这样主线程就可以接受 service worker 的指令操作 DOM 啦
 
 
 
@@ -86,7 +86,7 @@ MDN 也列出了 service worker 所有支持的事件：
 service worker 有几个重要的功能性的的事件，这些功能性的事件支撑和实现了 service worker 的特性。
 
 
-- **fetch (请求)**： 当浏览器在当前指定的 scope 下发起请求时，会触发 fetch 事件，并得到传有 response 参数的回调函数，回调中就可以做各种代理缓存的事情了。
+- **fetch (请求)**：当浏览器在当前指定的 scope 下发起请求时，会触发 fetch 事件，并得到传有 response 参数的回调函数，回调中就可以做各种代理缓存的事情了。
 
 - **push (推送)**：push 事件是为推送准备的。不过首先需要了解一下 [Notification API](https://developer.mozilla.org/zh-CN/docs/Web/API/notification) 和 [PUSH API](https://developer.mozilla.org/zh-CN/docs/Web/API/Push_API)。通过 PUSH API，当订阅了推送服务后，可以使用推送方式唤醒 service worker 以响应来自系统消息传递服务的消息，即使用户已经关闭了页面。
 
