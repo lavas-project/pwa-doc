@@ -119,7 +119,7 @@ this.addEventListener('install', function (event) {
 
 每次任何被 Service Worker 控制的资源被请求到时，都会触发 fetch 事件，这些资源包括了指定的 scope 内的 html 文档，和这些 html 文档内引用的其他任何资源（比如 index.html 发起了一个跨域的请求来嵌入一个图片，这个也会通过 Service Worker），这下 Service Worker 代理服务器的形象开始慢慢露出来了，而这个代理服务器的钩子就是凭借 scope 和 fetch 事件两大利器就能把站点的请求管理的井井有条。
 
-话扯这么多，代码怎么实现呢？你可以给 Service Worker 添加一个 fetch 的事件监听器，接着调用 event 上的 `respondWith()` 方法来劫持我们的 HTTP 响应，然后你用可以用自己的魔法来更新他们。
+话扯这么多，代码怎么实现呢？你可以给 Service Worker 添加一个 fetch 的事件监听器，接着调用 event 上的 `respondWith()` 方法来劫持我们的 HTTP 响应，然后你可以用自己的魔法来更新他们。
 
 ```js
 this.addEventListener('fetch', function (event) {
@@ -132,18 +132,18 @@ this.addEventListener('fetch', function (event) {
                 return response;
             }
 
-            // 如果 Service Worker 没有返回，那就得直接请求真是远程服务
+            // 如果 service worker 没有返回，那就得直接请求真实远程服务
             var request = event.request.clone(); // 把原始请求拷过来
             return fetch(request).then(function (httpRes) {
 
                 // http请求的返回已被抓到，可以处置了。
 
                 // 请求失败了，直接返回失败的结果就好了。。
-                if (!httpRes && httpRes.status !== 200) {
-                    return response;
+                if (!httpRes || httpRes.status !== 200) {
+                    return httpRes;
                 }
 
-                // 请求成功的话，再一次缓存起来。
+                // 请求成功的话，将请求缓存起来。
                 var responseClone = httpRes.clone();
                 caches.open('my-test-cache-v1').then(function (cache) {
                     cache.put(event.request, responseClone);
@@ -156,7 +156,7 @@ this.addEventListener('fetch', function (event) {
 });
 ```
 
-我们可以在 `install` 的时候进行静态资源缓存，也可以通过 `fetch` 事件处理回调来代理页面请求从而实现资源缓存。
+我们可以在 `install` 的时候进行静态资源缓存，也可以通过 `fetch` 事件处理回调来代理页面请求从而实现动态资源缓存。
 
 两种方式可以比较一下：
 
