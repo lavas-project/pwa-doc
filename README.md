@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 </style>
 
-<video src="./assets/pwa-weather.mp4" class="pwa-weather" width="300" height="533" controls="controls">您的设备不支持 video 标签。</video>
+<video src="https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/assets/lavas-web/pwa-313a804f.mp4" class="pwa-weather" width="300" height="533" controls="controls">您的设备不支持 video 标签。</video>
 
 Progressive Web App, 简称 PWA，是提升 Web App 的体验的一种新方法，能给用户原生应用的体验。
 
