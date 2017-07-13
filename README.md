@@ -1,5 +1,29 @@
 # 什么是 PWA
 
+<style>
+h1, h2, h3, h4, h5, h6 {
+    clear: both;
+}
+
+.pwa-weather {
+    float: right;
+    margin-left: 20px;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .pwa-weather {
+        display: block;
+        margin: 0 auto 20px;
+        width: 100%;
+        float: none;
+    }
+}
+</style>
+
+<video src="./assets/pwa-weather.mp4" class="pwa-weather" width="300" height="533" controls="controls">您的设备不支持 video 标签。</video>
+
 Progressive Web App, 简称 PWA，是提升 Web App 的体验的一种新方法，能给用户原生应用的体验。
 
 PWA 能做到原生应用的体验不是靠特指某一项技术，而是经过应用一些新技术进行改进，在安全、性能和体验三个方面都有很大提升，PWA 本质上是 Web App，借助一些新技术也具备了 Native App 的一些特性，兼具 Web App 和 Native App 的优点。
