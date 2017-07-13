@@ -20,7 +20,7 @@ PWA 涉及到从安全、性能和体验等方面的优化，想要一次性支�
 
 PWA 采用的最新技术，当前浏览器还没有达到完全支持的程度，W3C 关于这些技术的标准也还在处于草稿状态，没有定稿。
 
-根据[Can I use](http://caniuse.com)的统计（包括 PC 和 Mobile）
+根据 [Can I use](http://caniuse.com) 的统计（包括 PC 和 Mobile）
 
 * App Manifest 的支持度达到 57.43%
 * Service Worker 的支持度达到 72.82%
