@@ -34,7 +34,7 @@ self.addEventListener('install', function () {
 
 ![Chrome debug](./images/chrome_debug.png)
 
-如果 Service Worker 线程已安装到当前打开的页面上，您会看到它将列示在此窗格中。 例如，在上方的屏幕截图中，`zoumiaojiang.github.io/serviceWorker/sw-test/` 的作用域内安装了一个 Service Worker 线程。
+如果 Service Worker 线程已安装到当前打开的页面上，您会看到它将列示在此窗格中。 例如，在上方的屏幕截图中，`https://lavas-project.github.io/lavas-demo/news-v2/#/` 的作用域内安装了一个 Service Worker 线程。
 
 我们熟悉一下这些个选项：
 
