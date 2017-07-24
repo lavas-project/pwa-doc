@@ -247,6 +247,7 @@ self.addEventListener('install', function () {
 > info
 >
 > Set request’s cache mode to “no-cache” if any of the following are true:
-> . registration’s use cache is false.
-> . job’s force bypass cache flag is set.
-> . newestWorker is not null, and registration’s last update check time is not null and the time difference in seconds calculated by the current time minus registration’s last update check time is greater than 86400.
+>
+> - registration’s use cache is false.
+> - job’s force bypass cache flag is set.
+> - ewestWorker is not null, and registration’s last update check time is not null and the time difference in seconds calculated by the current time minus registration’s last update check time is greater than 86400.

@@ -53,6 +53,7 @@ Service Worker 的使用过程很简单，所处理的事情也相对单一，�
 这里特别说明一下，进入废弃 (redundant) 状态的原因可能为这几种：
 
 - 安装 (install) 失败
+
 - 激活 (activating) 失败
 
 - 新版本的 Service Worker 替换了它并成为激活状态
