@@ -203,7 +203,7 @@ registration.showNotification('Timestamp Notification', {
 
 从上述配置项的分析中我们也可以看到，通知在Google Chrome和Firefox中支持的效果并不一致。
 
-举例来说，在使用按钮(Actions)时，我们应该了解浏览器是否支持，因此我们应该使用如下代码：
+举例来说，在使用按钮(Actions)时，我们应该检测浏览器是否支持，因此我们应该使用如下代码：
 
 ```javascript
 if ('actions' in Notification.prototype) {
