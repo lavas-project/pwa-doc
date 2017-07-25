@@ -19,7 +19,7 @@ Lighthouse 是一个开源的自动化工具，用于评价 WebApp 多方面的�
 
 下载 Google Chrome 52 或更高版本。
 
-安装 [Lighhouse Chrome 插件](https://security.stackexchange.com/questions/20803/how-does-ssl-tls-work)
+安装 [Ligthouse Chrome 插件](https://security.stackexchange.com/questions/20803/how-does-ssl-tls-work)
 
 打开需要进行审查的页面，并点击 Chrome 工具栏上的 Lighthouse 图标 ![icon](./images/lighthouse-ext.png)
 
