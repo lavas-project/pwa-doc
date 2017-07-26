@@ -19,7 +19,7 @@
 
 ### 设置图像和标题
 
-浏览器会从 [icons](./basic-introduction.md#自定义图标) 中选择最接近 `128dp` 的图片作为启动画面图像。标题则直接取自 [name](./basic-introduction.md#自定义名称)。
+浏览器会从 [icons](./basic-conditions.md#自定义图标) 中选择最接近 `128dp` 的图片作为启动画面图像。标题则直接取自 [name](./basic-conditions.md#自定义名称)。
 
 ### 设置启动背景颜色
 
