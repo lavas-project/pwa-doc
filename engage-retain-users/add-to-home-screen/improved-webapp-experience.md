@@ -56,7 +56,7 @@ background_color 的值可以通过如下几种形式定义：
 **注意**
 
 1. 背景色的色值建议为加载页的背景色，采用相同的颜色可以实现从启动画面到首页的平稳过渡；
-2. background_color 应该`只应用于`改善页面资源正在加载时的用户体验。当网页样式表加载完成时，应使用样式表中定义的背景色。
+2. background_color 应该**只应用于**改善页面资源正在加载时的用户体验。当网页样式表加载完成时，应使用样式表中定义的背景色。
 
 ### 示例
 
@@ -97,7 +97,9 @@ background_color 的值可以通过如下几种形式定义：
 | minimal-ui | 显示形式与standalone类似，浏览器相关UI会最小化为一个按钮，不同浏览器在实现上略有不同 | browser |
 | browser | 浏览器模式，与普通网页在浏览器中打开的显示一致 | (None) |
 
-**注意** 可以通过 [display-mode](https://developer.mozilla.org/zh-CN/docs/Web/CSS/%40media/display-mode) 这个媒体查询条件去指定在不同的显示类型下不同的显示样式，如：
+> info
+>
+> CSS中可以通过 [display-mode](https://developer.mozilla.org/zh-CN/docs/Web/CSS/%40media/display-mode) 这个媒体查询条件去指定在不同的显示类型下不同的显示样式，如：
 
 ```css
 @media all and (display-mode: fullscreen) {
@@ -175,7 +177,7 @@ orientation属性的值有以下几种：
 
 ## 设置主题颜色
 
-通过设置 `theme_color` 属性可以指定PWA的主题颜色。可以通过该属性来控制浏览器 UI 的颜色。比如 PWA 启动画面上状态栏、内容页中状态栏、地址栏的颜色，会被 theme_color 所影响。
+通过设置 `theme_color` 属性可以指定 PWA 的主题颜色。可以通过该属性来控制浏览器 UI 的颜色。比如 PWA 启动画面上状态栏、内容页中状态栏、地址栏的颜色，会被 theme_color 所影响。
 
 - `theme_color`:
     `{Color}` css色值
@@ -194,7 +196,7 @@ orientation属性的值有以下几种：
 
 ![设置theme-color<meta>的 browser 模式](./img/meta.jpg)
 
-需要注意的是，这个标签的色值会覆盖 manifest.json 里设置的 theme_color，如果两个色值不一样的话，会导致应用启动画面和内容页的主题色不一致，因此建议将 theme_color 的色值设置得与 `theme-color<meta>` 的色值相等。
+需要注意的是，这个标签的色值会覆盖 manifest.json 里设置的 theme_color，如果两个色值不一样的话，会导致应用启动画面和内容页的主题色不一致，因此建议将 theme_color 的色值设置与 `theme-color<meta>` 的色值相同。
 
 
 ### 示例
