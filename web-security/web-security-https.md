@@ -38,7 +38,7 @@ HTTPS 的通信信息都是加密传播，第三方无法窃听，且具有校�
 
 #### 未来的趋势所在
 
-将 Web 应用升级成为 HTTPS 是大势所趋，HTTPS 一方面能够保障站点的安全、保护用户的隐私，随着 Web 应用平台的多元化发展，拍照、视频等功能都需要较高的用户权限许可，而使用 service worker 启用离线应用功能、构建 PWA 应用等已经将 HTTPS 视为必要条件。Google 早就倡议所有的 Web 站点都应该使用 HTTPS， 而且将 HTTPS 站点的搜索结果排名权重进行提升，想必在未来，这也是促进站长将站点进行 HTTPS 化的一个重要理由。
+将 Web 应用升级成为 HTTPS 是大势所趋，HTTPS 可以保障站点的安全、保护用户的隐私。随着 Web 应用平台的多元化发展，拍照、视频等功能都需要较高的用户权限许可，而使用 service worker 启用离线应用功能、构建 PWA 应用等已经将 HTTPS 视为必要条件。Google 早就倡议所有的 Web 站点都应该使用 HTTPS， 而且将 HTTPS 站点的搜索结果排名权重进行提升，想必在未来，这也是促进站长将站点进行 HTTPS 化的一个重要理由。
 
 
 ### 升级 HTTPS
@@ -93,7 +93,7 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 5.可以进一步保证安全：设置 Cookie 安全标记
 
-如果用户的身份验证 Cookie 将在明文中暴露，则整个会话的安全保障将被破坏，因此，应该确保浏览器只在使用 HTTPS 时，才发送 Cookie。
+如果用户的身份验证 Cookie 在明文中暴露，则整个会话的安全保障将被破坏，因此，应该确保浏览器只在使用 HTTPS 时，才发送 Cookie。
 
 在网站响应头里面，Set-Cookie字段加上Secure标志即可。
 
@@ -130,7 +130,7 @@ Set-Cookie: LSID=DQAAAK...Eaem_vYg; Secure
 Content-Security-Policy-Report-Only: default-src https: 'unsafe-inline' 'unsafe-eval'; report-uri https://example.com/reportingEndpoint
 
 ```
-这样用户访问站点时，浏览器都会向 https://example.com/reportingEndpoint 发送请求，告诉你哪些内容存在不规范。
+这样用户访问站点时，浏览器都会向 https://example.com/reportingEndpoint 发送请求，告诉你哪些内容不规范。
 
 2.自动升级不安全的请求
 
