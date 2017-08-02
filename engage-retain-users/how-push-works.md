@@ -59,12 +59,12 @@ function askPermission() {
 这里就需要引入`applicationServerKey`的概念，它又被称作[VAPID](https://tools.ietf.org/html/draft-thomson-webpush-vapid)，这就是我们应用的唯一标识。
 
 生成`applicationServerKey`的方法有两种：
-1. 在服务端使用 web-push 生成，在后续“使用web-push发送消息”一节中会详细介绍
+1. 在服务端使用 web-push 生成，在后续[使用web-push发送消息](#使用web-push发送消息)一节中会详细介绍
 2. 访问[https://web-push-codelab.appspot.com/](https://web-push-codelab.appspot.com/)快速生成
 
 此时得到的`applicationServerKey`是base64编码后的字符串，需要转换成`UInt8Array`格式，才能作为订阅方法接受的参数。
 
-另外要注意，生成`applicationServerKey`的同时，会同时生成与之配对的私钥，用于后续服务端请求推送服务的安全验证（详见后续“消息推送安全性”一节），因此这个私钥是绝对不能暴露在页面中的。
+另外要注意，生成`applicationServerKey`的同时，会同时生成与之配对的私钥，用于后续服务端请求推送服务的安全验证（详见后续[消息推送安全性](#消息推送安全性)一节），因此这个私钥是绝对不能暴露在页面中的。
 
 ### 推送订阅对象
 
@@ -84,7 +84,7 @@ function askPermission() {
 }
 ```
 
-其中`endpoint`就是推送服务返回的唯一标识用户设备的地址，而`keys`是浏览器预先生成的，包含了用于安全验证信息，在后续向推送服务发送消息时会使用到（详见后续“消息推送安全性”一节）。
+其中`endpoint`就是推送服务返回的唯一标识用户设备的地址，而`keys`是浏览器预先生成的，包含了用于安全验证信息，在后续向推送服务发送消息时会使用到（详见后续[消息推送安全性](#消息推送安全性)一节）。
 
 ### 订阅消息的具体实现
 
@@ -183,11 +183,11 @@ navigator.serviceWorker.ready.then(function (reg) {
 - 推送服务确保调用来自可靠的服务端
 - 推送消息内容只有浏览器能够解密，就算是推送服务也不行
 
-下面简单介绍下保证安全性的原理，如果只关心实际项目中的具体实现，可以直接跳到“使用web-push发送消息”这一节。
+下面简单介绍下保证安全性的原理，如果只关心实际项目中的具体实现，可以直接跳到[使用web-push发送消息](#使用web-push发送消息)这一节。
 
 #### 保证服务端可靠性
 
-服务器在调用推送服务时，需要额外发送请求头，例如*Authorization*和*Crypto-Key*，首先介绍 Authorization。
+服务器在调用推送服务时，需要额外发送请求头，例如 *Authorization* 和 *Crypto-Key*，首先介绍 Authorization。
 
 > [JWT(JSON Web Token)](https://jwt.io/)提供了一种消息接收者验证发送者的方法。
 
