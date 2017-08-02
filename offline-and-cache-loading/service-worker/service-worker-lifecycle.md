@@ -8,7 +8,7 @@ Service Worker 的使用过程很简单，所处理的事情也相对单一，�
 
 通常我们如果要使用 Service Worker 基本就是以下几个步骤：
 
-- 首先我们需要在页面的 javaScript 主线程中使用 `serviceWorkerContainer.register()` 来注册 Service Worker ，在注册的过程中，浏览器会在后台启动尝试 Service Worker 的安装步骤。
+- 首先我们需要在页面的 javascript 主线程中使用 `serviceWorkerContainer.register()` 来注册 Service Worker ，在注册的过程中，浏览器会在后台启动尝试 Service Worker 的安装步骤。
 
 - 如果注册成功，Service Worker 在 ServiceWorkerGlobalScope 环境中运行； 这是一个特殊的 worker context，与主脚本的运行线程相独立，同时也没有访问 DOM 的能力。
 
