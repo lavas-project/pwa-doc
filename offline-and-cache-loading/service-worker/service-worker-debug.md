@@ -2,7 +2,7 @@
 
 开发 Service Worker 的过程中，我们如何让我们的开发更加高效并且准确的找出 bug 所在呢？我们在这一章专门讲一讲如何调试 Service Worker。
 
-Service Worker 作为独立于主线程的独立线程，在调试方面有其实和常规的 javaScript 开发类似，我们关注的点大概有如下几点：
+Service Worker 作为独立于主线程的独立线程，在调试方面有其实和常规的 JavaScript 开发类似，我们关注的点大概有如下几点：
 
 - 代码是否有报错
 
