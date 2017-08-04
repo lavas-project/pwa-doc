@@ -209,7 +209,7 @@ options 包含以下字段：
     - `providers`:
         `{Array}` 联合登录账号供应者 id 组成的数组
 - `unmediated`:
-    `{boolean}` 是否跳过账号选择器自动登录
+    `{boolean}` 是否显示账号选择器
 
 ### 获取账号密码登录凭证
 
