@@ -93,5 +93,8 @@
             "name": "探索",
             "key": "discovery"
         }
-    ]
+    ],
+    "info": {
+        "name": "PWA 文档"
+    }
 }
