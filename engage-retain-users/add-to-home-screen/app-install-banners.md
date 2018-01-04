@@ -5,6 +5,12 @@ PWA 提供两种添加应用横幅的形式，分别实现**引导用户添加 P
 - [引导用户添加应用至主屏幕](#引导用户添加应用至主屏幕)
 - [引导用户安装原生应用](#引导用户安装原生应用)
 
+> warn
+>
+> **注意**
+>
+> 应用添加横幅功能目前仅有部分浏览器支持，具体支持情况可以查看 [App Manifest](/ready/feature) 的相关统计。因此在开发应用时请做好功能降级工作。
+
 ## 引导用户添加应用至主屏幕
 
 引导用户将 PWA 添加至主屏幕，可以给用户提供更好的应用体验，更为重要的是，添加至主屏幕后用户可以方便快捷地打开站点，既增加了站点访问量，同时也提高了用户粘性。
@@ -38,6 +44,13 @@ PWA 提供两种添加应用横幅的形式，分别实现**引导用户添加 P
 ### 应用安装横幅事件
 
 浏览器会根据 manifest.json 提供的相关配置生成应用安装横幅，同时使用一组条件和访问频率启发式算法来确定何时显示横幅。一般来说，浏览器管理触发提示的时间，不一定满足网站需求，因此浏览器也提供了一些事件接口供网站开发者使用。
+
+> warn
+>
+> **注意**
+>
+> 这些事件接口仍处于 Working Draft 阶段，仅有部分浏览器支持。这也就意味着，即使支持弹出安装横幅的浏览器，也不一定支持应用安装横幅事件。想要进行完整的功能体验，建议使用 Chrome Beta for Android 浏览器进行测试。
+
 
 #### 判断用户是否安装此应用
 
@@ -117,10 +130,18 @@ button.addEventListener('click', function () {
 });
 
 ```
+更多关于 `beforeinstallprompt` 的介绍，请阅读 [MDN Window.onbeforeinstallprompt](https://developer.mozilla.org/en-US/docs/Web/API/Window/onbeforeinstallprompt)
 
 ### 示例
 
+本示例展示了添加到桌面横幅及其事件的捕获的一个简单流程。
+
 完整的项目代码可以[戳这里](https://github.com/lavas-project/lavas-project.github.io/tree/master/pwa-demo/manifest-demo/add-to-home-screen/delay)。
+
+您可以使用支持添加到桌面的浏览器访问 [添加到桌面横幅示例](https://lavas-project.github.io/pwa-demo/manifest-demo/add-to-home-screen/standalone/index.html) 测试浏览器弹出添加到桌面的功能，也可以使用 Chrome Beta for Android 直接访问 [添加到桌面横幅事件拦截示例](https://lavas-project.github.io/pwa-demo/manifest-demo/add-to-home-screen/delay/index.html) 进行测试。
+
+**注** 在测试的时候请留意安装横幅的[触发条件](#显示应用安装横幅的条件)。
+
 
 示例项目结构如下：
 
