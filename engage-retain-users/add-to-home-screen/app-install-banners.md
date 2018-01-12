@@ -32,7 +32,7 @@ PWA 提供两种添加应用横幅的形式，分别实现**引导用户添加 P
 - 站点部署 manifest.json，该文件需配置如下属性：
     - [short_name](./basic-conditions.md#自定义名称) （用于主屏幕显示）
     - [name](./basic-conditions.md#自定义名称) （用于安装横幅显示）
-    - [icons](./basic-conditions.md#自定义图标) （其中必须包含一个 `144x144` 且 mime 类型为 `image/png` 的图标声明）
+    - [icons](./basic-conditions.md#自定义图标) （其中必须包含一个 mime 类型为 `image/png` 的图标声明）
     - [start_url](./basic-conditions.md#设置启动网址) （应用启动地址）
     - [display](./improved-webapp-experience.md#设置显示类型) （必须为 `standalone` 或 `fullscreen`）
 - 站点注册 Service Worker。

@@ -56,6 +56,12 @@ PWA在通过应用安装横幅引导用户安装 app，以及被添加到主屏�
 - `sizes`
     `{string}` 图标尺寸，格式为`widthxheight`，宽高数值以 css 的 `px` 为单位。如果需要填写多个尺寸，则使用空格进行间隔，如"48x48 96x96 128x128"
 
+> warn
+>
+> **请注意**
+>
+> 图标尺寸的字段为 **sizes** 而不是 size !!，写错字段可能会导致添加到桌面的图标显示异常。
+
 更详尽的ImageObject介绍，请参阅 [Image object and its members](https://www.w3.org/TR/appmanifest/#dfn-image-object)。
 
 当PWA添加到主屏幕时，浏览器会根据有效图标的 sizes 字段进行选择。首先寻找与显示密度相匹配并且尺寸调整到 48dp 屏幕密度的图标；如果未找到任何图标，则会查找与设备特性匹配度最高的图标；如果匹配到的图标路径错误，将会显示浏览器默认 icon。
@@ -64,9 +70,8 @@ PWA在通过应用安装横幅引导用户安装 app，以及被添加到主屏�
 >
 > **需要注意的是**
 >
-> 1. 为了能够自动显示安装横幅，必须要配置一个 sizes 为 `144x144` 的图标，且图标的 mime 类型为 `image/png`。详情请参阅[应用安装横幅](./app-install-banners#引导用户添加应用至主屏幕)章节；
-2. 在启动应用时，启动画面图像会从图标列表中提取最接近 `128dp` 的图标进行显示。详情请参阅[添加应用启动画面](./improved-webapp-experience#添加启动画面)章节。
-3. 目前如果修改了 manifest.json 的图标列表，已添加到主屏幕的名称并不会改变，只有当用户重新添加到桌面时，更改后的图标才会显示出来。但是在未来版本的 Chrome 浏览器将支持图标自动更新，详情请戳：[Updating your app's icon and name](https://developers.google.cn/web/updates/2017/02/improved-add-to-home-screen#updating_your_apps_icon_and_name)。
+> 1. 在启动应用时，启动画面图像会从图标列表中提取最接近 `128dp` 的图标进行显示。详情请参阅[添加应用启动画面](./improved-webapp-experience#添加启动画面)章节。
+2. 目前如果修改了 manifest.json 的图标列表，已添加到主屏幕的名称并不会改变，只有当用户重新添加到桌面时，更改后的图标才会显示出来。但是在未来版本的 Chrome 浏览器将支持图标自动更新，详情请戳：[Updating your app's icon and name](https://developers.google.cn/web/updates/2017/02/improved-add-to-home-screen#updating_your_apps_icon_and_name)。
 
 
 ### 示例
