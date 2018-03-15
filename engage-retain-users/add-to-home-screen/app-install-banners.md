@@ -243,7 +243,7 @@ PWA 站点允许定义类似应用安装横幅的形式去推广原生应用。
 - 站点部署 manifest.json，该文件需配置如下属性：
     - [short_name](./basic-conditions.md/#自定义名称) （用于主屏幕显示）
     - [name](./basic-conditions.md/#自定义名称) （用于安装横幅显示）
-    - [icons](./basic-conditions.md/#自定义图标) （其中必须包含一个 `144x144` 且 mime 类型为 `image/png` 的图标声明）
+    - [icons](./basic-conditions.md/#自定义图标) （其中必须包含一个 `192x192` 且 mime 类型为 `image/png` 的图标声明）
     - 包含原生应用相关信息的 `related_applications` 对象
 - 站点注册 Service Worker。
 - 站点支持 HTTPS 访问。
