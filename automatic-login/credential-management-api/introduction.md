@@ -291,12 +291,17 @@ navigator.credentials.get({
 
 ## 退出登录
 
-当用户退出网站时，应该确保用户在下次访问的时候不会自动登录。可以通过调用 `navigator.credentials.requireUserMediation()` 来关闭自动登录。
+当用户退出网站时，应该确保用户在下次访问的时候不会自动登录。可以通过调用 `navigator.credentials.requireUserMediation()` 或 `navigator.credentials.preventSilentAccess()` 来关闭自动登录。Chrome 60+ 后，requireUserMediation被重命名为preventSilentAccess，请注意兼容。
 
 ```javascript
 app.logout = function () {
     // 处理登出流程
-    navigator.credentials.requireUserMediation();
+    if (navigator.credentials.requireUserMediation) {
+        navigator.credentials.requireUserMediation();
+    }
+    else if (navigator.credentials.preventSilentAccess) {
+        navigator.credentials.preventSilentAccess();
+    }
 };
 ```
 
