@@ -73,7 +73,6 @@ Jake Archibald 的[离线维基百科应用](https://wiki-offline.jakearchibald.
         <link rel="manifest" href="/manifest.json">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>App Shell</title>
         <link rel="stylesheet" type="text/css" href="styles/inline.css">
     </head>
 
