@@ -28,10 +28,6 @@ PWA 采用的最新技术，当前浏览器还没有达到完全支持的程度�
 * Push API 的支持度达到 72.39%
 * Background Sync 暂未统计到，Chrome 49 以上均支持
 
-比较遗憾的是上面提到的所有技术，目前只有 Android 的部分浏览器支持，iOS 都不支持，包括 iOS 系统上的所有浏览器，不过，Safari 浏览器已经在考虑了，在 webkit 的五年计划中有提到，[FiveYearPlanFall2015](https://trac.webkit.org/wiki/FiveYearPlanFall2015) 中提到 Service Worker 变来越来越流行，我们也应该支持，这非常值得我们期待。
-
 随着 W3C 的标准的进一步完善，国内外各大浏览器都会逐步支持，拥抱标准。
 
-我们可以通过下面两个链接关注 Service Worker 的支持度，[中文版](https://ispwaready.toxicjohann.com/?from=groupmessage) 和 [英文版](https://jakearchibald.github.io/isserviceworkerready/)
-
-*PS：手机百度尝试在 iOS 进行 Service Worker 的支持，大家鼓掌*
+我们可以通过下面两个链接关注 Service Worker 的支持度，[https://lavas.baidu.com/ready](https://lavas.baidu.com/ready) 。
