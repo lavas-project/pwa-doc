@@ -66,7 +66,7 @@ if ('serviceWorker' in navigator) {
 
 我们还可以通过 `chrome://serviceworker-internals` 来查看服务工作线程详情。 如果只是想了解服务工作线程的生命周期，这仍很有用，但是日后其很有可能被  `chrome://inspect/#service-workers` 完全取代。
 
-当然，它还可用于测试隐身窗口中的 Service Worker 线程，您可以关闭 Service Worker 线程并重新打开，因为之前的 Service Worker 线程不会影响新窗口。从隐身窗口创建的任何注册和缓存在该窗口关闭后均将被清除。
+当然，它还可用于测试[隐身窗口](https://support.google.com/chrome/answer/95464?hl=zh-Hans)中的 Service Worker 线程，您可以关闭 Service Worker 线程并重新打开，因为之前的 Service Worker 线程不会影响新窗口。从隐身窗口创建的任何注册和缓存在该窗口关闭后均将被清除。
 
 ### 注册失败的原因
 
@@ -90,9 +90,13 @@ install 事件一般是被用来填充你的浏览器的离线缓存能力。为
 **IndexedDB 也可以在  Service Worker 内做数据存储。**
 
 ```js
+// 监听 service worker 的 install 事件
 this.addEventListener('install', function (event) {
+    // 如果监听到了 service worker 已经安装成功的话，就会调用 event.waitUntil 回调函数
     event.waitUntil(
+        // 安装成功后操作 CacheStorage 缓存，使用之前需要先通过 caches.open() 打开对应缓存空间。
         caches.open('my-test-cache-v1').then(function (cache) {
+            // 通过 cache 缓存对象的 addAll 方法添加 precache 缓存
             return cache.addAll([
                 '/',
                 '/index.html',
@@ -107,7 +111,7 @@ this.addEventListener('install', function (event) {
 
 - 这里我们 新增了一个 install 事件监听器，接着在事件上接了一个 `ExtendableEvent.waitUntil()` 方法——这会确保 Service Worker 不会在 waitUntil() 里面的代码执行完毕之前安装完成。
 
-- 在 `waitUntil()` 内，我们使用了 caches.open() 方法来创建了一个叫做 v1 的新的缓存，将会是我们的站点资源缓存的第一个版本。它返回了一个创建缓存的 promise，当它 resolved 的时候，我们接着会调用在创建的缓存示例上的一个方法 `addAll()`，这个方法的参数是一个由一组相对于 origin 的 URL 组成的数组，这些 URL 就是你想缓存的资源的列表。
+- 在 `waitUntil()` 内，我们使用了 `caches.open()` 方法来创建了一个叫做 v1 的新的缓存，将会是我们的站点资源缓存的第一个版本。它返回了一个创建缓存的 promise，当它 resolved 的时候，我们接着会调用在创建的缓存实例（Cache API）上的一个方法 `addAll()`，这个方法的参数是一个由一组相对于 origin 的 URL 组成的数组，这些 URL 就是你想缓存的资源的列表。
 
 - 如果 promise 被 rejected，安装就会失败，这个 worker 不会做任何事情。这也是可以的，因为你可以修复你的代码，在下次注册发生的时候，又可以进行尝试。
 
@@ -117,7 +121,7 @@ this.addEventListener('install', function (event) {
 
 走到这一步，其实现在你已经可以将你的站点资源缓存了，你需要告诉 Service Worker 让它用这些缓存内容来做点什么。有了 fetch 事件，这是很容易做到的。
 
-每次任何被 Service Worker 控制的资源被请求到时，都会触发 fetch 事件，这些资源包括了指定的 scope 内的 html 文档，和这些 html 文档内引用的其他任何资源（比如 index.html 发起了一个跨域的请求来嵌入一个图片，这个也会通过 Service Worker），这下 Service Worker 代理服务器的形象开始慢慢露出来了，而这个代理服务器的钩子就是凭借 scope 和 fetch 事件两大利器就能把站点的请求管理的井井有条。
+每次任何被 Service Worker 控制的资源被请求到时，都会触发 fetch 事件，这些资源包括了指定的 scope 内的 html 文档，和这些 html 文档内引用的其他任何资源（比如 `index.html` 发起了一个跨域的请求来嵌入一个图片，这个也会通过 Service Worker），这下 Service Worker 代理服务器的形象开始慢慢露出来了，而这个代理服务器的钩子就是凭借 scope 和 fetch 事件两大利器就能把站点的请求管理的井井有条。
 
 话扯这么多，代码怎么实现呢？你可以给 Service Worker 添加一个 fetch 的事件监听器，接着调用 event 上的 `respondWith()` 方法来劫持我们的 HTTP 响应，然后你可以用自己的魔法来更新他们。
 
