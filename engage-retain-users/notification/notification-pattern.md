@@ -242,11 +242,32 @@ event.waitUntil(promiseChain);
 
 这种情况我们应该让 `service worker` 有办法通知页面，让页面进行一些提示或者变化（这样避免了震动或者通知栏提示，避免打扰用户），对用户来说会有更好的体验。
 
-假设我们接收到了一次 `push` ，首先我们需要检查我们的窗口是否处于激活状态（使用上述的 `isClientFocused()` 方法），然后使用 `postMessage` 方法来向页面发送数据。
+假设我们接收到了一次 `push` ，首先我们需要检查我们的窗口是否处于激活状态（使用上述的 `isClientFocused()` 方法，但我们要把 `windowClients` 一并返回出来供使用），然后使用 `postMessage` 方法来向页面发送数据。
 
 ```javascript
+// modify isClientFocused
+function isClientFocused() {
+    return clients.matchAll({
+        type: 'window',
+        includeUncontrolled: true
+    })
+    .then(windowClients => {
+        let clientIsFocused = false;
+
+        for (let i = 0, max = windowClients.length; i < max; i++) {
+            if (windowClients[i].focused) {
+                clientIsFocused = true;
+                break;
+            }
+        }
+
+        // modify here
+        return {clientIsFocused, windowClients};
+    });
+}
+
 const promiseChain = isClientFocused()
-    .then(clientIsFocused => {
+    .then({clientIsFocused, windowClients} => {
         // 如果处于激活状态，向页面发送数据
         if (clientIsFocused) {
             windowClients.forEach(windowClient => {
