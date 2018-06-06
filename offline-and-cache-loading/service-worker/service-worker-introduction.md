@@ -22,7 +22,7 @@ W3C 组织早在 2014 年 5 月就提出过 Service Worker 这样的一个 HTML5
 
 W3C 组织早早的洞察到了这些问题可能会造成的影响，这个时候有个叫 Web Worker 的 API 被造出来了，这个 API 的唯一目的就是解放主线程，Web Worker 是脱离在主线程之外的，将一些复杂的耗时的活交给它干，完成后通过 postMessage 方法告诉主线程，而主线程通过 onMessage 方法得到 Web Worker 的结果反馈。
 
-一切问题好像是解决了，但 Web Worker 是临时的，我们能不能有一个东东是一直持久存在的，并且随时准备接受主线程的命令呢？基于这样的需求推出了最初版本的 Service Worker ，Service Worker 在 Web Worker 的基础上加上了持久离线缓存能力。当然在 Service Worker 之前也有在 HTML5 上做离线缓存的 API 叫 AppCache, 但是 AppCache 存在很多  [不能忍受的缺点](https://alistapart.com/article/application-cache-is-a-douchebag)。
+一切问题好像是解决了，但 Web Worker 是临时的，每次做的事情的结果还不能被持久存下来，如果下次有同样的复杂操作，还得费时间的重新来一遍。那我们能不能有一个Worker 是一直持久存在的，并且随时准备接受主线程的命令呢？基于这样的需求推出了最初版本的 Service Worker ，Service Worker 在 Web Worker 的基础上加上了持久离线缓存能力。当然在 Service Worker 之前也有在 HTML5 上做离线缓存的 API 叫 AppCache, 但是 AppCache 存在很多 [不能忍受的缺点](https://alistapart.com/article/application-cache-is-a-douchebag)。
 
 W3C 决定 AppCache 仍然保留在 HTML 5.0 Recommendation 中，在 HTML 后续版本中移除。
 
@@ -38,9 +38,9 @@ Service Worker 有以下功能和特性：
 
 - 一个独立的 worker 线程，独立于当前网页进程，有自己独立的 worker context。
 
-- 一旦被 install，就永远存在，除非被 uninstall
+- 一旦被 install，就永远存在，除非被手动 unregister
 
-- 需要的时候可以直接唤醒，不需要的时候自动睡眠（有效利用资源，此处有坑）
+- 用到的时候可以直接唤醒，不用的时候自动睡眠
 
 - 可编程拦截代理请求和返回，缓存文件，缓存的文件可以被网页进程取到（包括网络离线状态）
 
@@ -50,7 +50,7 @@ Service Worker 有以下功能和特性：
 
 - 不能直接操作 DOM
 
-- 出于安全的考虑，必须在 HTTPS 环境下才能工作
+- 必须在 HTTPS 环境下才能工作
 
 - 异步实现，内部大都是通过 Promise 实现
 
@@ -73,15 +73,11 @@ Service Worker 有以下功能和特性：
 
 - 安卓 Chrome 同样给力
 
-- iOS。。
+- Apple 方面，从 MacOS Safari 11.1 和 iOS Safari 11.3 开始全面支持
 
-- IE。。
+- IE 就不讲了，但是 Edge 从 17 版本开始全面支持
 
-这里说明一下，由于 Apple 的个性突出，iOS 内的所有的浏览器其实都是用 safari 的核，也就是说如果 iOS safari 不支持，iOS 所有浏览器就都不支持了，当然 Apple 官方在 2015 年暗示过，Service Worker 的支持在他们的 [5 年计划内](https://trac.webkit.org/wiki/FiveYearPlanFall2015)，不揣测任何原因，我们就翘首以盼就好了，掐指一算一统江湖的好日子应该就这几年的事情了。
-
-[微软表态了](https://developer.microsoft.com/en-us/microsoft-edge/platform/status/serviceworker)：IE是来不及支持 Service Worker 了，但是目前 Microsoft Edge 的支持情况是 `in Development in Microsoft Edge on Desktop, Mixed Reality, Mobile and Xbox`
-
-现在最新的实现情况是这个样子的：
+这里说明一下，Apple 和微软方面都已经支持了 Service Worker，这对于 `离线可访问` 这样的 PWA 特性来讲，几乎可以在任何的现代浏览器中被实现。
 
 ![浏览器最新支持情况配图](./images/lastest_browser.png)
 
