@@ -118,9 +118,9 @@ Cache Storage 选项卡提供了一个已使用（Service Worker 线程）Cache 
 1. 将 Android 设备通过 USB 线与 PC 连接
 2. 在您的 Android 设备上进行一些设置，选择 `设置 > 开发者选项 > 开启 USB 调试`。
 3. 在您的 PC 上打开 Chrome，您应使用您的一个 Google 帐户登录到 Chrome。（远程调试在隐身模式或访客模式下无法运行）
-3. 在 PC 的 Chrome 浏览器地址栏输入 `chrome://inspect`
-4. 在 `Remote Target` 下找到对应的 Android 设备
-5. 点击远程设备链接进入 Chrome DevTools
+4. 在 PC 的 Chrome 浏览器地址栏输入 `chrome://inspect`
+5. 在 `Remote Target` 下找到对应的 Android 设备
+6. 点击远程设备链接进入 Chrome DevTools
 
 这样的话，我们就可以在 Chrome 的 DevTools 直接调试运行在 Android 手机端 Chrome 的 PWA 站点，体验完全和在本地 PC 电脑上 debug 一摸一样呢。
 
