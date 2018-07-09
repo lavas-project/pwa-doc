@@ -100,6 +100,55 @@ Cache Storage 选项卡提供了一个已使用（Service Worker 线程）Cache 
 
 ![Service Worker network](./images/service-worker-network.png)
 
-## 安卓真机 debug
+## 真机 debug
 
-由于目前 iOS 不支持 Service Worker，我们在这里只讨论安卓机的调试。而 Service Worker 必须要在 HTTPS 环境下才能被注册成功，所以我们在真机调试的过程中还需要解决 HTTPS 调试问题，当然 `127.0.0.1` 和 `localhost` 是被允许的 host，但是我们在真机调试上并不能采用 :(。
+由于 Service Worker 必须要在 HTTPS 环境下才能被注册成功，所以我们在真机调试的过程中还需要解决 HTTPS 调试问题，当然 `127.0.0.1` 和 `localhost` 是被允许的 host，但是我们在真机调试上无法指定为到 PC 上的本地服务器，所以真机 debug 必须要求是已经部署好的 https PWA 站点。
+
+### Android inspect 远程调试
+
+对于 Android 设备，可以借助于 Chrome 的 inspect 方法进行调试 PWA，其中有几个事项是需要提前准备的：
+
+- PC 上已安装 Chrome 32 或更高版本。
+- PC 上已安装 USB 驱动程序（如果您使用 Windows）。 确保设备管理器报告正确的 USB 驱动程序
+- 拥有一根可以将您的 Android 设备连接至开发计算机的 USB 线。
+- Android 4.0 或更高版本的 Android 设备。
+
+接下来我们可以通过以下步骤进行调试：
+
+1. 将 Android 设备通过 USB 线与 PC 连接
+2. 在您的 Android 设备上进行一些设置，选择 `设置 > 开发者选项 > 开启 USB 调试`。
+3. 在您的 PC 上打开 Chrome，您应使用您的一个 Google 帐户登录到 Chrome。（远程调试在隐身模式或访客模式下无法运行）
+3. 在 PC 的 Chrome 浏览器地址栏输入 `chrome://inspect`
+4. 在 `Remote Target` 下找到对应的 Android 设备
+5. 点击远程设备链接进入 Chrome DevTools
+
+这样的话，我们就可以在 Chrome 的 DevTools 直接调试运行在 Android 手机端 Chrome 的 PWA 站点，体验完全和在本地 PC 电脑上 debug 一摸一样呢。
+
+Chrome inspect 详情可以查看文档：https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?hl=zh-cn
+
+### iOS 远程真机调试
+
+对于 iOS PWA，真机 debug 的成本就有点麻烦了，Apple Safari 也提供了一套 Remote Debug 的方式，可以借助于 Web Inspector(web 检查器) 机制。
+
+首先来看看您在开始真机调试之前需要些什么？
+
+- 一台 Mac 电脑
+- 一个 icloud 账号
+- 一个 Apple 的移动设备（iPhone）
+- 用 iCloud 账号登陆 Mac 和 iPhone
+- 对 iPhone 进行设置：`设置 > Apple ID 用户中心入口 > iCloud > 打开 Safari`
+- 对 iPhone 进行设置：`设置 > Safari浏览器 > 高级 > 打开 Web Inspector`
+- 对 Mac 进行设置：` > 系统偏好设置 > iCloud > 勾上 Safari`
+- 对 Mac 进行设置：`打开 Safari > Safari 菜单 > 偏好设置 > 高级 > 勾选“在菜单栏中显示开发菜单”`（这时候您会发现 Safari 的系统菜单栏多了一个 `开发` 标签）
+
+OK，下面可以开始调试了
+
+1. 用 USB 线连接 iPhone 和 Mac
+2. 在 iPhone 上打开 PWA 站点
+3. 打开 Mac 上 Safari 菜单栏的 `开发` 标签，就可以点击进 `我的 iPhone`
+4. 会发现 `我的 iPhone` 子菜单里有你打开的 PWA 站点，这时候就可以用 Safari 的 DevTools 进行 debug 了
+
+iOS 真机调试比较繁琐，具体可以参考这些文章看看具体操作：
+
+- https://silvantroxler.ch/2018/wireless-remote-debugging-with-safari-on-ios/
+- https://appletoolbox.com/2014/05/use-web-inspector-debug-mobile-safari/
