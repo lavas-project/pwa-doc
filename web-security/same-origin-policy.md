@@ -19,7 +19,7 @@ http://www.example.com/dir/page.html
 同源情况如下
 
 | 地址 | 结果 |
-| :---:| :----: |
+| --- | ---- |
 | http://www.example.com/dir2/other.html | 同源 |
 | http://v2.www.example.com/dir/other.html | 不同源（主机不同） |
 | https://www.example.com/dir/other.html | 不同源（协议不同） |
